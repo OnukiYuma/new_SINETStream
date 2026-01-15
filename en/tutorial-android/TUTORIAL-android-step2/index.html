@@ -1,0 +1,2969 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://onukiyuma.github.io/SINETStream/en/tutorial-android/TUTORIAL-android-step2/">
+      
+      
+        <link rel="prev" href="../TUTORIAL-android-step2-overview/">
+      
+      
+        <link rel="next" href="../TUTORIAL-android-step2-webbrowser/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
+    
+    
+      
+        <title>ANDROID-STEP2 - SINETStream</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../styles/custom.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tutorial-android-step2" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../" title="SINETStream" class="md-header__button md-logo" aria-label="SINETStream" data-md-component="logo">
+      
+  <img src="../../../images/SiNETStream.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SINETStream
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ANDROID-STEP2
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../../tutorial-android/TUTORIAL-android-step2/" hreflang="ja" class="md-select__link">
+              日本語
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../" class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../docm/" class="md-tabs__link">
+          
+  
+  SINETStreamについて
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../tutorial/" class="md-tabs__link">
+          
+  
+  Tutorial
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../userguide/" class="md-tabs__link">
+          
+  
+  User Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../developer_guide/" class="md-tabs__link">
+          
+  
+  Developer guide
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../" title="SINETStream" class="md-nav__button md-logo" aria-label="SINETStream" data-md-component="logo">
+      
+  <img src="../../../images/SiNETStream.png" alt="logo">
+
+    </a>
+    SINETStream
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    SINETStreamについて
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            SINETStreamについて
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Documents
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../performance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Performance measurement of SINETStream
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../livedemo/livedemo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Live demo of SINETStream
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Build SINETStream server
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Build SINETStream server
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../server/brokers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Server construction procedure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../server/brokers/%E3%83%97%E3%83%A9%E3%82%A4%E3%83%99%E3%83%BC%E3%83%88%E8%AA%8D%E8%A8%BC%E5%B1%80%E3%81%A7%E8%A8%BC%E6%98%8E%E6%9B%B8%E3%82%92%E4%BD%9C%E6%88%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Creating a certificate with a private certificate authority
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../server/brokers/Kafkabroker%E3%81%AE%E6%A7%8B%E7%AF%89%E6%89%8B%E9%A0%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mosquitto construction procedure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../server/brokers/mosquitto%E6%A7%8B%E7%AF%89%E6%89%8B%E9%A0%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kafka broker setup procedure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CHANGELOG/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Update log
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Tutorial
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorial
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Python/Java
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Python/Java
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Start Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/TUTORIAL-STEP1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    STEP1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/TUTORIAL-STEP2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    STEP2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Android
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Android
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Start Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_2" id="__nav_3_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    sinetstream-android-echo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            sinetstream-android-echo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TUTORIAL-android-step1-overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    テキスト送受信アプリの実行
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TUTORIAL-android-step1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ANDROID-STEP1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    sinetstream-android-sensor-publisher
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            sinetstream-android-sensor-publisher
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TUTORIAL-android-step2-overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    センサ情報収集アプリの実行
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    ANDROID-STEP2
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    ANDROID-STEP2
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introduction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-network-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Network model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Prerequisites
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-installation-of-the-sensor-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Installation of the "Sensor" application
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-operation-of-the-sensor-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Operation of the "Sensor" application
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Operation of the "Sensor" application">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-screen-transitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Screen transitions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-initial-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Initial screen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-settings-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Settings screen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#331-settings-for-sensors" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.1 Settings for Sensors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#332-settings-for-the-sinetstream" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.2 Settings for the SINETStream
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-main-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 Main screen
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.4 Main screen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#341-layout-of-the-main-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.1 Layout of the main screen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#342-publishing-sensor-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.2 Publishing sensor data
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-set-location-information-of-the-android-device" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Set location information of the Android device
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-operational-hints" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Operational hints
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Operational hints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-keep-broker-connection-even-under-poor-radio-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Keep broker connection even under poor radio conditions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appendix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Appendix
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Appendix">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a1-source-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      A.1 Source code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a2-known-problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      A.2 Known problems
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TUTORIAL-android-step2-webbrowser/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    センサーデータ可視化用のウェブインタフェース
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TUTORIAL-android-step2-location/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    端末位置情報の自動更新
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sinetstreamhelper-tutorial-container/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SINETStream Android Tutorial Container
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TUTORIAL-android-install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Androidサンプルアプリケーションの導入
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TUTORIAL-android-keychain/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    システム秘匿領域への証明書ファイルの導入
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sinetstreamhelper-tutorial-container/TUTORIAL-docker-container/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DOCKER-CONTAINER
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    User Guide
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            User Guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../userguide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    User Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../userguide/api-python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../userguide/api-java/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Android
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            Android
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../userguide/android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SINETStream for Android ユーザガイド
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../userguide/api-android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Android版SINETStreamライブラリ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="http://javadoc.android.sinetstream.net/sinetstream-android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API (Javadoc)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../userguide/config-android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Android版のSINETStream設定ファイル
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../userguide/config-client-android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Android版の設定クライアント
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    SINETStreamHelper
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            SINETStreamHelper
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../userguide/libhelper/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SINETStreamHelper ユーザガイド
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../userguide/api-libhelper/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SINETStreamHelperライブラリ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="http://javadoc.android.sinetstream.net/sinetstream-android-helper/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API (Javadoc)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../userguide/config/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    設定ファイル
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../userguide/auth/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    認証と認可
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/nii-gakunin-cloud/sinetstream/blob/main/java/sample/cli/README.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CLI(Command Line Interface)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../userguide/compat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    互換性
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Developer guide
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Developer guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    開発者ガイド
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Messaging system
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Messaging system
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_guide/plugin_broker_python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_guide/plugin_broker_java/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    message type
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            message type
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_guide/plugin_value_type_python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_guide/plugin_value_type_java/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    compression
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            compression
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_guide/plugin_compression_python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_guide/plugin_compression_java/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_guide/message_format/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    メッセージフォーマット
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introduction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-network-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Network model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Prerequisites
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-installation-of-the-sensor-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Installation of the "Sensor" application
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-operation-of-the-sensor-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Operation of the "Sensor" application
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Operation of the "Sensor" application">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-screen-transitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Screen transitions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-initial-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Initial screen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-settings-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Settings screen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#331-settings-for-sensors" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.1 Settings for Sensors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#332-settings-for-the-sinetstream" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.2 Settings for the SINETStream
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-main-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 Main screen
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.4 Main screen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#341-layout-of-the-main-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.1 Layout of the main screen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#342-publishing-sensor-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.2 Publishing sensor data
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-set-location-information-of-the-android-device" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Set location information of the Android device
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-operational-hints" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Operational hints
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Operational hints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-keep-broker-connection-even-under-poor-radio-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Keep broker connection even under poor radio conditions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appendix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Appendix
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Appendix">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a1-source-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      A.1 Source code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a2-known-problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      A.2 Known problems
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<!--
+Copyright (C) 2020-2021 National Institute of Informatics
+
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+
+<h1 id="tutorial-android-step2">TUTORIAL - ANDROID-STEP2</h1>
+<h2 id="1-introduction">1. Introduction</h2>
+<p>We implemented an Android application "Sensor", as a sample usage of
+the Android
+<a href="https://translate.google.com/translate?hl=en&amp;sl=ja&amp;tl=en&amp;u=https://nii-gakunin-cloud.github.io/sinetstream/docs/tutorial-android/../userguide/android.html">SINETStream library</a> and
+<a href="https://translate.google.com/translate?hl=en&amp;sl=ja&amp;tl=en&amp;u=https://nii-gakunin-cloud.github.io/sinetstream/docs/tutorial-android/../userguide/libhelper.html">SINETStreamHelper library</a>.
+The application collects the readout values of the
+<a href="https://developer.android.com/reference/android/hardware/Sensor">Sensor</a>
+devices, then send them as a message over the SINETStream.
+In this document, we briefly describe how to install this application
+to an Android device, how to setup and operate it.</p>
+<h3 id="11-network-model">1.1 Network model</h3>
+<p><img alt="Network model" src="../../../tutorial-android/images/step2/network_model.png" /></p>
+<p>The "Sensor" application has only <code>Writer</code> functionality.
+This application uses the
+<a href="https://translate.google.com/translate?hl=en&amp;sl=ja&amp;tl=en&amp;u=https://nii-gakunin-cloud.github.io/sinetstream/docs/tutorial-android/../userguide/libhelper.html">SINETStreamHelper library</a>
+to collect sensor readout values in JSON format. Then the JSON data
+will be sent to the peer <code>Broker</code> as a SINETStream message.</p>
+<p>On the other hand, the back-end system behind the <code>Broker</code> parses
+the JSON contents and stores it in the database. User can view the
+plotted sensor data via Web interface.</p>
+<p>The "Sensor" application has its own "Settings" screen, and thus user
+can set configuration parameters such like the <code>Broker</code> connection
+or the SINETStream behaviors.
+Once user has set those parameters, the Android
+<a href="../../userguide/config-android/">SINETStream configuration file</a>
+will be automatically generated.</p>
+<h3 id="12-prerequisites">1.2 Prerequisites</h3>
+<ul>
+<li>
+<p>The Android device</p>
+</li>
+<li>
+<p>Android 8.0 (API level 26) or later</p>
+<ul>
+<li>The Android
+<a href="https://translate.google.com/translate?hl=en&amp;sl=ja&amp;tl=en&amp;u=https://nii-gakunin-cloud.github.io/sinetstream/docs/tutorial-android/../userguide/android.html">SINETStream library</a>
+uses the
+<a href="https://mosquitto.org/">MQTT(Eclipse Mosquitto)</a>
+as a underlying messaging system.</li>
+<li>The implementation of the
+<a href="https://www.eclipse.org/paho/index.php?page=clients/java/index.php">Paho MQTT Android Client</a>
+requires <code>Android 8.0+</code> as its running condition.</li>
+</ul>
+</li>
+<li>
+<p>Preparations for the back-end system</p>
+</li>
+<li>
+<p>Within the scope of this tutorial, we just need a peer <code>Broker</code>
+which communicates with an Android device.</p>
+</li>
+<li>On the host machine for the back-end system, run <code>docker run</code> command
+which installs the container image for this tutorial. Server processes
+will be automatically started afterward.</li>
+<li>The back-end system should be up and running before working on
+the Android device.</li>
+<li>
+<p>Back to the previous document and see the section
+<a href="../TUTORIAL-android-step2-overview/#31-works-on-the-back-end-side-part-1">3.1 Works on the back-end side (part 1)</a>
+for details.</p>
+</li>
+<li>
+<p>Network environment</p>
+</li>
+<li>
+<p>The Android device and the peer <code>Broker</code> is connected via IP (Internet
+Protocol) network.
+Make sure the end-end IP reachability via cellular or Wi-Fi network.</p>
+</li>
+</ul>
+<h2 id="2-installation-of-the-sensor-application">2. Installation of the "Sensor" application</h2>
+<p>Currently, the "Sensor" application will be available from the NII
+managed server, not from Google Play.</p>
+<p>Please see the companion document
+<a href="../TUTORIAL-android-install/">Installation of the sample Android application</a>
+for details.
+The procedure is the same for updating the older version.</p>
+<h2 id="3-operation-of-the-sensor-application">3. Operation of the "Sensor" application</h2>
+<h3 id="31-screen-transitions">3.1 Screen transitions</h3>
+<p><img alt="Activity Transition" src="../../../tutorial-android/images/step2/activity_transition.png" /></p>
+<p>\&lt;Legend&gt;
+1. On the Android home (a), press the icon <code>Sensor</code> to start.
+2. On the splash screen (b), application icon and the copyright holder
+will be briefly shown. Then the screen transits to the initial one (c).
+3. Pressing the button <code>Settings</code> causes the initial screen (c) transit to the settings screen (d).
+4. Pressing the button <code>BACK</code> causes the settings screen (d) transit to the initial screen (c).
+5. Pressing the button <code>Run</code> causes the initial screen (c) transit to the main screen (e).
+6. Pressing the button <code>BACK</code> causes the main screen (e) transit to the initial screen (c).
+7. Pressing the button <code>BACK</code> causes the initial screen (c) transit to the Android home (a).</p>
+<p>In the latter part of this document, each screen layout and operation
+details will be addressed.</p>
+<h3 id="32-initial-screen">3.2 Initial screen</h3>
+<p><img alt="Launcher Activity" src="../../../tutorial-android/images/step2/activity_launcher.png" /></p>
+<p>This is the initial screen after application startup.</p>
+<ul>
+<li><code>Run</code> button</li>
+<li>Start the <code>Main</code> Activity of this application.</li>
+<li>Once the main screen finishes, control comes back to this screen.</li>
+<li><code>Settings</code> button</li>
+<li>Start the <code>Settings</code> Activity for this application.</li>
+<li>Once the settings screen finishes, control comes back to this screen.</li>
+<li>Menu button</li>
+<li>By pressing the "vertical 3-dots" on the top right corner,
+a small menu will be deployed.<ul>
+<li><code>Help</code>: Show help for this application.</li>
+<li><code>About</code>: Show brief information about this application.</li>
+</ul>
+</li>
+</ul>
+<p>If the
+<a href="../../userguide/config-android/">SINETStream configuration file</a>
+does not yet exist (just like after the fresh installation),
+or if current configuration does not meet the mandatory conditions,
+<code>Run</code> button is set disabled (gray out) and a guide message will be
+shown to let user take actions.
+In these cases, press the <code>Settings</code> button and fill-in the mandatory
+SINETStream parameters.</p>
+<h3 id="33-settings-screen">3.3 Settings screen</h3>
+<p>The settings screen is being split for Sensors and SINETStream,
+where both of those are hierarchically deployed.</p>
+<p><img alt="Settings Activity" src="../../../tutorial-android/images/step2/activity_settings.png" /></p>
+<h3 id="331-settings-for-sensors">3.3.1 Settings for Sensors</h3>
+<p>The sensor readout values from the Android device will be formatted
+as JSON data, which is defined in the companion document
+<a href="https://github.com/nii-gakunin-cloud/sinetstream-android-helper">SINETStreamHelper#JSON data format</a>.</p>
+<p>As for the DeviceInfo element of the above JSON format, <code>User Info</code> and
+<code>Location</code> values (both are optional) must be externally specified.</p>
+<ul>
+<li>User Info</li>
+<li>Multiple Android devices running this "Sensor" application may
+connect to the same <code>Broker</code> with the same topic name.
+If so, it is convenient to have sender identification information.</li>
+<li>The sub-item <code>Publisher</code> describes the sender information,
+and <code>Notes</code> describes supplementary information.</li>
+<li>Location</li>
+<li>This item represents the geographic location (latitude, longitude)
+of the Android device running this "Sensor" application.</li>
+<li>As of version 1.5, this item is provided for setting the initial
+value manually. Automatic setting and updating is not supported.</li>
+</ul>
+<p>Note that user can set an optional item <code>Interval timer</code>
+(default value is 10 seconds).
+Its intention is as follows.</p>
+<p>The readout values of active sensor devices will be asynchronously
+notified by the Android system
+<a href="https://developer.android.com/reference/android/hardware/SensorManager">SensorManager</a>, but those timing differs per sensor types. Some are continuously
+notified, and others are notified only at the value changes.
+Therefore, if you activate multiple sensor devices at the same time,
+you will likely to get frequent notifications.</p>
+<p>To suppress the network overload, each sensor readout values are
+cached in the
+<a href="https://translate.google.com/translate?hl=en&amp;sl=ja&amp;tl=en&amp;u=https://nii-gakunin-cloud.github.io/sinetstream/docs/tutorial-android/../userguide/libhelper.html">SINETStreamHelper library</a>
+as the latest ones. At the certain sampling timing (not shorter
+than <code>Interval timer</code>), JSON data is generated in the library.</p>
+<pre><code>    [SensorA] [SensorB]
+       |         :
+       +-----------------++---------------+
+       |         :       ||               |
+       |   ......:.......||...............|..
+       |   :          :  ||   :    :      | :
+       V   V          V  VV   V    V      V V
+
+   ----o---x----------o--xx---x----o------x-x---------&gt; t
+       |&lt;--------&gt;|   |            |
+       |    T         |&lt;--------&gt;| |
+       V              |    T       |&lt;--------&gt;|
+      JSON#1          V            |    T
+                     JSON#2        V
+                                  JSON#3
+</code></pre>
+<p>The figure showed above depicts the timing relationship of two events.
+1. The notification timing (o/x) from the Android system for sensor
+readout values (in this case, two sensors A/B)
+2. The timing (o) that JSON data is actually generated</p>
+<p>In the first place, the notification timing of each sensor readout
+values is not periodic.</p>
+<p>Assume that a JSON data is generated at "o", any sensor readout values
+notified at "x", which is shorter than "o + T", are simply cached as
+the latest value of the sensor type without generating a JSON data.</p>
+<p>If the next notification timing is equal or longer than "o + T",
+new JSON data is generated by collecting the latest values per sensor
+type (values at "o" and the last "x").</p>
+<pre><code class="language-yaml">{
+   ...
+   &quot;sensors&quot;: [
+     { # Sensor A with a scalar value
+         ...
+         &quot;timestamp&quot;: &quot;20210101T012312.345+0900&quot;,  # Timing 'x'
+         &quot;values&quot;: 1
+     },
+     { # Sensor B with vector values
+         ...
+         &quot;timestamp&quot;: &quot;20210101T012345.678+0900&quot;,  # Timing 'o'
+         &quot;values&quot;: [
+           1.0,
+           -2.3,
+           4.5
+         ]
+     }
+   ...
+   ]
+}
+</code></pre>
+<p>To summarize, the minimum interval of <code>SINETStream</code> messages sent
+from this "Echo" application to the <code>Broker</code> is restricted by the
+value "T" (settings item <code>Interval timer</code>).</p>
+<h3 id="332-settings-for-the-sinetstream">3.3.2 Settings for the SINETStream</h3>
+<p>To use the Android
+<a href="https://translate.google.com/translate?hl=en&amp;sl=ja&amp;tl=en&amp;u=https://nii-gakunin-cloud.github.io/sinetstream/docs/tutorial-android/../userguide/android.html">SINETStream library</a>,
+its own
+<a href="../../userguide/config-android/">SINETStream configuration file</a>
+must be set properly, so that the user application using the library
+can connect to the peer <code>Broker</code>.</p>
+<p>We provide a GUI-based settings screen for this purpose.
+On the initial screen, press the <code>Settings</code> button to transit to
+the settings screen. Before coming back to the initial screen after
+several settings operations, the <code>SINETStream configuration file</code>
+will be automatically generated.
+If there are some configuration changes from the previous settings,
+the file contents will be updated.</p>
+<p>Following items must be set to connect to the <code>Broker</code>.
+Other items can be left untouched. If so, program default values
+will be used.</p>
+<ul>
+<li>Service Name: <code>Service -&gt; Service Name</code></li>
+<li>Topic Name: <code>Service -&gt; Topic Name</code></li>
+<li><code>Broker</code> connection information (Address, Port)<ul>
+<li><code>Brokers -&gt; IP Address (or FQDN)</code></li>
+<li><code>Brokers -&gt; Port Number</code></li>
+</ul>
+</li>
+</ul>
+<p>In the case of the <code>Broker</code> shown in this tutorial, above mandatory
+parameters would look like as follows. Note that actual <code>Broker</code>
+address must be set according to the running environment.</p>
+<table>
+<thead>
+<tr>
+<th>Service Name</th>
+<th>Topic Name</th>
+<th>IP Address (or FQDN)</th>
+<th>Port Number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>service-tutorial-mqtt</td>
+<td>sensor-data</td>
+<td>xx.xx.xx.xx</td>
+<td>1883</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Note that the <code>Topic Name</code> is a string used as a communication
+channel identifier. User can set any value for it, but in the
+STEP2 context, beware to <strong>exactly set</strong> the reserved word
+"sensor-data" as is.
+On <code>Broker</code> side, the <code>Topic Name</code> is treated as the filter to
+pass the received SINETStream message to the back-end system.
+If the <code>Topic Name</code> does not match with "sensor-data", received
+JSON data dos not stored in the database, and thus the graph
+does not updated.</p>
+</blockquote>
+<h3 id="34-main-screen">3.4 Main screen</h3>
+<p>On the initial screen, press the button <code>Run</code> to transit to the
+main screen which controls the publishing of sensor readout values.</p>
+<h4 id="341-layout-of-the-main-screen">3.4.1 Layout of the main screen</h4>
+<p>In the middle of the screen is the list of sensor types, the black
+belt under the screen is the statistics panel, and the lowermost
+blue belt is the control panel.</p>
+<p><img alt="Layout of MainActivity" src="../../../tutorial-android/images/step2/activity_main_layout.png" /></p>
+<p>\&lt;Legends&gt;
+1. Sensor status indicator
+* The star icon shows that the internal <code>SensorService</code> of the
+<a href="https://translate.google.com/translate?hl=en&amp;sl=ja&amp;tl=en&amp;u=https://nii-gakunin-cloud.github.io/sinetstream/docs/tutorial-android/../userguide/libhelper.html">SINETStreamHelper library</a>
+is up and running.</p>
+<ol>
+<li>List of sensor types</li>
+<li>The list of sensor types implemented on the Android device is
+displayed.</li>
+<li>
+<p>By picking up the desired sensor types, the <code>RUN</code> button on the
+bottom of the screen is set enabled.</p>
+</li>
+<li>
+<p>The execution (RUN/STOP) button</p>
+</li>
+<li>Disabled at initial status. Enabled if any sensor type is selected.</li>
+<li>By pressing the <code>RUN</code> button, target sensor devices are activated
+and start sending the sensor readout values to the <code>Broker</code>.</li>
+<li>To avoid mishandling, additional operations for pickup or release
+of sensor types are blocked during <code>RUN</code> state.</li>
+<li>
+<p>By pressing the <code>STOP</code> button, all sensor devices are deactivated
+and user can pickup desired sensor types again.</p>
+</li>
+<li>
+<p>Statistics information</p>
+</li>
+<li>During the <code>RUN</code> state, following statistics values will be updated.</li>
+<li>The date-time of the last sent</li>
+<li>
+<p>The number of sent messages</p>
+</li>
+<li>
+<p>Statistics reset button</p>
+</li>
+<li>Disabled during the <code>RUN</code> state.</li>
+</ol>
+<h4 id="342-publishing-sensor-data">3.4.2 Publishing sensor data</h4>
+<p>The sensor data publishing process are controlled as follows.</p>
+<p><img alt="Transitions of MainActivity" src="../../../tutorial-android/images/step2/activity_main_transition.png" /></p>
+<p>\&lt;Legends&gt;
+1. Pickup desired sensor types (a), then press <code>RUN</code> button to start.
+2. During <code>RUN</code> state (b), statistics information will be updated.
+Those values remain after pressing the <code>STOP</code> button.
+3. If not in <code>RUN</code> state (c), statistics can be cleared by pressing
+the reset button.
+4. You can restart while holding the previous statistics information.</p>
+<h2 id="4-set-location-information-of-the-android-device">4. Set location information of the Android device</h2>
+<p>User may want to embed the Android device location as a part of JSON data being sent from the "Sensor" application.
+If the Android device is installed somewhere on a fixed place, user can set the known geographic location (latitude, longitude) of the place manually. And if the device is expected to move around, it is convenient to enable the <code>automatic location update</code> mode.</p>
+<p>Please see the companion document
+<a href="../TUTORIAL-android-step2-location/">TUTORIAL - Automatic update of the device location data</a>
+for details.</p>
+<h2 id="5-operational-hints">5. Operational hints</h2>
+<h3 id="51-keep-broker-connection-even-under-poor-radio-conditions">5.1 Keep broker connection even under poor radio conditions</h3>
+<p>As the nature of mobile communication, radio signal conditions change all the time.
+That is, even after the broker connection has established, message transmission might stalled at some time. Even worse, the broker connection might be closed due to no responses from peer.</p>
+<p>As mentioned earlier, the Android
+<a href="https://translate.google.com/translate?hl=en&amp;sl=ja&amp;tl=en&amp;u=https://nii-gakunin-cloud.github.io/sinetstream/docs/tutorial-android/../userguide/android.html">SINETStream library</a>
+uses the
+<a href="https://mosquitto.org/">MQTT(Eclipse Mosquitto)</a>
+as a underlying messaging system.
+Namely,
+<a href="https://www.eclipse.org/paho/index.php?page=clients/android/index.php">Paho Android Service</a>
+, which is a <code>MQTT client library</code> for Android.
+The library features the monitoring of the broker connection status.</p>
+<p>When the <code>MQTT client library</code> detects a connection failure, the "Sensor" application immediately aborts the program as the default behavior.
+However, user can adjust parameters of the
+<a href="https://www.eclipse.org/paho/files/javadoc/org/eclipse/paho/client/mqttv3/MqttConnectOptions.html">MqttConnectOptions</a>
+so that the <code>MQTT client library</code> try to keep the connection up and running.
+Please try following measures.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">No.</th>
+<th style="text-align: left;">Method</th>
+<th style="text-align: left;">Expected effects</th>
+<th style="text-align: left;">Setting route</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">Enable automatic reconnect</td>
+<td style="text-align: left;">If the broker connection has lost, restart connect attempts repeatedly</td>
+<td style="text-align: left;">Settings -&gt; MQTT -&gt; MQTT Connect -&gt; Enable Automatic Reconnect</td>
+</tr>
+<tr>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">Extend the keep alive interval timer</td>
+<td style="text-align: left;">Adjust sensitivity against temporary communication link failure</td>
+<td style="text-align: left;">Settings -&gt; MQTT -&gt; MQTT Connect -&gt; Keep Alive Interval</td>
+</tr>
+<tr>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">Extend the connection establishing wait timer</td>
+<td style="text-align: left;">Same as above</td>
+<td style="text-align: left;">Settings -&gt; MQTT -&gt; MQTT Connect -&gt; Connection Timeout</td>
+</tr>
+<tr>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">Enable the MQTT message sending queue</td>
+<td style="text-align: left;">Allow user to call next send request without waiting for the completion</td>
+<td style="text-align: left;">Settings -&gt; MQTT -&gt; MQTT Protocol -&gt; MQTT InFlight -&gt; Enable Max InFlight Messages</td>
+</tr>
+<tr>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">Expand the slot of the MQTT message sending queue</td>
+<td style="text-align: left;">Absorb temporally MQTT message congestions</td>
+<td style="text-align: left;">Settings -&gt; MQTT -&gt; MQTT Protocol -&gt; MQTT InFlight -&gt; InFlight</td>
+</tr>
+</tbody>
+</table>
+<p>Note that there are some cases that above <code>MqttConnectOptions</code> adjustment does not work.
+* Broker connection parameter is wrong at the first place.</p>
+<blockquote>
+<p>If automatic reconnect is enabled, false reconnect attempt continues indefinitely.
+Please abort the "Sensor" application by "Swipe upwards" operation.
+See <a href="https://support.google.com/android/answer/9079646?hl=en#zippy=%2Cclose-apps">\"Close apps\"</a> for details.
+* Broker application has abnormally terminated.
+* Running environ which hosts the broker application has restarted or stopped.
+If the "Sensor" application tries next reconnect without success, the program will terminates as an irrecoverable error.</p>
+</blockquote>
+<p>Note also that once the MQTT message sending queue slot (which has set by No. 4 and 5) has exhausted, following send requests will be ignored.
+If some slot has reopened afterward, application can issue send requests again.</p>
+<h2 id="appendix">Appendix</h2>
+<h3 id="a1-source-code">A.1 Source code</h3>
+<p>The source code of this application is open and available from
+<a href="https://github.com/nii-gakunin-cloud/sinetstream-android-sensor-publisher">GitHub</a>.
+If you found something wrong, please contact us.</p>
+<p>If you need to modify the source code, install the Android development
+environment
+<a href="https://developer.android.com/studio">Android Studio</a>
+to your working machine, and load the source code.</p>
+<h3 id="a2-known-problems">A.2 Known problems</h3>
+<ul>
+<li>Implementation status of information security</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Functionality Item</th>
+<th style="text-align: left;">Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">User Authentication</td>
+<td style="text-align: left;">DONE</td>
+</tr>
+<tr>
+<td style="text-align: left;">SSL/TLS communication</td>
+<td style="text-align: left;">DONE</td>
+</tr>
+<tr>
+<td style="text-align: left;">Data encryption/decription</td>
+<td style="text-align: left;">Work in progress</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>The mapping of the GUI <code>Settings</code> and the SINETStream configuration file</li>
+<li>The GUI <code>Settings</code> does not fully cover the items described in
+<a href="../../userguide/config-android/">SINETStream configuration file</a>.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <div class="site-footer-copyright">Copyright(C) National Institute of Informatics</div>
+<div class="site-footer-logo">
+  <a href="https://www.nii.ac.jp/">
+    
+    <img src="../../../images/NIIlogo_EN_ls.png" alt="NII National Institute of Informatics">
+    
+  </a>
+</div>
+<footer class="md-footer">
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.expand", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,4637 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://onukiyuma.github.io/SINETStream/en/CHANGELOG/">
+      
+      
+        <link rel="prev" href="../server/brokers/mosquitto%E6%A7%8B%E7%AF%89%E6%89%8B%E9%A0%86/">
+      
+      
+        <link rel="next" href="../tutorial/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
+    
+    
+      
+        <title>Update log - SINETStream</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../styles/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#changelog" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../" title="SINETStream" class="md-header__button md-logo" aria-label="SINETStream" data-md-component="logo">
+      
+  <img src="../../images/SiNETStream.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SINETStream
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Update log
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../CHANGELOG/" hreflang="ja" class="md-select__link">
+              日本語
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../docm/" class="md-tabs__link">
+          
+  
+  SINETStreamについて
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../tutorial/" class="md-tabs__link">
+          
+  
+  Tutorial
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../userguide/" class="md-tabs__link">
+          
+  
+  User Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../developer_guide/" class="md-tabs__link">
+          
+  
+  Developer guide
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../" title="SINETStream" class="md-nav__button md-logo" aria-label="SINETStream" data-md-component="logo">
+      
+  <img src="../../images/SiNETStream.png" alt="logo">
+
+    </a>
+    SINETStream
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    SINETStreamについて
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            SINETStreamについて
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Documents
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../performance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Performance measurement of SINETStream
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../livedemo/livedemo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Live demo of SINETStream
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Build SINETStream server
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Build SINETStream server
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../server/brokers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Server construction procedure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../server/brokers/%E3%83%97%E3%83%A9%E3%82%A4%E3%83%99%E3%83%BC%E3%83%88%E8%AA%8D%E8%A8%BC%E5%B1%80%E3%81%A7%E8%A8%BC%E6%98%8E%E6%9B%B8%E3%82%92%E4%BD%9C%E6%88%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Creating a certificate with a private certificate authority
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../server/brokers/Kafkabroker%E3%81%AE%E6%A7%8B%E7%AF%89%E6%89%8B%E9%A0%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mosquitto construction procedure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../server/brokers/mosquitto%E6%A7%8B%E7%AF%89%E6%89%8B%E9%A0%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kafka broker setup procedure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Update log
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Update log
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#v191-2024-03-29" class="md-nav__link">
+    <span class="md-ellipsis">
+      [v1.9.1] - 2024-03-29
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[v1.9.1] - 2024-03-29">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v190-2024-03-29" class="md-nav__link">
+    <span class="md-ellipsis">
+      [v1.9.0] - 2024-03-29
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[v1.9.0] - 2024-03-29">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added" class="md-nav__link">
+    <span class="md-ellipsis">
+      Added
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v181-2023-08-04" class="md-nav__link">
+    <span class="md-ellipsis">
+      [v1.8.1] - 2023-08-04
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[v1.8.1] - 2023-08-04">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Added
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v180-2023-05-26" class="md-nav__link">
+    <span class="md-ellipsis">
+      [v1.8.0] - 2023-05-26
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[v1.8.0] - 2023-05-26">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Added
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v172-2022-09-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      [v1.7.2] - 2022-09-22
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[v1.7.2] - 2022-09-22">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#security_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v171-2022-09-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      [v1.7.1] - 2022-09-22
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[v1.7.1] - 2022-09-22">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#security_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v170-2022-09-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      [v1.7.0] - 2022-09-22
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[v1.7.0] - 2022-09-22">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Added
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixed
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v162-2022-01-19" class="md-nav__link">
+    <span class="md-ellipsis">
+      [v1.6.2] - 2022-01-19
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[v1.6.2] - 2022-01-19">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixed
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v161-2021-12-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      [v1.6.1] - 2021-12-22
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[v1.6.1] - 2021-12-22">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#security_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v160-2021-12-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      [v1.6.0] - 2021-12-22
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[v1.6.0] - 2021-12-22">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Added
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Added">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#python-java-document" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python, Java, Document
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sinetstream-android-lib" class="md-nav__link">
+    <span class="md-ellipsis">
+      sinetstream-android (lib)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sinetstream-android-helper-lib" class="md-nav__link">
+    <span class="md-ellipsis">
+      sinetstream-android-helper (lib)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sinetstream-andorid-echo-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      sinetstream-andorid-echo (app)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sinetstream-andorid-sensor-publisher-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      sinetstream-andorid-sensor-publisher (app)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changed
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Changed">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sinetstream" class="md-nav__link">
+    <span class="md-ellipsis">
+      sinetstream
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sinetstream-android-lib_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      sinetstream-android (lib)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sinetstream-android-helper-lib_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      sinetstream-android-helper (lib)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sinetstream-android-echo-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      sinetstream-android-echo (app)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sinetstream-andorid-sensor-publisher-app_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      sinetstream-andorid-sensor-publisher (app)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Removed
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Removed">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sinetstream-android-echo-app_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      sinetstream-android-echo (app)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sinetstream-android-sensor-publisher-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      sinetstream-android-sensor-publisher (app)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixed
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fixed">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sinetstream-android-lib_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      sinetstream-android (lib)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sinetstream-andorid-echo-app_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      sinetstream-andorid-echo (app)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sinetstream-android-sensor-publisher-app_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      sinetstream-android-sensor-publisher (app)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v153-2021-05-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      [v1.5.3] - 2021-05-20
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[v1.5.3] - 2021-05-20">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sinetstream-android-echo" class="md-nav__link">
+    <span class="md-ellipsis">
+      sinetstream-android-echo
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="sinetstream-android-echo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Added
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixed
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sinetstream-android-sensor-publisher" class="md-nav__link">
+    <span class="md-ellipsis">
+      sinetstream-android-sensor-publisher
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="sinetstream-android-sensor-publisher">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixed
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v152-for-android-2021-05-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      [v1.5.2] for Android - 2021-05-20
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[v1.5.2] for Android - 2021-05-20">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sinetstream-android" class="md-nav__link">
+    <span class="md-ellipsis">
+      sinetstream-android
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="sinetstream-android">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixed
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sinetstream-android-helper" class="md-nav__link">
+    <span class="md-ellipsis">
+      sinetstream-android-helper
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="sinetstream-android-helper">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changed
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v152-2021-04-23" class="md-nav__link">
+    <span class="md-ellipsis">
+      [v1.5.2] - 2021-04-23
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[v1.5.2] - 2021-04-23">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Added
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixed
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v151-2021-03-24" class="md-nav__link">
+    <span class="md-ellipsis">
+      [v1.5.1] - 2021-03-24
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[v1.5.1] - 2021-03-24">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixed
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v150-2021-03-18" class="md-nav__link">
+    <span class="md-ellipsis">
+      [v1.5.0] - 2021-03-18
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[v1.5.0] - 2021-03-18">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Added
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixed
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v140-2020-10-08" class="md-nav__link">
+    <span class="md-ellipsis">
+      [v1.4.0] - 2020-10-08
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[v1.4.0] - 2020-10-08">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Added
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v130-2020-07-31" class="md-nav__link">
+    <span class="md-ellipsis">
+      [v1.3.0] - 2020-07-31
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[v1.3.0] - 2020-07-31">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Added
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v120-2020-06-08" class="md-nav__link">
+    <span class="md-ellipsis">
+      [v1.2.0] - 2020-06-08
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[v1.2.0] - 2020-06-08">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Added
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixed
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v110-2020-03-19" class="md-nav__link">
+    <span class="md-ellipsis">
+      [v1.1.0] - 2020-03-19
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[v1.1.0] - 2020-03-19">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      Added
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixed
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v100-2019-12-24" class="md-nav__link">
+    <span class="md-ellipsis">
+      [v1.0.0] - 2019-12-24
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[v1.0.0] - 2019-12-24">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      Added
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixed
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v097-2019-10-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      [v0.9.7] - 2019-10-11
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[v0.9.7] - 2019-10-11">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      Added
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v095-2019-08-26" class="md-nav__link">
+    <span class="md-ellipsis">
+      [v0.9.5] - 2019-08-26
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[v0.9.5] - 2019-08-26">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      Added
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixed
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v091-2019-07-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      [v0.9.1] - 2019-07-11
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tutorial
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorial
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Python/Java
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Python/Java
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Start Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorial/TUTORIAL-STEP1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    STEP1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorial/TUTORIAL-STEP2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    STEP2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Android
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Android
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorial-android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Start Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_2" id="__nav_3_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    sinetstream-android-echo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            sinetstream-android-echo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorial-android/TUTORIAL-android-step1-overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    テキスト送受信アプリの実行
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorial-android/TUTORIAL-android-step1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ANDROID-STEP1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    sinetstream-android-sensor-publisher
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            sinetstream-android-sensor-publisher
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorial-android/TUTORIAL-android-step2-overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    センサ情報収集アプリの実行
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorial-android/TUTORIAL-android-step2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ANDROID-STEP2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorial-android/TUTORIAL-android-step2-webbrowser/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    センサーデータ可視化用のウェブインタフェース
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorial-android/TUTORIAL-android-step2-location/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    端末位置情報の自動更新
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorial-android/sinetstreamhelper-tutorial-container/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SINETStream Android Tutorial Container
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorial-android/TUTORIAL-android-install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Androidサンプルアプリケーションの導入
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorial-android/TUTORIAL-android-keychain/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    システム秘匿領域への証明書ファイルの導入
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorial-android/sinetstreamhelper-tutorial-container/TUTORIAL-docker-container/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DOCKER-CONTAINER
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    User Guide
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            User Guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../userguide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    User Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../userguide/api-python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../userguide/api-java/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Android
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            Android
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../userguide/android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SINETStream for Android ユーザガイド
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../userguide/api-android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Android版SINETStreamライブラリ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="http://javadoc.android.sinetstream.net/sinetstream-android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API (Javadoc)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../userguide/config-android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Android版のSINETStream設定ファイル
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../userguide/config-client-android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Android版の設定クライアント
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    SINETStreamHelper
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            SINETStreamHelper
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../userguide/libhelper/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SINETStreamHelper ユーザガイド
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../userguide/api-libhelper/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SINETStreamHelperライブラリ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="http://javadoc.android.sinetstream.net/sinetstream-android-helper/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API (Javadoc)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../userguide/config/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    設定ファイル
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../userguide/auth/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    認証と認可
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/nii-gakunin-cloud/sinetstream/blob/main/java/sample/cli/README.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CLI(Command Line Interface)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../userguide/compat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    互換性
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Developer guide
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Developer guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developer_guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    開発者ガイド
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Messaging system
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Messaging system
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developer_guide/plugin_broker_python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developer_guide/plugin_broker_java/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    message type
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            message type
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developer_guide/plugin_value_type_python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developer_guide/plugin_value_type_java/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    compression
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            compression
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developer_guide/plugin_compression_python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developer_guide/plugin_compression_java/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developer_guide/message_format/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    メッセージフォーマット
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#v191-2024-03-29" class="md-nav__link">
+    <span class="md-ellipsis">
+      [v1.9.1] - 2024-03-29
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[v1.9.1] - 2024-03-29">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v190-2024-03-29" class="md-nav__link">
+    <span class="md-ellipsis">
+      [v1.9.0] - 2024-03-29
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[v1.9.0] - 2024-03-29">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added" class="md-nav__link">
+    <span class="md-ellipsis">
+      Added
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v181-2023-08-04" class="md-nav__link">
+    <span class="md-ellipsis">
+      [v1.8.1] - 2023-08-04
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[v1.8.1] - 2023-08-04">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Added
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v180-2023-05-26" class="md-nav__link">
+    <span class="md-ellipsis">
+      [v1.8.0] - 2023-05-26
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[v1.8.0] - 2023-05-26">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Added
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v172-2022-09-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      [v1.7.2] - 2022-09-22
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[v1.7.2] - 2022-09-22">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#security_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v171-2022-09-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      [v1.7.1] - 2022-09-22
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[v1.7.1] - 2022-09-22">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#security_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v170-2022-09-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      [v1.7.0] - 2022-09-22
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[v1.7.0] - 2022-09-22">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Added
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixed
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v162-2022-01-19" class="md-nav__link">
+    <span class="md-ellipsis">
+      [v1.6.2] - 2022-01-19
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[v1.6.2] - 2022-01-19">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixed
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v161-2021-12-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      [v1.6.1] - 2021-12-22
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[v1.6.1] - 2021-12-22">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#security_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v160-2021-12-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      [v1.6.0] - 2021-12-22
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[v1.6.0] - 2021-12-22">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Added
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Added">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#python-java-document" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python, Java, Document
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sinetstream-android-lib" class="md-nav__link">
+    <span class="md-ellipsis">
+      sinetstream-android (lib)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sinetstream-android-helper-lib" class="md-nav__link">
+    <span class="md-ellipsis">
+      sinetstream-android-helper (lib)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sinetstream-andorid-echo-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      sinetstream-andorid-echo (app)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sinetstream-andorid-sensor-publisher-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      sinetstream-andorid-sensor-publisher (app)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changed
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Changed">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sinetstream" class="md-nav__link">
+    <span class="md-ellipsis">
+      sinetstream
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sinetstream-android-lib_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      sinetstream-android (lib)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sinetstream-android-helper-lib_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      sinetstream-android-helper (lib)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sinetstream-android-echo-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      sinetstream-android-echo (app)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sinetstream-andorid-sensor-publisher-app_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      sinetstream-andorid-sensor-publisher (app)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Removed
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Removed">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sinetstream-android-echo-app_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      sinetstream-android-echo (app)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sinetstream-android-sensor-publisher-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      sinetstream-android-sensor-publisher (app)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixed
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fixed">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sinetstream-android-lib_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      sinetstream-android (lib)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sinetstream-andorid-echo-app_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      sinetstream-andorid-echo (app)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sinetstream-android-sensor-publisher-app_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      sinetstream-android-sensor-publisher (app)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v153-2021-05-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      [v1.5.3] - 2021-05-20
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[v1.5.3] - 2021-05-20">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sinetstream-android-echo" class="md-nav__link">
+    <span class="md-ellipsis">
+      sinetstream-android-echo
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="sinetstream-android-echo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Added
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixed
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sinetstream-android-sensor-publisher" class="md-nav__link">
+    <span class="md-ellipsis">
+      sinetstream-android-sensor-publisher
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="sinetstream-android-sensor-publisher">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixed
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v152-for-android-2021-05-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      [v1.5.2] for Android - 2021-05-20
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[v1.5.2] for Android - 2021-05-20">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sinetstream-android" class="md-nav__link">
+    <span class="md-ellipsis">
+      sinetstream-android
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="sinetstream-android">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixed
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sinetstream-android-helper" class="md-nav__link">
+    <span class="md-ellipsis">
+      sinetstream-android-helper
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="sinetstream-android-helper">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changed
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v152-2021-04-23" class="md-nav__link">
+    <span class="md-ellipsis">
+      [v1.5.2] - 2021-04-23
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[v1.5.2] - 2021-04-23">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Added
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixed
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v151-2021-03-24" class="md-nav__link">
+    <span class="md-ellipsis">
+      [v1.5.1] - 2021-03-24
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[v1.5.1] - 2021-03-24">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixed
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v150-2021-03-18" class="md-nav__link">
+    <span class="md-ellipsis">
+      [v1.5.0] - 2021-03-18
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[v1.5.0] - 2021-03-18">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Added
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixed
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v140-2020-10-08" class="md-nav__link">
+    <span class="md-ellipsis">
+      [v1.4.0] - 2020-10-08
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[v1.4.0] - 2020-10-08">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Added
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v130-2020-07-31" class="md-nav__link">
+    <span class="md-ellipsis">
+      [v1.3.0] - 2020-07-31
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[v1.3.0] - 2020-07-31">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Added
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v120-2020-06-08" class="md-nav__link">
+    <span class="md-ellipsis">
+      [v1.2.0] - 2020-06-08
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[v1.2.0] - 2020-06-08">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Added
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixed
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v110-2020-03-19" class="md-nav__link">
+    <span class="md-ellipsis">
+      [v1.1.0] - 2020-03-19
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[v1.1.0] - 2020-03-19">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      Added
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixed
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v100-2019-12-24" class="md-nav__link">
+    <span class="md-ellipsis">
+      [v1.0.0] - 2019-12-24
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[v1.0.0] - 2019-12-24">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      Added
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixed
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v097-2019-10-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      [v0.9.7] - 2019-10-11
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[v0.9.7] - 2019-10-11">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      Added
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v095-2019-08-26" class="md-nav__link">
+    <span class="md-ellipsis">
+      [v0.9.5] - 2019-08-26
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[v0.9.5] - 2019-08-26">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      Added
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixed
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v091-2019-07-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      [v0.9.1] - 2019-07-11
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="changelog">Changelog</h1>
+<!---
+https://keepachangelog.com/
+### Added
+### Changed
+### Deprecated
+### Removed
+### Fixed
+### Security
+--->
+
+<!--- ---------------------------------------------------------------------- --->
+<h2 id="v191-2024-03-29">[v1.9.1] - 2024-03-29</h2>
+<h3 id="security">Security</h3>
+<ul>
+<li>Upgrade pycryptodomex (Python)</li>
+</ul>
+<!--- ---------------------------------------------------------------------- --->
+<h2 id="v190-2024-03-29">[v1.9.0] - 2024-03-29</h2>
+<h3 id="added">Added</h3>
+<ul>
+<li>Support key versioning provided by config-server. (Python, Java)</li>
+<li>Support Java 21 (Java)</li>
+</ul>
+<h3 id="changed">Changed</h3>
+<ul>
+<li>Send message in the message format version 3. (Python, Java)<ul>
+<li>NOTE: older SINETStream cannot receive this.</li>
+</ul>
+</li>
+<li>Message format version 3 (also 2) can be received. (Python, Java)</li>
+<li>Use kafka-python-ng instead of kefka-python which has not been maintained. (Python)</li>
+</ul>
+<h3 id="fixed">Fixed</h3>
+<ul>
+<li>Fixed to be able to use <code>user_data_only:</code> in Kafka (Python)</li>
+<li>In algorithm=gzip, use ZLIB not GZIP (Java).</li>
+<li>In algorithm=zstd decompression, work even if content_size in frame is not set. (Python, Java)</li>
+<li>In algorithm=zstd compression, set content_size to frame_header. (Java)</li>
+</ul>
+<h3 id="security_1">Security</h3>
+<ul>
+<li>Upgrade bouncy castle (Java)</li>
+<li>Update versions of dependent packages (Android Tutorial Container)</li>
+</ul>
+<!--- ---------------------------------------------------------------------- --->
+<h2 id="v181-2023-08-04">[v1.8.1] - 2023-08-04</h2>
+<h3 id="added_1">Added</h3>
+<ul>
+<li>sinetstream_cli (Python, Java):<ul>
+<li><code>sinetstream_cli</code> supports short options.</li>
+<li><code>sinetstream_cli</code> with <code>-nc</code> option doesn't read <code>.sinetstream_config.yml</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="changed_1">Changed</h3>
+<ul>
+<li>Any parameters on MessageReader/MessageWriter are optional. (Python)<ul>
+<li>The parameter <code>service</code> was mandatory.</li>
+</ul>
+</li>
+</ul>
+<h3 id="fixed_1">Fixed</h3>
+<ul>
+<li>In MQTT, encode WILL payload with SINETStream. (Python, Java)</li>
+</ul>
+<h3 id="security_2">Security</h3>
+<ul>
+<li>Update versions of dependent packages</li>
+</ul>
+<!--- ---------------------------------------------------------------------- --->
+<h2 id="v180-2023-05-26">[v1.8.0] - 2023-05-26</h2>
+<h3 id="added_2">Added</h3>
+<ul>
+<li>Support MQTTv5 (Python, Java)</li>
+<li>python/sample/cli, java/sample/cli<ul>
+<li>CLI tool (Python, Java)</li>
+<li><code>sinetstream_cli</code> is a reader/writer without preparing <code>.sinetstream_config.yml</code></li>
+<li>All parameters can be specified on command line.</li>
+</ul>
+</li>
+<li>Android<ul>
+<li>sinetstream-android (lib)<ul>
+<li>Add support for interactions with config-server.</li>
+</ul>
+</li>
+<li>sinetstream-android-helper (lib)<ul>
+<li>Add support for some new sensor types.</li>
+<li>Add support for runtime permission checks in collective way.</li>
+</ul>
+</li>
+<li>sinetstream-andorid-echo (app)<ul>
+<li>Add SINETStream settings screen for remote configuration.</li>
+</ul>
+</li>
+<li>sinetstream-andorid-sensor-publisher (app)<ul>
+<li>Add SINETStream settings screen for remote configuration.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="changed_2">Changed</h3>
+<ul>
+<li>Reimplemented auto-reconnect (Java)</li>
+<li>Android<ul>
+<li>sinetstream-android (lib)<ul>
+<li>Hide debug logging unless otherwise explicitly specified.</li>
+</ul>
+</li>
+<li>sinetstream-android-helper (lib)<ul>
+<li>Integrate untime permission handling tasks as <code>PermissionHandler</code>.</li>
+<li>Expand sensor interval timer resolution: 1 sec -&gt; 100 ms</li>
+</ul>
+</li>
+<li>sinetstream-andorid-echo (app)<ul>
+<li>If predefined parameters exist, read them without user interventions.</li>
+</ul>
+</li>
+<li>sinetstream-andorid-sensor-publisher (app)<ul>
+<li>Check runtime permissions in collective way by using <code>PermissionHandler</code> in libhelper.</li>
+<li>If predefined parameters exist, read them without user interventions.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="security_3">Security</h3>
+<ul>
+<li>Update versions of dependent packages</li>
+<li>Use safe YAML loader to load <code>.sinetstream_config.yml</code> (Java)</li>
+</ul>
+<!--- ---------------------------------------------------------------------- --->
+<h2 id="v172-2022-09-22">[v1.7.2] - 2022-09-22</h2>
+<h3 id="security_4">Security</h3>
+<ul>
+<li>Update versions of dependent packages</li>
+</ul>
+<!--- ---------------------------------------------------------------------- --->
+<h2 id="v171-2022-09-22">[v1.7.1] - 2022-09-22</h2>
+<h3 id="security_5">Security</h3>
+<ul>
+<li>Update versions of dependent packages</li>
+</ul>
+<!--- ---------------------------------------------------------------------- --->
+<h2 id="v170-2022-09-22">[v1.7.0] - 2022-09-22</h2>
+<h3 id="added_3">Added</h3>
+<ul>
+<li>Data Compression (Python, Java)</li>
+<li>S3 plugin (Python, Java)</li>
+<li>java/sample/perftool<ul>
+<li>send/receive data and output the obtained metrics information</li>
+<li>like python/sample/perftool</li>
+</ul>
+</li>
+<li>python/sample/libs/sinetstream-cmd<ul>
+<li>A simple producer using SINETStream</li>
+<li>SimpleProducer periodically publishes data on a Raspberry Pi</li>
+</ul>
+</li>
+</ul>
+<h3 id="changed_3">Changed</h3>
+<ul>
+<li>Support Java 11 (Java 8 is no longer supported)</li>
+</ul>
+<h3 id="fixed_2">Fixed</h3>
+<ul>
+<li>Calculate fingerprints correctly in config-server protocol (Python, Java)</li>
+</ul>
+<!--- ---------------------------------------------------------------------- --->
+<h2 id="v162-2022-01-19">[v1.6.2] - 2022-01-19</h2>
+<h3 id="fixed_3">Fixed</h3>
+<ul>
+<li>Enter the passphrase of private_key.pem if encrypted.</li>
+</ul>
+<!--- ---------------------------------------------------------------------- --->
+<h2 id="v161-2021-12-22">[v1.6.1] - 2021-12-22</h2>
+<h3 id="security_6">Security</h3>
+<ul>
+<li>use avro-1.11.0 (Java)</li>
+</ul>
+<!--- ---------------------------------------------------------------------- --->
+<h2 id="v160-2021-12-22">[v1.6.0] - 2021-12-22</h2>
+<h3 id="added_4">Added</h3>
+<h4 id="python-java-document">Python, Java, Document</h4>
+<ul>
+<li>Support for config-server</li>
+</ul>
+<h4 id="sinetstream-android-lib">sinetstream-android (lib)</h4>
+<ul>
+<li>Support for getting SSL/TLS certificates from the Android Keystore.</li>
+<li>Support for data encryption/decription.</li>
+<li>Add type-specific Reader/Writer classes extended from generic ones.</li>
+</ul>
+<h4 id="sinetstream-android-helper-lib">sinetstream-android-helper (lib)</h4>
+<ul>
+<li>Support for getting SSL/TLS certificates from the Android Keystore.</li>
+<li>Support automatic location update for the output JSON data.</li>
+</ul>
+<h4 id="sinetstream-andorid-echo-app">sinetstream-andorid-echo (app)</h4>
+<ul>
+<li>SettingsActivity: SINETStream: Add detailed parameters for MQTT and SSL/TLS.</li>
+</ul>
+<h4 id="sinetstream-andorid-sensor-publisher-app">sinetstream-andorid-sensor-publisher (app)</h4>
+<ul>
+<li>SettingsActivity: SINETStream: Add detailed parameters for MQTT and SSL/TLS.</li>
+<li>SettingsActivity: Sensor: Add <code>automatic location update</code> mode with GPS or FLP.</li>
+<li>MainActivity: Add location tracker and foreground services for GPS and FLP.</li>
+<li>MainActivity: Show location monitor window if location is enabled.</li>
+</ul>
+<h3 id="changed_4">Changed</h3>
+<h4 id="common">Common</h4>
+<ul>
+<li>build.gradle: Use MavenCentral instead of jCenter</li>
+<li>build.gradle: Use JDK 11 instead of JDK 8, from Android Studio Arctic Fox.</li>
+</ul>
+<h4 id="sinetstream">sinetstream</h4>
+<ul>
+<li>Support Python 3.8 since Python 3.6 will be EoL. (Python)</li>
+</ul>
+<h4 id="sinetstream-android-lib_1">sinetstream-android (lib)</h4>
+<ul>
+<li>misc/Dockerfile: Update <code>openjdk</code>, <code>Command line tools</code> and <code>SDK Build Tools</code>.</li>
+<li>API: Split initialization process to 2 phases; initialize() and setup().</li>
+<li>API: User can now abort initialization process if something goes wrong.</li>
+</ul>
+<h4 id="sinetstream-android-helper-lib_1">sinetstream-android-helper (lib)</h4>
+<ul>
+<li>misc/Dockerfile: Update <code>openjdk</code>, <code>Command line tools</code> and <code>SDK Build Tools</code>.</li>
+</ul>
+<h4 id="sinetstream-android-echo-app">sinetstream-android-echo (app)</h4>
+<ul>
+<li>SettingsActivity: Rearrange menu hierarchy.</li>
+<li>MainActivity: For SSL/TLS connection, operation will be intercepted by a system dialog to pick up credentials.</li>
+<li>MainActivity: Received message will be shown in timeline, instead of the latest only.</li>
+<li>MainActivity: Use typed Reader/Writer classes in <code>sinetstream-android</code> library.</li>
+</ul>
+<h4 id="sinetstream-andorid-sensor-publisher-app_1">sinetstream-andorid-sensor-publisher (app)</h4>
+<ul>
+<li>SettingsActivity: Rearrange menu hierarchy.</li>
+<li>MainActivity: For SSL/TLS connection, operation will be intercepted by a system dialog to pick up credentials.</li>
+<li>MainActivity: For <code>automatic location update</code> mode, operation might be intercepted by several system dialogs to set appropriate permissions.</li>
+</ul>
+<h3 id="removed">Removed</h3>
+<h4 id="sinetstream-android-echo-app_1">sinetstream-android-echo (app)</h4>
+<ul>
+<li>SettingsActivity: Exclude TLSv1 and TLSv1.1 from menu items, and set TLSv1.2 as default.</li>
+</ul>
+<h4 id="sinetstream-android-sensor-publisher-app">sinetstream-android-sensor-publisher (app)</h4>
+<ul>
+<li>SettingsActivity: Exclude TLSv1 and TLSv1.1 from menu items, and set TLSv1.2 as default.</li>
+</ul>
+<h3 id="fixed_4">Fixed</h3>
+<h4 id="sinetstream-android-lib_2">sinetstream-android (lib)</h4>
+<ul>
+<li>Make MQTT connection setup/close in robust way.</li>
+<li>Add missing try-catch clause.</li>
+<li>Resolve NullpointerException cases.</li>
+<li>Resolve some lint warnings.</li>
+</ul>
+<h4 id="sinetstream-andorid-echo-app_1">sinetstream-andorid-echo (app)</h4>
+<ul>
+<li>MainActivity: Keep some attributes beyond Activity's lifecycle.</li>
+</ul>
+<h4 id="sinetstream-android-sensor-publisher-app_1">sinetstream-android-sensor-publisher (app)</h4>
+<ul>
+<li>MainActivity: Keep some attributes beyond Activity's lifecycle.</li>
+<li>MainActivity: Fix location notation: (longitude,latitude) -&gt; (latitude,longitude)</li>
+<li>MainActivity: Resolve race conditions between Sensor and Network; bind SensorService after connection has established, and unbind SensorService after connection has closed.</li>
+</ul>
+<!--- ---------------------------------------------------------------------- --->
+<h2 id="v153-2021-05-20">[v1.5.3] - 2021-05-20</h2>
+<h3 id="sinetstream-android-echo">sinetstream-android-echo</h3>
+<h4 id="added_5">Added</h4>
+<ul>
+<li>MainActivity: Show receiver fragment contents with history.</li>
+</ul>
+<h4 id="changed_5">Changed</h4>
+<ul>
+<li>build.gradle: Update build environ for the Android Studio 4.1.2.</li>
+<li>MainActivity: Adjust screen layout.</li>
+<li>SettingsActivity: Use fixed service name.</li>
+</ul>
+<h4 id="fixed_5">Fixed</h4>
+<ul>
+<li>MainActivity: Resolve race conditions between modal dialogs.</li>
+<li>MainActivity: Keep the receiver fragment contents, even if the activity
+has re-created after suspend/resume.</li>
+</ul>
+<h3 id="sinetstream-android-sensor-publisher">sinetstream-android-sensor-publisher</h3>
+<h4 id="changed_6">Changed</h4>
+<ul>
+<li>build.gradle: Update build environ for the Android Studio 4.1.2.</li>
+</ul>
+<h4 id="fixed_6">Fixed</h4>
+<ul>
+<li>MainActivity: Resolve race conditions between modal dialogs.</li>
+</ul>
+<!--- ---------------------------------------------------------------------- --->
+<h2 id="v152-for-android-2021-05-20">[v1.5.2] for Android - 2021-05-20</h2>
+<h3 id="sinetstream-android">sinetstream-android</h3>
+<h4 id="changed_7">Changed</h4>
+<ul>
+<li>build.gradle: Update build environ for the Android Studio 4.1.2.</li>
+<li>AndroidConfigLoader: Rewrite usage of obsoleted Kotlin functions.</li>
+</ul>
+<h4 id="fixed_7">Fixed</h4>
+<ul>
+<li>CipherXXX: Resolve implementation compatibility issues (work in progress).</li>
+<li>MqttAsyncMessageIO: Now user can abort the ongoing connection request.</li>
+</ul>
+<h3 id="sinetstream-android-helper">sinetstream-android-helper</h3>
+<h4 id="changed_8">Changed</h4>
+<ul>
+<li>build.gradle: Update build environ for the Android Studio 4.1.2.</li>
+</ul>
+<!--- ---------------------------------------------------------------------- --->
+<h2 id="v152-2021-04-23">[v1.5.2] - 2021-04-23</h2>
+<h3 id="added_6">Added</h3>
+<ul>
+<li>English documents for tutorial-android</li>
+<li>The message format specification</li>
+<li>All-in-one tutorial container supports Raspberry Pi OS<ul>
+<li>tested on Raspberry Pi 4 Model B with mem 4GB</li>
+</ul>
+</li>
+<li>python/sample/perftool<ul>
+<li>send/receive data and output the obtained metrics information</li>
+</ul>
+</li>
+</ul>
+<h3 id="fixed_8">Fixed</h3>
+<ul>
+<li>No division by zero occurs when calculating an average in a metrics information. (Python, Java)</li>
+<li>A metrics can be gotten after close. (Python, Java)</li>
+</ul>
+<!--- ---------------------------------------------------------------------- --->
+<h2 id="v151-2021-03-24">[v1.5.1] - 2021-03-24</h2>
+<h3 id="fixed_9">Fixed</h3>
+<ul>
+<li>docfix: tutorial for Android</li>
+<li>bugfix: 2 sample applications for Android</li>
+</ul>
+<!--- ---------------------------------------------------------------------- --->
+<h2 id="v150-2021-03-18">[v1.5.0] - 2021-03-18</h2>
+<h3 id="added_7">Added</h3>
+<ul>
+<li>Tutorial for Android</li>
+<li>2 sample applications for Android<ul>
+<li>sinetstream-android-echo</li>
+<li>sinetstream-android-sensor-publisher</li>
+</ul>
+</li>
+</ul>
+<h3 id="fixed_10">Fixed</h3>
+<ul>
+<li>Bugfix for data encryption. (Python, Java)</li>
+<li>Bugfix for metrics API (Python)</li>
+</ul>
+<!--- ---------------------------------------------------------------------- --->
+<h2 id="v140-2020-10-08">[v1.4.0] - 2020-10-08</h2>
+<h3 id="added_8">Added</h3>
+<ul>
+<li>Support Android<ul>
+<li>Limitations:<ul>
+<li>Data encryption is not implemented.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!--- ---------------------------------------------------------------------- --->
+<h2 id="v130-2020-07-31">[v1.3.0] - 2020-07-31</h2>
+<h3 id="added_9">Added</h3>
+<ul>
+<li>Support metrics API</li>
+</ul>
+<!--- ---------------------------------------------------------------------- --->
+<h2 id="v120-2020-06-08">[v1.2.0] - 2020-06-08</h2>
+<h3 id="added_10">Added</h3>
+<ul>
+<li>Support async API</li>
+<li>Broker setup instructions (Japanese only)</li>
+</ul>
+<h3 id="changed_9">Changed</h3>
+<ul>
+<li>MQTT's MqttClientPersistence directory is now <code>~/.mqtt-persistence</code>(Java).</li>
+</ul>
+<h3 id="fixed_11">Fixed</h3>
+<ul>
+<li>Fixed TLS connection setup problem, caused by MQTT-specific parameter "tls_set" (Java)</li>
+</ul>
+<!--- ---------------------------------------------------------------------- --->
+<h2 id="v110-2020-03-19">[v1.1.0] - 2020-03-19</h2>
+<h3 id="added_11">Added</h3>
+<ul>
+<li>The capability to add <code>timestamp</code> to each send message</li>
+<li>Support for image type messages.</li>
+<li>English documents</li>
+<li>SINETStream Server Plugin Developer Guide (Japanese only)</li>
+</ul>
+<h3 id="changed_10">Changed</h3>
+<ul>
+<li>Message is encoded by Apache Avro.</li>
+<li><code>value_type</code> can be handled as a plugin.</li>
+</ul>
+<h3 id="fixed_12">Fixed</h3>
+<ul>
+<li>Fixed exception handling in case of authentication / authorization error.</li>
+</ul>
+<!--- ---------------------------------------------------------------------- --->
+<h2 id="v100-2019-12-24">[v1.0.0] - 2019-12-24</h2>
+<h3 id="added_12">Added</h3>
+<ul>
+<li>Tutorial</li>
+<li>open/close method for MessageReader/MessageWriter (Python)</li>
+</ul>
+<h3 id="changed_11">Changed</h3>
+<ul>
+<li>{python,java}/sample/text/*.py: remove -t option to specify the topic.</li>
+<li>Documents rearranged.</li>
+<li>To display the cheat sheet, <code>python3 -m sinetstream</code>. (Python)</li>
+<li>The topic= argument is now optional in MessageReader/MessageWriter constructor. (Python)</li>
+</ul>
+<h3 id="fixed_13">Fixed</h3>
+<ul>
+<li>Fix documents</li>
+<li>Fix deadlock in MqttWriter.publish().</li>
+<li>Bugfixes.</li>
+</ul>
+<!--- ---------------------------------------------------------------------- --->
+<h2 id="v097-2019-10-11">[v0.9.7] - 2019-10-11</h2>
+<h3 id="added_13">Added</h3>
+<ul>
+<li>Data encryption:<ul>
+<li>Supported: CBC, OFB, CTR, EAX, GCM</li>
+<li>Not supported: CFB, OPENPGP</li>
+</ul>
+</li>
+<li>Authentication:<ul>
+<li>Kafka:<ul>
+<li>security_protocol: PLAINTEXT, SSL, SASL_PLAINTEXT, SASL_SSL.</li>
+<li>sasl_mechanism: PLAIN, SCRAM-SHA-256, SCRAM-SHA_512.</li>
+<li>Note: GSSAPI and OAUTHBEARER are not supported.</li>
+</ul>
+</li>
+<li>MQTT:<ul>
+<li>password</li>
+</ul>
+</li>
+<li>Read docs/auth.md for details.</li>
+</ul>
+</li>
+<li>Authorization(document only)<ul>
+<li>Read docs/auth.md for details.</li>
+</ul>
+</li>
+</ul>
+<!--- ---------------------------------------------------------------------- --->
+<h2 id="v095-2019-08-26">[v0.9.5] - 2019-08-26</h2>
+<h3 id="added_14">Added</h3>
+<ul>
+<li>Java implementation.</li>
+<li>Python/MQTT plugin.</li>
+<li>parameter value_type=.</li>
+<li>display default paraterers during installation.</li>
+<li>TLS support.</li>
+</ul>
+<h3 id="changed_12">Changed</h3>
+<ul>
+<li>default consistency is AT_MOST_ONCE (was EXACTLY_ONCE).</li>
+<li>default client_id is generated by SINETStream library (not Kafka,MQTT).</li>
+</ul>
+<h3 id="fixed_14">Fixed</h3>
+<ul>
+<li>many bugfixes.</li>
+</ul>
+<!--- ---------------------------------------------------------------------- --->
+<h2 id="v091-2019-07-11">[v0.9.1] - 2019-07-11</h2>
+<p>first alpha release.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <div class="site-footer-copyright">Copyright(C) National Institute of Informatics</div>
+<div class="site-footer-logo">
+  <a href="https://www.nii.ac.jp/">
+    
+    <img src="../../images/NIIlogo_EN_ls.png" alt="NII National Institute of Informatics">
+    
+  </a>
+</div>
+<footer class="md-footer">
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
+      
+    
+  </body>
+</html>

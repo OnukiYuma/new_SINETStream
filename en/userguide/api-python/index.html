@@ -1,0 +1,4431 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://onukiyuma.github.io/SINETStream/en/userguide/api-python/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../api-java/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
+    
+    
+      
+        <title>Python API - SINETStream</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../styles/custom.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#python-api" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../" title="SINETStream" class="md-header__button md-logo" aria-label="SINETStream" data-md-component="logo">
+      
+  <img src="../../../images/SiNETStream.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SINETStream
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Python API
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../../userguide/api-python/" hreflang="ja" class="md-select__link">
+              日本語
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../" class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../docm/" class="md-tabs__link">
+          
+  
+  SINETStreamについて
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../tutorial/" class="md-tabs__link">
+          
+  
+  Tutorial
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  User Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../developer_guide/" class="md-tabs__link">
+          
+  
+  Developer guide
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../" title="SINETStream" class="md-nav__button md-logo" aria-label="SINETStream" data-md-component="logo">
+      
+  <img src="../../../images/SiNETStream.png" alt="logo">
+
+    </a>
+    SINETStream
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    SINETStreamについて
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            SINETStreamについて
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Documents
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../performance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Performance measurement of SINETStream
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../livedemo/livedemo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Live demo of SINETStream
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Build SINETStream server
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Build SINETStream server
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../server/brokers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Server construction procedure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../server/brokers/%E3%83%97%E3%83%A9%E3%82%A4%E3%83%99%E3%83%BC%E3%83%88%E8%AA%8D%E8%A8%BC%E5%B1%80%E3%81%A7%E8%A8%BC%E6%98%8E%E6%9B%B8%E3%82%92%E4%BD%9C%E6%88%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Creating a certificate with a private certificate authority
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../server/brokers/Kafkabroker%E3%81%AE%E6%A7%8B%E7%AF%89%E6%89%8B%E9%A0%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mosquitto construction procedure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../server/brokers/mosquitto%E6%A7%8B%E7%AF%89%E6%89%8B%E9%A0%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kafka broker setup procedure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CHANGELOG/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Update log
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tutorial
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorial
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Python/Java
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Python/Java
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Start Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/TUTORIAL-STEP1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    STEP1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/TUTORIAL-STEP2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    STEP2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Android
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Android
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Start Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_2" id="__nav_3_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    sinetstream-android-echo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            sinetstream-android-echo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/TUTORIAL-android-step1-overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    テキスト送受信アプリの実行
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/TUTORIAL-android-step1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ANDROID-STEP1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    sinetstream-android-sensor-publisher
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            sinetstream-android-sensor-publisher
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/TUTORIAL-android-step2-overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    センサ情報収集アプリの実行
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/TUTORIAL-android-step2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ANDROID-STEP2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/TUTORIAL-android-step2-webbrowser/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    センサーデータ可視化用のウェブインタフェース
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/TUTORIAL-android-step2-location/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    端末位置情報の自動更新
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/sinetstreamhelper-tutorial-container/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SINETStream Android Tutorial Container
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/TUTORIAL-android-install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Androidサンプルアプリケーションの導入
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/TUTORIAL-android-keychain/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    システム秘匿領域への証明書ファイルの導入
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/sinetstreamhelper-tutorial-container/TUTORIAL-docker-container/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DOCKER-CONTAINER
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    User Guide
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            User Guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    User Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Python API
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Python API
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Example
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-configuration-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating a configuration file
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sending-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sending Messages
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#receiving-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Receiving Messages
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-summary-of-python-api-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Summary of Python API classes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Summary of Python API classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-messagereader-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 MessageReader Class
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 MessageReader Class">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#messagereader" class="md-nav__link">
+    <span class="md-ellipsis">
+      MessageReader()
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MessageReader()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exception" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exception
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Properties
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#messagereaderopen" class="md-nav__link">
+    <span class="md-ellipsis">
+      MessageReader.open()
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MessageReader.open()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#returned-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      Returned value
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exception_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exception
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#messagereaderclose" class="md-nav__link">
+    <span class="md-ellipsis">
+      MessageReader.close()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#messagereader__iter__" class="md-nav__link">
+    <span class="md-ellipsis">
+      MessageReader.__iter__()
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MessageReader.__iter__()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exception_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exception
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-asyncmessagereader-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 AsyncMessageReader Class
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 AsyncMessageReader Class">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#asyncmessagereader" class="md-nav__link">
+    <span class="md-ellipsis">
+      AsyncMessageReader()
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AsyncMessageReader()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exception_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exception
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#properties_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Properties
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asyncmessagereaderopen" class="md-nav__link">
+    <span class="md-ellipsis">
+      AsyncMessageReader.open()
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AsyncMessageReader.open()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#returned-value_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Returned value
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exception_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exception
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asyncmessagereaderclose" class="md-nav__link">
+    <span class="md-ellipsis">
+      AsyncMessageReader.close()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-asyncmessagereaderon_message" class="md-nav__link">
+    <span class="md-ellipsis">
+      Property: 'AsyncMessageReader.on_message'
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-messagewriter-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 MessageWriter Class
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 MessageWriter Class">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#messagewriter" class="md-nav__link">
+    <span class="md-ellipsis">
+      MessageWriter()
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MessageWriter()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exception_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exception
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#properties_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Properties
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#messagewriteropen" class="md-nav__link">
+    <span class="md-ellipsis">
+      MessageWriter.open()
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MessageWriter.open()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#returned-value_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Returned value
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exception_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exception
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#messagewriterclose" class="md-nav__link">
+    <span class="md-ellipsis">
+      MessageWriter.close()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#messagewriterpublishmessage" class="md-nav__link">
+    <span class="md-ellipsis">
+      MessageWriter.publish(message)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MessageWriter.publish(message)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exception_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exception
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-asyncmessagewriter-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 AsyncMessageWriter Class
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 AsyncMessageWriter Class">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#asyncmessagewriter" class="md-nav__link">
+    <span class="md-ellipsis">
+      AsyncMessageWriter()
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AsyncMessageWriter()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exception_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exception
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#properties_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Properties
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asyncmessagewriteropen" class="md-nav__link">
+    <span class="md-ellipsis">
+      AsyncMessageWriter.open()
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AsyncMessageWriter.open()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#returned-value_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Returned value
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exception_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exception
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asyncmessagewriterclose" class="md-nav__link">
+    <span class="md-ellipsis">
+      'AsyncMessageWriter.close()'
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asyncmessagewriterpublishmessage" class="md-nav__link">
+    <span class="md-ellipsis">
+      'AsyncMessageWriter.publish(message)'
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="'AsyncMessageWriter.publish(message)'">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exception_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exception
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-message-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5 Message class
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.5 Message class">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#property" class="md-nav__link">
+    <span class="md-ellipsis">
+      Property
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-metrics-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6 Metrics Class
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.6 Metrics Class">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#property_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Property
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27-summary-of-exception" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.7 Summary of exception
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-messaging-system-specific-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Messaging system-specific parameters
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Messaging system-specific parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-apache-kafka" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Apache Kafka
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-mqtt-eclipse-paho" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 MQTT (Eclipse Paho)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-s3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 S3
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-how-to-show-a-cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. How to show a cheat sheet
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-java/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Android
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            Android
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SINETStream for Android ユーザガイド
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Android版SINETStreamライブラリ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="http://javadoc.android.sinetstream.net/sinetstream-android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API (Javadoc)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config-android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Android版のSINETStream設定ファイル
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config-client-android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Android版の設定クライアント
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    SINETStreamHelper
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            SINETStreamHelper
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../libhelper/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SINETStreamHelper ユーザガイド
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-libhelper/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SINETStreamHelperライブラリ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="http://javadoc.android.sinetstream.net/sinetstream-android-helper/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API (Javadoc)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    設定ファイル
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../auth/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    認証と認可
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/nii-gakunin-cloud/sinetstream/blob/main/java/sample/cli/README.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CLI(Command Line Interface)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    互換性
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Developer guide
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Developer guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    開発者ガイド
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Messaging system
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Messaging system
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_guide/plugin_broker_python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_guide/plugin_broker_java/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    message type
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            message type
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_guide/plugin_value_type_python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_guide/plugin_value_type_java/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    compression
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            compression
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_guide/plugin_compression_python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_guide/plugin_compression_java/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_guide/message_format/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    メッセージフォーマット
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Example
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-configuration-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating a configuration file
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sending-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sending Messages
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#receiving-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Receiving Messages
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-summary-of-python-api-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Summary of Python API classes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Summary of Python API classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-messagereader-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 MessageReader Class
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 MessageReader Class">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#messagereader" class="md-nav__link">
+    <span class="md-ellipsis">
+      MessageReader()
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MessageReader()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exception" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exception
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Properties
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#messagereaderopen" class="md-nav__link">
+    <span class="md-ellipsis">
+      MessageReader.open()
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MessageReader.open()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#returned-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      Returned value
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exception_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exception
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#messagereaderclose" class="md-nav__link">
+    <span class="md-ellipsis">
+      MessageReader.close()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#messagereader__iter__" class="md-nav__link">
+    <span class="md-ellipsis">
+      MessageReader.__iter__()
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MessageReader.__iter__()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exception_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exception
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-asyncmessagereader-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 AsyncMessageReader Class
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 AsyncMessageReader Class">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#asyncmessagereader" class="md-nav__link">
+    <span class="md-ellipsis">
+      AsyncMessageReader()
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AsyncMessageReader()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exception_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exception
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#properties_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Properties
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asyncmessagereaderopen" class="md-nav__link">
+    <span class="md-ellipsis">
+      AsyncMessageReader.open()
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AsyncMessageReader.open()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#returned-value_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Returned value
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exception_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exception
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asyncmessagereaderclose" class="md-nav__link">
+    <span class="md-ellipsis">
+      AsyncMessageReader.close()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-asyncmessagereaderon_message" class="md-nav__link">
+    <span class="md-ellipsis">
+      Property: 'AsyncMessageReader.on_message'
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-messagewriter-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 MessageWriter Class
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 MessageWriter Class">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#messagewriter" class="md-nav__link">
+    <span class="md-ellipsis">
+      MessageWriter()
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MessageWriter()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exception_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exception
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#properties_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Properties
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#messagewriteropen" class="md-nav__link">
+    <span class="md-ellipsis">
+      MessageWriter.open()
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MessageWriter.open()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#returned-value_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Returned value
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exception_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exception
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#messagewriterclose" class="md-nav__link">
+    <span class="md-ellipsis">
+      MessageWriter.close()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#messagewriterpublishmessage" class="md-nav__link">
+    <span class="md-ellipsis">
+      MessageWriter.publish(message)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MessageWriter.publish(message)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exception_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exception
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-asyncmessagewriter-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 AsyncMessageWriter Class
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 AsyncMessageWriter Class">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#asyncmessagewriter" class="md-nav__link">
+    <span class="md-ellipsis">
+      AsyncMessageWriter()
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AsyncMessageWriter()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exception_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exception
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#properties_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Properties
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asyncmessagewriteropen" class="md-nav__link">
+    <span class="md-ellipsis">
+      AsyncMessageWriter.open()
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AsyncMessageWriter.open()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#returned-value_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Returned value
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exception_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exception
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asyncmessagewriterclose" class="md-nav__link">
+    <span class="md-ellipsis">
+      'AsyncMessageWriter.close()'
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asyncmessagewriterpublishmessage" class="md-nav__link">
+    <span class="md-ellipsis">
+      'AsyncMessageWriter.publish(message)'
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="'AsyncMessageWriter.publish(message)'">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exception_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exception
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-message-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5 Message class
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.5 Message class">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#property" class="md-nav__link">
+    <span class="md-ellipsis">
+      Property
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-metrics-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6 Metrics Class
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.6 Metrics Class">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#property_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Property
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27-summary-of-exception" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.7 Summary of exception
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-messaging-system-specific-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Messaging system-specific parameters
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Messaging system-specific parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-apache-kafka" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Apache Kafka
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-mqtt-eclipse-paho" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 MQTT (Eclipse Paho)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-s3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 S3
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-how-to-show-a-cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. How to show a cheat sheet
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<!--
+Copyright (C) 2020 National Institute of Informatics
+
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+
+<p><a href="./">日本語</a></p>
+<p>SINETStream User Guide</p>
+<h1 id="python-api">Python API</h1>
+<pre>
+1. Example
+2. Summary of Python API classes
+ 2.1 MessageReader Class
+ 2.2 AsyncMessageReader Class
+ 2.3 MessageWriter Class
+ 2.4 AsyncMessageWriter Class
+ 2.5 Message Class
+ 2.6 Metrics Class
+ 2.7 Summary of exception
+3. Messaging system-specific parameters
+ 3.1 Apache Kafka
+ 3.2 MQTT (Eclipse Paho)
+ 3.3 S3
+4. How to show a cheat sheet
+</pre>
+
+<h2 id="1-example">1. Example</h2>
+<p>First, a simple example is shown.</p>
+<p>This example uses two services, namely <code>service-1</code> and <code>service-2</code>, each with a different messaging system as its backend.
+The backend of <code>service-1</code> is Apache Kafka, which consists of four brokers, namely <code>kafka-1</code> thru <code>kafka-4</code>.
+The backend of <code>service-2</code> is MQTT, which consists of one broker, <code>192.168.2.105</code>.</p>
+<h3 id="creating-a-configuration-file">Creating a configuration file</h3>
+<p>The configuration file contains settings for the clients to connect to the broker.
+Please refer to the <a href="../config/">Configuration file</a> for details.</p>
+<p>In this example, we create the following configuration file <code>.sinetstream_config.yml</code> in the current directory on the client machine.</p>
+<pre><code>service-1:
+  type: kafka
+  brokers:
+    - kafka-1:9092
+    - kafka-2:9092
+    - kafka-3:9092
+    - kafka-4:9092
+service-2:
+  type: mqtt
+  brokers: 192.168.2.105:1883
+  username_pw_set:
+    username: user01
+    password: pass01
+</code></pre>
+<h3 id="sending-messages">Sending Messages</h3>
+<p>The following code sends two messages to the topic <code>topic-1</code> of the messaging system associated with the service <code>service-1</code>.</p>
+<pre><code class="language-python">from sinetstream import MessageWriter
+
+writer = MessageWriter('service-1', 'topic-1')
+with writer as f:
+    f.publish(b'Hello! This is the 1st message.')
+    f.publish(b'Hello! This is the 2nd message.')
+</code></pre>
+<p>First, create an instance of the MessageWriter object by specifying the service name and the topic name.
+Open this instance with a <code>with</code> statement and send messages to the broker by invoking the <code>publish()</code> method in the block.</p>
+<blockquote>
+<p>The MessageWriter object automatically connects to the messaging system when entering the <code>with</code> block, and
+it automatically closes the connection when exiting the <code>with</code> block.</p>
+</blockquote>
+<p>By default, the argument of <code>publish()</code> is a byte sequence.
+To transfer an object other than a byte sequence, specify value_type or value_serializer in the constructor of the <a href="#messagewriter-class">MessageWriter Class</a>.</p>
+<h3 id="receiving-messages">Receiving Messages</h3>
+<p>The following code receives messages from the topic <code>topic-1</code> of the messaging system associated with the service <code>service-1</code>.</p>
+<pre><code class="language-python">from sinetstream import MessageReader
+
+reader = MessageReader('service-1', 'topic-1')
+with reader as f:
+    for msg in f:
+        print(msg.value)
+</code></pre>
+<p>First, create an instance of the MessageReader object by specifying the service name and the topic name.
+Open this instance with a <code>with</code> statement, loop the iterator for <code>f</code> in the block, and receive messages from the broker by referring to the <code>value</code> property of the iterator.</p>
+<blockquote>
+<p>The MessageReader object automatically connects to the messaging system when entering the <code>with</code> block, and
+it automatically closes the connection when exiting the <code>with</code> block.</p>
+</blockquote>
+<p>By default, the message reader process does not time out and the <code>for</code> statement becomes an infinite loop.
+To exit the <code>for</code> loop, specify the <code>receive_timeout_ms</code> parameter in the constructor of the <a href="#messagereader-class">MessageReader class</a> or perform a signal handling.</p>
+<h2 id="2-summary-of-python-api-classes">2. Summary of Python API classes</h2>
+<ul>
+<li>sinetstream.MessageReader<ul>
+<li>The class to receive messages from the messaging system.</li>
+</ul>
+</li>
+<li>sinetstream.AsyncMessageReader<ul>
+<li>The class to receive messages from the messaging system. (Asynchronous API)</li>
+</ul>
+</li>
+<li>sinetstream.MessageWriter<ul>
+<li>The class to send messages to the messaging system.</li>
+</ul>
+</li>
+<li>sinetstream. AsyncMessageWriter<ul>
+<li>The class to send messages to the messaging system. (Asynchronous API)</li>
+</ul>
+</li>
+<li>sinetstream.Message<ul>
+<li>The class to represent a message.</li>
+</ul>
+</li>
+<li>sinetstream.SinetError<ul>
+<li>The parent class of all the exception classes in SINETStream</li>
+</ul>
+</li>
+</ul>
+<h3 id="21-messagereader-class">2.1 MessageReader Class</h3>
+<h4 id="messagereader"><code>MessageReader()</code></h4>
+<p>The constructor of the MessageReader class</p>
+<pre><code>MessageReader(
+    service,
+    topics=None,
+    consistency=AT_MOST_ONCE,
+    client_id=DEFAULT_CLIENT_ID,
+    value_type=None,
+    value_deserializer=None,
+    receive_timeout_ms=float(&quot;inf&quot;),
+    **kwargs)
+</code></pre>
+<h5 id="parameters">Parameters</h5>
+<ul>
+<li>service<ul>
+<li>Service name.</li>
+<li>The name must be defined in the configuration file.</li>
+</ul>
+</li>
+<li>topics<ul>
+<li>Topic name.</li>
+<li>Specify a <code>str</code> or a <code>list</code> for a single topic.</li>
+<li>Specify a <code>list</code> when subscribing for multiple topics.</li>
+<li>If not specified, the value specified in the configuration file will be used as default.</li>
+</ul>
+</li>
+<li>consistency<ul>
+<li>The reliability of the message delivery.</li>
+<li>AT_MOST_ONCE (=0)<ul>
+<li>A message may not arrive.</li>
+</ul>
+</li>
+<li>AT_LEAST_ONCE (=1)<ul>
+<li>A message always arrives but may arrive many times.</li>
+</ul>
+</li>
+<li>EXACTLY_ONCE (=2)<ul>
+<li>A message always arrives only once.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>client_id<ul>
+<li>Client name</li>
+<li>If any of DEFAULT_CLIENT_ID, None, or an empty string is specified, the library will automatically generate a value.</li>
+<li>The generated value can be obtained as a property of this object.</li>
+</ul>
+</li>
+<li>value_type<ul>
+<li>The type name of message payload.</li>
+<li><code>MessageReader</code> will treat the payload as the type specified here.</li>
+<li>When using the standard package, the following two type names are supported.<ul>
+<li>Set <code>"byte_array"</code> (default) to treat the payload as <code>bytes</code>.</li>
+<li>Set <code>"text"</code> to treat the payload as <code>str</code>.</li>
+</ul>
+</li>
+<li>When using a plugin pacakge, other type names may be supported.</li>
+<li>When using the image type plugin provided with SINETStream v1.1 (or later), the following type name is supported.<ul>
+<li>Set <code>"image"</code> to treat the payload as <code>numpy.ndarray</code>, which is the image data type in OpenCV.</li>
+<li>The color order in <code>numpy.ndarray</code> is BGR, which is consistent with OpenCV.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>value_deserializer<ul>
+<li>The function used to decode the value from the byte array in the message.</li>
+<li>If not specified, an appropriate deserializer function will be used according to <code>value_type</code>.</li>
+</ul>
+</li>
+<li>receive_timeout_ms<ul>
+<li>Maximum time (ms) to wait for message to arrive.</li>
+<li>Once timed out, no more messages can be read from this connection.</li>
+</ul>
+</li>
+<li>data_encryption<ul>
+<li>Enable or disable message encryption and decryption.</li>
+</ul>
+</li>
+<li>kwargs<ul>
+<li>Specify the messaging system-specific parameters as YAML mappings.</li>
+</ul>
+</li>
+</ul>
+<p>The parameters specified in <code>kwargs</code> are passed to the constructor of the backend messaging system.
+Please refer to the <a href="#messaging-system-specific-parameters">Messaging system-specific parameters</a> of for details.</p>
+<p>For the arguments other than <code>service</code>, their default values can be specified in the configuration file.
+If the same parameter is specified in both the configuration file and the constructor argument, the value specified in the constructor argument takes precedence.</p>
+<p>** Limitation: SINETStream downgrades to <code>AT_LEAST_ONCE</code> even if <code>EXACTLY_ONCE</code> is specified for Kafka <code>consistency</code>. **</p>
+<h5 id="exception">Exception</h5>
+<ul>
+<li>NoServiceError<ul>
+<li>The specified service name is not defined in the configuration file.</li>
+</ul>
+</li>
+<li>NoConfigError<ul>
+<li>The configuration file does not exist or cannot be read</li>
+</ul>
+</li>
+<li>InvalidArgumentError<ul>
+<li>The format of the specified argument is incorrect,
+  e.g., the value of consistency is out of range or the topic name includes invalid character, etc.</li>
+</ul>
+</li>
+<li>UnsupportedServiceTypeError<ul>
+<li>The plugin for the specified service type is not installed.</li>
+</ul>
+</li>
+</ul>
+<h4 id="properties">Properties</h4>
+<p>The following properties can be used to get the parameter value specified in the configuration file or in the constructor.</p>
+<ul>
+<li><code>client_id</code></li>
+<li><code>consistency</code></li>
+<li><code>topics</code></li>
+<li><code>value_type</code></li>
+</ul>
+<h4 id="messagereaderopen"><code>MessageReader.open()</code></h4>
+<p>Connects to the broker of the messaging system.
+Implicitly invoked when using MessageReader in a <code>with</code> statement; not intended for explicit invocation.</p>
+<h5 id="returned-value">Returned value</h5>
+<p>A handler that mentains the connection status with the messaging system.</p>
+<h5 id="exception_1">Exception</h5>
+<ul>
+<li>ConnectionError<ul>
+<li>Error connecting to the broker.</li>
+</ul>
+</li>
+<li>AlreadyConnectedError<ul>
+<li><code>open()</code> is called again for an object that is already connected.</li>
+</ul>
+</li>
+</ul>
+<h4 id="messagereaderclose"><code>MessageReader.close()</code></h4>
+<p>Disconnects from the broker of the messaging system.
+Implicitly invoked when using MessageReader in a <code>with</code> statement; not intended for explicit invocation.</p>
+<h4 id="messagereader__iter__"><code>MessageReader.__iter__()</code></h4>
+<p>Returns an iterator for the messages received from the messaging system.</p>
+<h5 id="exception_2">Exception</h5>
+<p>The following errors may occur when calling <code>next()</code> to the iterator.</p>
+<ul>
+<li>AuthorizationError<ul>
+<li>Tried to receive messages from an unauthorized topic.</li>
+</ul>
+</li>
+<li>InvalidMessageError<ul>
+<li>Invalid message format in SINETStream.</li>
+</ul>
+</li>
+</ul>
+<p>AuthorizationError does not occur in the following cases:</p>
+<ol>
+<li>When using MQTT (Mosquitto)<ul>
+<li>Because the MQTT broker raises no error for unauthorized operation.</li>
+</ul>
+</li>
+</ol>
+<h3 id="22-asyncmessagereader-class">2.2 AsyncMessageReader Class</h3>
+<h4 id="asyncmessagereader"><code>AsyncMessageReader()</code></h4>
+<p>The constructor of the AsyncMessageReader class</p>
+<pre><code>AsyncMessageReader(
+    service,
+    topics=None,
+    consistency=AT_MOST_ONCE,
+    client_id=DEFAULT_CLIENT_ID,
+    value_type=&quot;byte_array&quot;,
+    value_deserializer=None,
+    **kwargs)
+</code></pre>
+<h5 id="parameters_1">Parameters</h5>
+<ul>
+<li>service<ul>
+<li>Service name.</li>
+<li>The name must be defined in the configuration file.</li>
+</ul>
+</li>
+<li>topics<ul>
+<li>Topic name.</li>
+<li>Specify a str or a list for a single topic.</li>
+<li>Specify a list when subscribing for multiple topics.</li>
+<li>If not specified, the value specified in the configuration file will be used as default.</li>
+</ul>
+</li>
+<li>consistency<ul>
+<li>The reliability of the message delivery.</li>
+<li>AT_MOST_ONCE (=0)<ul>
+<li>A message may not arrive.</li>
+</ul>
+</li>
+<li>AT_LEAST_ONCE (=1)<ul>
+<li>A message always arrives but may arrive many times.</li>
+</ul>
+</li>
+<li>EXACTLY_ONCE (=2)<ul>
+<li>A message always arrives only once.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>client_id<ul>
+<li>Client name</li>
+<li>If any of DEFAULT_CLIENT_ID, None, or an empty string is specified, the library will automatically generate a value.</li>
+<li>The generated value can be obtained as a property of this object.</li>
+</ul>
+</li>
+<li>value_type<ul>
+<li>The type name of message payload.</li>
+<li>AsyncMessageReader will treat the payload as the type specified here.</li>
+<li>When using the standard package, the following two type names are supported.<ul>
+<li>Set '"byte_array"' (default) to treat the payload as bytes.</li>
+<li>Set '"text"' to treat the payload as str.</li>
+</ul>
+</li>
+<li>When using a plugin pacakge, other type names may be supported.</li>
+<li>When using the image type plugin provided with SINETStream, the following type name is supported.<ul>
+<li>Set '"image"' to treat the payload as 'numpy.ndarray', which is the image data type in OpenCV.</li>
+<li>The color order in 'numpy.ndarray' is BGR, which is consistent with OpenCV.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>value_deserializer<ul>
+<li>The function used to decode the value from the byte array in the message.</li>
+<li>If not specified, an appropriate deserializer function will be used according to value_type.</li>
+</ul>
+</li>
+<li>data_encryption<ul>
+<li>Enable or disable message encryption and decryption.</li>
+</ul>
+</li>
+<li>kwargs<ul>
+<li>Specify the messaging system-specific parameters as YAML mappings.</li>
+</ul>
+</li>
+</ul>
+<p>The parameters specified in 'kwargs' are passed to the constructor of the backend messaging system.
+Please refer to the  <a href="#messaging-system-specific-parameters">Messaging system-specific parameters</a> for details.</p>
+<p>For the arguments other than 'service', their default values can be specified in the configuration file.
+If the same parameter is specified in both the configuration file and the constructor argument, the value specified in the constructor argument takes precedence.</p>
+<p>** Limitation: SINETStream downgrades to 'AT_LEAST_ONCE' even if 'EXACTLY_ONCE' is specified for Kafka 'consistency'. **</p>
+<h5 id="exception_3">Exception</h5>
+<ul>
+<li>NoServiceError<ul>
+<li>The specified service name is not defined in the configuration file.</li>
+</ul>
+</li>
+<li>NoConfigError<ul>
+<li>The configuration file does not exist or cannot be read</li>
+</ul>
+</li>
+<li>InvalidArgumentError<ul>
+<li>The format of the specified argument is incorrect,
+  e.g., the value of consistency is out of range or the topic name includes invalid character, etc.</li>
+</ul>
+</li>
+<li>UnsupportedServiceTypeError<ul>
+<li>The plugin for the specified service type is not installed.</li>
+</ul>
+</li>
+</ul>
+<h4 id="properties_1">Properties</h4>
+<p>The following properties can be used to get the parameter value specified in the configuration file or in the constructor.</p>
+<ul>
+<li><code>client_id</code></li>
+<li><code>consistency</code></li>
+<li><code>topics</code></li>
+<li><code>value_type</code></li>
+</ul>
+<h4 id="asyncmessagereaderopen"><code>AsyncMessageReader.open()</code></h4>
+<p>Connects to the broker of the messaging system.</p>
+<h5 id="returned-value_1">Returned value</h5>
+<p>A handler that mentains the connection status with the messaging system.</p>
+<h5 id="exception_4">Exception</h5>
+<ul>
+<li>ConnectionError<ul>
+<li>Error connecting to the broker.</li>
+</ul>
+</li>
+<li>AlreadyConnectedError<ul>
+<li>'open()' is called again for an object that is already connected.</li>
+</ul>
+</li>
+</ul>
+<h4 id="asyncmessagereaderclose"><code>AsyncMessageReader.close()</code></h4>
+<p>Disconnects from the broker of the messaging system.
+Implicitly invoked when using AsyncMessageReader in a 'with' statement; not intended for explicit invocation.</p>
+<h4 id="property-asyncmessagereaderon_message">Property: 'AsyncMessageReader.on_message'</h4>
+<p>Set the callback function to be invoked when the message is received.</p>
+<h3 id="23-messagewriter-class">2.3 MessageWriter Class</h3>
+<h4 id="messagewriter"><code>MessageWriter()</code></h4>
+<pre><code>MessageWriter(
+    service,
+    topic,
+    consistency=AT_MOST_ONCE,
+    client_id=DEFAULT_CLIENT_ID,
+    value_serializer=None,
+    **kwargs)
+</code></pre>
+<p>The constructor of MessageWriter class</p>
+<h5 id="parameters_2">Parameters</h5>
+<ul>
+<li>service<ul>
+<li>Service name</li>
+<li>The name must be defined in the configuration file.</li>
+</ul>
+</li>
+<li>topic<ul>
+<li>Topic name</li>
+<li>If not specified, the value specified in the configuration file will be used as default.</li>
+</ul>
+</li>
+<li>consistency<ul>
+<li>Specify the reliability of message delivery.</li>
+<li>AT_MOST_ONCE (=0)<ul>
+<li>A message may not be delivered.</li>
+</ul>
+</li>
+<li>AT_LEAST_ONCE (=1)<ul>
+<li>A message is always delivered but may be delivered many times.</li>
+</ul>
+</li>
+<li>EXACTLY_ONCE (=2)<ul>
+<li>A message is always delivered only once.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>client_id<ul>
+<li>Client name.</li>
+<li>If any of DEFAULT_CLIENT_ID, None, or an empty string is specified, the library will automatically generate a value.</li>
+</ul>
+</li>
+<li>value_type<ul>
+<li>The type name of message payload.</li>
+<li><code>MessageWriter.publish()</code> will treat the given data as the type specified here.</li>
+<li>When using the standard package, the following two type names are supported.<ul>
+<li>Set <code>"byte_array"</code> (default) to treat the payload as <code>bytes</code>.</li>
+<li>Set <code>"text"</code> to treat the payload as <code>str</code>.</li>
+</ul>
+</li>
+<li>When using a plugin pacakge, other type names may be supported.</li>
+<li>When using the image type plugin provided with SINETStream v1.1 (or later), the following type name is supported.<ul>
+<li>Set <code>"image"</code> to treat the payload as <code>numpy.ndarray</code>, which is the image data type in OpenCV.</li>
+<li>The color order in <code>numpy.ndarray</code> is BGR, which is consistent with OpenCV.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>value_serializer<ul>
+<li>The function used to encode the value to the byte array in the message.</li>
+<li>If not specified, an appropriate serializer function will be used according to <code>value_type</code>.</li>
+</ul>
+</li>
+<li>data_encryption<ul>
+<li>Enable or disable message encryption and decryption.</li>
+</ul>
+</li>
+<li>kwargs<ul>
+<li>Specify the messaging system-specific parameters as YAML mappings.</li>
+</ul>
+</li>
+</ul>
+<p>The parameters specified in <code>kwargs</code> are passed to the constructor of the backend messaging system.
+Please refer to the <a href="#messaging-system-specific-parameters">Messaging system-specific parameters</a> of for details.</p>
+<p>For the arguments other than <code>service</code>, their default values can be specified in the configuration file.
+If the same parameter is specified in both the configuration file and the constructor argument, the value specified in the constructor argument takes precedence.</p>
+<p>** Limitations: SINETStream downgrades to <code>AT_LEAST_ONCE</code> even if <code>EXACTLY_ONCE</code> is specified for Kafka <code>consistency</code>. **</p>
+<h5 id="exception_5">Exception</h5>
+<ul>
+<li>NoServiceError<ul>
+<li>The <code>service</code> corresponding to the value specified for service does not exist in the configuration file</li>
+</ul>
+</li>
+<li>NoConfigError<ul>
+<li>The configuration file does not exist or cannot be read</li>
+</ul>
+</li>
+<li>InvalidArgumentError<ul>
+<li>The format of the specified argument is incorrect.
+  When the value of <code>consistency</code> is out of range or a character string that is not allowed as a <code>topic</code> name</li>
+</ul>
+</li>
+<li>UnsupportedServiceTypeError<ul>
+<li>The plugin for the messaging system corresponding to <code>type</code> specified in the configuration file is not installed</li>
+</ul>
+</li>
+</ul>
+<h4 id="properties_2">Properties</h4>
+<p>The following properties can be used to get the parameter value specified in the configuration file or in the constructor.</p>
+<ul>
+<li><code>client_id</code></li>
+<li><code>consistency</code></li>
+<li><code>topic</code></li>
+<li><code>value_type</code></li>
+</ul>
+<h4 id="messagewriteropen"><code>MessageWriter.open()</code></h4>
+<p>Connects to the broker of the messaging system.
+Implicitly invoked when using MessageWriter in a <code>with</code> statement; not intended for explicit invocation.</p>
+<h5 id="returned-value_2">Returned value</h5>
+<p>A handler that mentains the connection status with the messaging system</p>
+<h5 id="exception_6">Exception</h5>
+<ul>
+<li>ConnectionError<ul>
+<li>Error connecting to the broker</li>
+</ul>
+</li>
+<li>AlreadyConnectedError<ul>
+<li><code>open()</code> is called again for an object that is already connected</li>
+</ul>
+</li>
+</ul>
+<h4 id="messagewriterclose"><code>MessageWriter.close()</code></h4>
+<p>Disconnects from the broker of the messaging system.
+Implicitly invoked when using MessageWriter in a <code>with</code> statement; not intended for explicit invocation.</p>
+<h4 id="messagewriterpublishmessage"><code>MessageWriter.publish(message)</code></h4>
+<p>Sends a message to the broker of the messaging system.
+The message is serialized according to the <code>value_type</code> parameter value or using the function specified by <code>value_serializer</code>.</p>
+<h5 id="exception_7">Exception</h5>
+<ul>
+<li>InvalidMessageError<ul>
+<li>The type of <code>message</code> does not match <code>value_type</code> or the function specified by <code>value_serializer</code>.</li>
+</ul>
+</li>
+<li>AuthorizationError<ul>
+<li>Tried to send messages to an unauthorized topic.</li>
+</ul>
+</li>
+</ul>
+<p>AuthorizationError does not occur in the following cases:</p>
+<ol>
+<li>When using MQTT (Mosquitto)<ul>
+<li>Because the MQTT broker raises no error for unauthorized operation.</li>
+</ul>
+</li>
+<li>When using Kafka with <code>Consistency</code> set to <code>AT_MOST_ONCE</code><ul>
+<li>Because the client does not wait for a response from the broker after sending a message.
+  Therefore, the client cannot detect an error on the broker side.</li>
+</ul>
+</li>
+</ol>
+<h3 id="24-asyncmessagewriter-class">2.4 AsyncMessageWriter Class</h3>
+<h4 id="asyncmessagewriter"><code>AsyncMessageWriter()</code></h4>
+<pre><code>AsyncMessageWriter(
+    service,
+    topic,
+    consistency=AT_MOST_ONCE,
+    client_id=DEFAULT_CLIENT_ID,
+    value_type=&quot;byte_array&quot;,
+    value_serializer=None,
+    **kwargs)
+</code></pre>
+<p>The constructor of MessageWriter class</p>
+<h5 id="parameters_3">Parameters</h5>
+<ul>
+<li>service<ul>
+<li>Service name</li>
+<li>The name must be defined in the configuration file.</li>
+</ul>
+</li>
+<li>topic<ul>
+<li>Topic name</li>
+<li>If not specified, the value specified in the configuration file will be used as default.</li>
+</ul>
+</li>
+<li>consistency<ul>
+<li>Specify the reliability of message delivery.</li>
+<li>AT_MOST_ONCE (=0)<ul>
+<li>A message may not be delivered.</li>
+</ul>
+</li>
+<li>AT_LEAST_ONCE (=1)<ul>
+<li>A message is always delivered but may be delivered many times.</li>
+</ul>
+</li>
+<li>EXACTLY_ONCE (=2)<ul>
+<li>A message is always delivered only once.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>client_id<ul>
+<li>Client name.</li>
+<li>If any of DEFAULT_CLIENT_ID, None, or an empty string is specified, the library will automatically generate a value.</li>
+</ul>
+</li>
+<li>value_type<ul>
+<li>The type name of message payload.</li>
+<li>'MessageWriter.publish()' will treat the given data as the type specified here.</li>
+<li>When using the standard package, the following two type names are supported.<ul>
+<li>Set '"byte_array"' (default) to treat the payload as 'bytes'.</li>
+<li>Set '"text"' to treat the payload as 'str'.</li>
+</ul>
+</li>
+<li>When using a plugin pacakge, other type names may be supported.</li>
+<li>When using the image type plugin provided with SINETStream, the following type name is supported.<ul>
+<li>Set '"image"' to treat the payload as 'numpy.ndarray', which is the image data type in OpenCV.</li>
+<li>The color order in 'numpy.ndarray' is BGR, which is consistent with OpenCV.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>value_serializer<ul>
+<li>The function used to encode the value to the byte array in the message.</li>
+<li>If not specified, an appropriate serializer function will be used according to 'value_type'.</li>
+</ul>
+</li>
+<li>data_encryption<ul>
+<li>Enable or disable message encryption and decryption.</li>
+</ul>
+</li>
+<li>kwargs<ul>
+<li>Specify the messaging system-specific parameters as YAML mappings.</li>
+</ul>
+</li>
+</ul>
+<p>The parameters specified in 'kwargs' are passed to the constructor of the backend messaging system.
+Please refer to the  <a href="#messaging-system-specific-parameters">Messaging system-specific parameters</a> for details.</p>
+<p>For the arguments other than service, their default values can be specified in the configuration file.
+If the same parameter is specified in both the configuration file and the constructor argument, the value specified in the constructor argument takes precedence.</p>
+<p>** Limitations: SINETStream downgrades to 'AT_LEAST_ONCE' even if 'EXACTLY_ONCE' is specified for Kafka 'consistency'. **</p>
+<h5 id="exception_8">Exception</h5>
+<ul>
+<li>NoServiceError<ul>
+<li>The service corresponding to the value specified for service does not exist in the configuration file</li>
+</ul>
+</li>
+<li>NoConfigError<ul>
+<li>The configuration file does not exist or cannot be read</li>
+</ul>
+</li>
+<li>InvalidArgumentError<ul>
+<li>The format of the specified argument is incorrect.
+  When the value of consistency is out of range or a character string that is not allowed as a topic name</li>
+</ul>
+</li>
+<li>UnsupportedServiceTypeError<ul>
+<li>The plugin for the messaging system corresponding to type specified in the configuration file is not installed</li>
+</ul>
+</li>
+</ul>
+<h4 id="properties_3">Properties</h4>
+<p>The following properties can be used to get the parameter value specified in the configuration file or in the constructor.</p>
+<ul>
+<li><code>client_id</code></li>
+<li><code>consistency</code></li>
+<li><code>topic</code></li>
+<li><code>value_type</code></li>
+</ul>
+<h4 id="asyncmessagewriteropen"><code>AsyncMessageWriter.open()</code></h4>
+<p>Connects to the broker of the messaging system.
+Implicitly invoked when using 'AsyncMessageWriter' in a with statement; not intended for explicit invocation.</p>
+<h5 id="returned-value_3">Returned value</h5>
+<p>A handler that mentains the connection status with the messaging system</p>
+<h5 id="exception_9">Exception</h5>
+<ul>
+<li>ConnectionError<ul>
+<li>Error connecting to the broker</li>
+</ul>
+</li>
+<li>AlreadyConnectedError<ul>
+<li>'open()' is called again for an object that is already connected</li>
+</ul>
+</li>
+</ul>
+<h4 id="asyncmessagewriterclose">'AsyncMessageWriter.close()'</h4>
+<p>Disconnects from the broker of the messaging system.
+Implicitly invoked when using 'AsyncMessageWriter' in a with statement; not intended for explicit invocation.</p>
+<h4 id="asyncmessagewriterpublishmessage">'AsyncMessageWriter.publish(message)'</h4>
+<p>Sends a message to the broker of the messaging system.
+The message is serialized according to the ‘value_type’ parameter or using the function specified by ‘value_serializer’ of AsyncMessageWriter and then sent it to broker.</p>
+<p>'publish(message)' is an asynchronous process and returns a promise object of promise.
+By using the methods '.then()' and '.catch()' of the Promise object,
+It is possible to set processing according to the transmission result (success or failure).
+A usage example is shown as below.</p>
+<pre><code class="language-python">with AsyncMessageWriter('service-1') as writer:
+    writer.publish(&quot;message 1&quot;).then(lambda _: print(&quot;success&quot;)).catch(lambda _: print(&quot;failure&quot;))
+</code></pre>
+<h5 id="exception_10">Exception</h5>
+<ul>
+<li>InvalidMessageError<ul>
+<li>The type of message does not match 'value_type' or the function specified by 'value_serializer'.</li>
+</ul>
+</li>
+<li>AuthorizationError<ul>
+<li>Tried to send messages to an unauthorized topic.</li>
+</ul>
+</li>
+</ul>
+<p>Depending on the messaging system, even if an unauthorized operation is performed, an AuthorizationError Exception may not occur in the following cases:</p>
+<ol>
+<li>When using MQTT (Mosquitto)<ul>
+<li>Because the MQTT broker raises no error for unauthorized operation.</li>
+</ul>
+</li>
+<li>When using Kafka with 'Consistency' set to 'AT_MOST_ONCE'<ul>
+<li>Because the client does not wait for a response from the broker after sending a message.
+  Therefore, the client cannot detect an error on the broker side.</li>
+</ul>
+</li>
+</ol>
+<h3 id="25-message-class">2.5 Message class</h3>
+<p>The wrapper class for the message object provided by the messaging system.</p>
+<h4 id="property">Property</h4>
+<p>All the properties are read only.</p>
+<ul>
+<li>value<ul>
+<li>The payload of the message (given by <code>Raw.value</code> for Kafka and <code>raw.payload</code> for MQTT).</li>
+<li>By default, a byte sequence is obtained.</li>
+<li>The type of <code>value</code> depends on the <code>value_type</code> parameter or the <code>value_deserializer</code> function specified in MessageWriter.<ul>
+<li>If <code>value_type</code> is <code>"byte_array"</code> (default), the type is <code>bytes</code>.</li>
+<li>If <code>value_type</code> is <code>"text"</code>, the type is <code>str</code>.</li>
+<li>If <code>value_deserializer</code> is specified, an object converted by this function is obtained.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>topic<ul>
+<li>The topic name.</li>
+</ul>
+</li>
+<li>timestamp<ul>
+<li>The time the message was sent (UNIX time)<ul>
+<li>Unit: second</li>
+<li>Type: float</li>
+</ul>
+</li>
+<li><code>0</code> indicates no time is set</li>
+</ul>
+</li>
+<li>timestamp_us<ul>
+<li>The time the message was sent (UNIX time)<ul>
+<li>Unit: microsecond</li>
+<li>Type: int</li>
+</ul>
+</li>
+<li><code>0</code> indicates no time is set</li>
+</ul>
+</li>
+<li>raw<ul>
+<li>The message object provided by the messaging system.</li>
+</ul>
+</li>
+</ul>
+<h3 id="26-metrics-class">2.6 Metrics Class</h3>
+<p>Metrics class
+You can get metrics information by referencing the metrics property for Reader/Writer objects.
+After close() Reader/Writer objects, you can get metrics information when it is closed (but raw is None).</p>
+<ul>
+<li>MessageReader.metrics</li>
+<li>MessageWriter.metrics</li>
+<li>AsyncMessageReader.metrics</li>
+<li>AsyncMessageWriter.metrics</li>
+</ul>
+<p>The Reader/Writer metrics are reset when the reset_metrics() method was called from the Reader/Writer class.
+If the <code>reset_raw</code> argument is set to True, the metrics of the backend messaging system will also be reset if possible.</p>
+<ul>
+<li>MessageReader.reset_metrics(reset_raw=False)</li>
+<li>MessageWriter.reset_metrics(reset_raw=False)</li>
+<li>AsyncMessageReader.reset_metrics(reset_raw=False)</li>
+<li>AsyncMessageWriter.reset_metrics(reset_raw=False)</li>
+</ul>
+<blockquote>
+<p>Eclipse Paho, an MQTT client library used in the SINETStream MQTT plugin, does not provide metrics collection capability.
+The Kafka client library has the capability, but does not provide the reset function.</p>
+</blockquote>
+<p>The metrics are measured at the boundary of the SINETStream main library and the specified messaging system plugin.
+Therefore, a stream of encrypted massages will be measured if the data encryption function provided by SINETStream is used.</p>
+<h4 id="property_1">Property</h4>
+<ul>
+<li>start_time, start_time_ms<ul>
+<li>float</li>
+<li>The Unix time when the measurement was started.<ul>
+<li>The unit of the start_time is seconds.</li>
+<li>The unit of the start_time_ms is milliseconds.</li>
+</ul>
+</li>
+<li>The time when the Reader/Writer object was created or reset.</li>
+</ul>
+</li>
+<li>end_time, end_time_ms<ul>
+<li>float</li>
+<li>The Unix time when the measurement was completed.<ul>
+<li>The unit of the end_time is seconds.</li>
+<li>The unit of the end_time_ms is milliseconds.</li>
+</ul>
+</li>
+<li>The time referenced in the metrics property.</li>
+</ul>
+</li>
+<li>time, time_ms<ul>
+<li>float</li>
+<li>Measurement time (= EndTime - StartTime).<ul>
+<li>The unit of the time is seconds.</li>
+<li>The unit of the time_ms is milliseconds.</li>
+</ul>
+</li>
+<li>= end_time - start_time</li>
+</ul>
+</li>
+<li>msg_count_total<ul>
+<li>int</li>
+<li>The cumulative number of messages sent and received.</li>
+</ul>
+</li>
+<li>msg_count_rate<ul>
+<li>float</li>
+<li>The rate of the number of messages sent and received.</li>
+<li>= msg_count_total / time</li>
+<li>return 0 if time is 0.</li>
+</ul>
+</li>
+<li>msg_bytes_total<ul>
+<li>int</li>
+<li>The Cumulative amount of messages sent and received in bytes.</li>
+</ul>
+</li>
+<li>msg_bytes_rate<ul>
+<li>float</li>
+<li>The rate of the amount of messages sent and received.</li>
+<li>= msg_bytes_total / time</li>
+<li>return 0 if time is 0.</li>
+</ul>
+</li>
+<li>msg_size_min<ul>
+<li>int</li>
+<li>The minimum size of messages sent and received in bytes.</li>
+</ul>
+</li>
+<li>msg_size_avg<ul>
+<li>float</li>
+<li>The average size of messages sent and received in bytes.</li>
+<li>= msg_bytes_total / msg_count_total</li>
+<li>return 0 if msg_count_total is 0.</li>
+</ul>
+</li>
+<li>msg_size_max<ul>
+<li>int</li>
+<li>The maximum size of messages sent and received in bytes.</li>
+</ul>
+</li>
+<li>error_count_total<ul>
+<li>int</li>
+<li>The cumulative number of errors.</li>
+</ul>
+</li>
+<li>error_count_rate<ul>
+<li>float</li>
+<li>The error rate.</li>
+<li>= error_count_total / time</li>
+<li>return 0 if time is 0.</li>
+</ul>
+</li>
+<li>raw<ul>
+<li>The metrics provided by the specified messaging system client library.</li>
+</ul>
+</li>
+</ul>
+<h4 id="examples">Examples</h4>
+<p>Display the number of received messages and its amount in bytes:</p>
+<pre><code class="language-python">from sinetstream import MessageReader
+
+reader = MessageReader('service-1', 'topic-001')
+# (1)
+with reader as f:
+    for msg in f:
+        pass
+    m = reader.metrics  # Statistics on the accumulation from (1)
+    print(f'COUNT: {m.msg_count_total}')
+    print(f'BYTES: {m.msg_bytes_total}')
+</code></pre>
+<p>Display the receive rate for every 10 messages:</p>
+<pre><code class="language-python">from sinetstream import MessageReader
+
+reader = MessageReader('service-1', 'topic-001')
+with reader as f:
+    count = 0
+    for msg in f:
+        count += 1
+        if (count == 10):
+            count = 0
+            m = reader.metrics
+            reader.reset_metrics()
+            print(f'COUNT/s: {m.msg_count_rate}')
+            print(f'BYTES/s: {m.msg_bytes_rate}')
+</code></pre>
+<h3 id="27-summary-of-exception">2.7 Summary of exception</h3>
+<table>
+<thead>
+<tr>
+<th>exception</th>
+<th>origin method</th>
+<th>reason</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>NoServiceError</code></td>
+<td><code>MessageReader()</code>, <code>MessageWriter()</code>, <code>AsyncMessageReader()</code>, <code>AsyncMessageWriter()</code></td>
+<td>The specified service name is not defined in the configuration file.</td>
+</tr>
+<tr>
+<td><code>UnsupportedServiceTypeError</code></td>
+<td><code>MessageReader()</code>, <code>MessageWriter()</code>, <code>AsyncMessageReader()</code>, <code>AsyncMessageWriter()</code></td>
+<td>The specified service type is not supported or the corresponding plugin is not installed.</td>
+</tr>
+<tr>
+<td><code>NoConfigError</code></td>
+<td><code>MessageReader()</code>, <code>MessageWriter()</code>, <code>AsyncMessageReader()</code>, <code>AsyncMessageWriter()</code></td>
+<td>The configuration file does not exist.</td>
+</tr>
+<tr>
+<td><code>InvalidArgumentError</code></td>
+<td><code>MessageReader()</code>, <code>MessageWriter()</code>, <code>AsyncMessageReader()</code>, <code>AsyncMessageWriter()</code>, <code>MessageReader.open()</code>, <code>MessageWriter.open()</code>, <code>MessageWriter.publish()</code>, <code>AsyncMessageReader().open()</code>, <code>AsyncMessageWriter().open()</code></td>
+<td>The argument is incorrect.</td>
+</tr>
+<tr>
+<td><code>ConnectionError</code></td>
+<td><code>MessageReader.open()</code>, <code>MessageWriter.open()</code>, <code>MessageWriter.publish()</code>, <code>AsyncMessageReader().open()</code>, <code>AsyncMessageWriter().open()</code></td>
+<td>Error connecting to the broker.</td>
+</tr>
+<tr>
+<td><code>AlreadyConnectedError</code></td>
+<td><code>MessageReader.open()</code>, <code>MessageWriter.open()</code>, <code>AsyncMessageReader().open()</code>, <code>AsyncMessageWriter().open()</code></td>
+<td>Already connected to a broker.</td>
+</tr>
+<tr>
+<td><code>InvalidMessageError</code></td>
+<td><code>MessageWriter.publish()</code>, <code>MessageReader.__iter__().__next__()</code></td>
+<td>The message format is incorrect.</td>
+</tr>
+<tr>
+<td><code>AuthorizationError</code></td>
+<td><code>MessageWriter.publish()</code>, <code>MessageReader.__iter__().__next__()</code></td>
+<td>An unauthorized operation was conducted</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-messaging-system-specific-parameters">3. Messaging system-specific parameters</h2>
+<p><code>kwargs</code> can be used to transparently pass parameters to the backend messaging system.
+The actual parameters that can be passed depend on the backend.
+No validation is performed.</p>
+<h3 id="31-apache-kafka">3.1 Apache Kafka</h3>
+<p>Basically, the constructor arguments to
+<a href="https://kafka-python.readthedocs.io/en/master/apidoc/KafkaConsumer.html">KafkaConsumer</a> and
+<a href="https://kafka-python.readthedocs.io/en/master/apidoc/KafkaProducer.html">KafkaProducer</a> of
+<a href="https://kafka-python.readthedocs.io/en/master/">kafka-python</a> can be specified as parameters.
+If the parameter is valid only in <code>KafkaConsumer</code> or <code>KafkaProducer</code>, it affects <code>MessageReader</code> or <code>MessageWriter</code>, respectively.</p>
+<p><a href="../config-kafka/">Kafka-specific parameters</a></p>
+<h3 id="32-mqtt-eclipse-paho">3.2 MQTT (Eclipse Paho)</h3>
+<p>Basically, the constructor arguments and the setter function (<code>XXX_set</code>) arguments of
+<a href="https://www.eclipse.org/paho/clients/python/docs/#client">paho.mqtt.client.Client</a>
+can be specified as parameters.</p>
+<p><a href="../config-mqtt/">MQTT-specific parameters</a></p>
+<h3 id="33-s3">3.3 S3</h3>
+<ul>
+<li><a href="https://translate.google.com/translate?hl=en&amp;sl=ja&amp;tl=en&amp;u=https://nii-gakunin-cloud.github.io/sinetstream/docs/userguide/config-s3.html">S3-specific parameters</a></li>
+</ul>
+<h2 id="4-how-to-show-a-cheat-sheet">4. How to show a cheat sheet</h2>
+<p>After installing SINETStream, run <code>python3 -m sinetstream</code> to show a cheat sheet.</p>
+<pre><code>$ python3 -m sinetstream
+==================================================
+Default parameters:
+MessageReader(
+    service=SERVICE,                 # Service name defined in the configuration file. (REQUIRED)
+    topics=TOPICS,                   # The topic to receive.
+    config=CONFIG,                   # Config name on the config-server.
+    consistency=AT_MOST_ONCE,        # consistency: AT_MOST_ONCE, AT_LEAST_ONCE, EXACTLY_ONCE
+    client_id=DEFAULT_CLIENT_ID,     # If not specified, the value is automatically generated.
+    value_type=BYTE_ARRAY,           # The type of message.
+    value_deserializer=None          # If not specified, use default deserializer according to valueType.
+)
+MessageWriter(
+    service=SERVICE,                 # Service name defined in the configuration file. (REQUIRED)
+    topic=TOPIC,                     # The topic to send.
+    config=CONFIG,                   # Config name on the config-server.
+    consistency=AT_MOST_ONCE,        # consistency: AT_MOST_ONCE, AT_LEAST_ONCE, EXACTLY_ONCE
+    client_id=DEFAULT_CLIENT_ID,     # If not specified, the value is automatically generated.
+    value_type=BYTE_ARRAY,           # The type of message.
+    value_serializer=None            # If not specified, use default serializer according to valueType.
+)
+AsyncMessageReader(
+    service=SERVICE,                 # Service name defined in the configuration file. (REQUIRED)
+    topics=TOPICS,                   # The topic to receive.
+    config=CONFIG,                   # Config name on the config-server.
+    consistency=AT_MOST_ONCE,        # consistency: AT_MOST_ONCE, AT_LEAST_ONCE, EXACTLY_ONCE
+    client_id=DEFAULT_CLIENT_ID,     # If not specified, the value is automatically generated.
+    value_type=BYTE_ARRAY,           # The type of message.
+    value_deserializer=None          # If not specified, use default deserializer according to valueType.
+)
+AsyncMessageWriter(
+    service=SERVICE,                 # Service name defined in the configuration file. (REQUIRED)
+    topic=TOPIC,                     # The topic to send.
+    config=CONFIG,                   # Config name on the config-server.
+    consistency=AT_MOST_ONCE,        # consistency: AT_MOST_ONCE, AT_LEAST_ONCE, EXACTLY_ONCE
+    client_id=DEFAULT_CLIENT_ID,     # If not specified, the value is automatically generated.
+    value_type=BYTE_ARRAY,           # The type of message.
+    value_serializer=None            # If not specified, use default serializer according to valueType.
+)
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <div class="site-footer-copyright">Copyright(C) National Institute of Informatics</div>
+<div class="site-footer-logo">
+  <a href="https://www.nii.ac.jp/">
+    
+    <img src="../../../images/NIIlogo_EN_ls.png" alt="NII National Institute of Informatics">
+    
+  </a>
+</div>
+<footer class="md-footer">
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.expand", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
+      
+    
+  </body>
+</html>
