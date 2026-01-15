@@ -1,0 +1,3477 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://onukiyuma.github.io/SINETStream/developer_guide/plugin_broker_java/">
+      
+      
+        <link rel="prev" href="../plugin_broker_python/">
+      
+      
+        <link rel="next" href="../plugin_value_type_python/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
+    
+    
+      
+        <title>Java - SINETStream</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../styles/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#messaging-system-java" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href="../.." title="SINETStream" class="md-header__button md-logo" aria-label="SINETStream" data-md-component="logo">
+      
+  <img src="../../images/SiNETStream.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SINETStream
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Java
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="言語切り替え">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="ja" class="md-select__link">
+              日本語
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../en/developer_guide/plugin_broker_java/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="検索">
+        
+        <button type="reset" class="md-search__icon md-icon" title="クリア" aria-label="クリア" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="タブ" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../docm/" class="md-tabs__link">
+          
+  
+  SINETStreamについて
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../tutorial/" class="md-tabs__link">
+          
+  
+  チュートリアル
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../userguide/" class="md-tabs__link">
+          
+  
+  ユーザガイド
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  プラグイン開発ガイド
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="SINETStream" class="md-nav__button md-logo" aria-label="SINETStream" data-md-component="logo">
+      
+  <img src="../../images/SiNETStream.png" alt="logo">
+
+    </a>
+    SINETStream
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    SINETStreamについて
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            SINETStreamについて
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ドキュメント
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../performance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SINETStream性能測定結果
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../livedemo/livedemo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SINETStreamのライブデモ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    SINETStreamサーバ構築手順
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            SINETStreamサーバ構築手順
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../server/brokers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    サーバ構築手順
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../server/brokers/%E3%83%97%E3%83%A9%E3%82%A4%E3%83%99%E3%83%BC%E3%83%88%E8%AA%8D%E8%A8%BC%E5%B1%80%E3%81%A7%E8%A8%BC%E6%98%8E%E6%9B%B8%E3%82%92%E4%BD%9C%E6%88%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    プライベート認証局で証明書を作成する
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../server/brokers/Kafkabroker%E3%81%AE%E6%A7%8B%E7%AF%89%E6%89%8B%E9%A0%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kafka brokerの構築手順
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../server/brokers/mosquitto%E6%A7%8B%E7%AF%89%E6%89%8B%E9%A0%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    mosquitto(MQTT broker)の構築手順
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CHANGELOG/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    更新履歴
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    チュートリアル
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            チュートリアル
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Python/Java版
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Python/Java版
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    クイックスタートガイド
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/TUTORIAL-STEP1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    STEP1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/TUTORIAL-STEP2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    STEP2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Android版
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Android版
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    クイックスタートガイド
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_2" id="__nav_3_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    sinetstream-android-echo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            sinetstream-android-echo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/TUTORIAL-android-step1-overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    テキスト送受信アプリの実行
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/TUTORIAL-android-step1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ANDROID-STEP1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    sinetstream-android-sensor-publisher
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            sinetstream-android-sensor-publisher
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/TUTORIAL-android-step2-overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    センサ情報収集アプリの実行
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/TUTORIAL-android-step2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ANDROID-STEP2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/TUTORIAL-android-step2-webbrowser/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    センサーデータ可視化用のウェブインタフェース
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/TUTORIAL-android-step2-location/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    端末位置情報の自動更新
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/sinetstreamhelper-tutorial-container/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SINETStream Android Tutorial Container
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/TUTORIAL-android-install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Androidサンプルアプリケーションの導入
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/TUTORIAL-android-keychain/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    システム秘匿領域への証明書ファイルの導入
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/sinetstreamhelper-tutorial-container/TUTORIAL-docker-container/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DOCKER-CONTAINER
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    ユーザガイド
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            ユーザガイド
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../userguide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ユーザガイド
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../userguide/api-python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../userguide/api-java/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Android版
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            Android版
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../userguide/android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SINETStream for Android ユーザガイド
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../userguide/api-android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Android版SINETStreamライブラリ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="http://javadoc.android.sinetstream.net/sinetstream-android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API (Javadoc)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../userguide/config-android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Android版のSINETStream設定ファイル
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../userguide/config-client-android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Android版の設定クライアント
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    SINETStreamHelper
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            SINETStreamHelper
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../userguide/libhelper/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SINETStreamHelper ユーザガイド
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../userguide/api-libhelper/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SINETStreamHelperライブラリ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="http://javadoc.android.sinetstream.net/sinetstream-android-helper/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API (Javadoc)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../userguide/config/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    設定ファイル
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../userguide/auth/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    認証と認可
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/nii-gakunin-cloud/sinetstream/blob/main/java/sample/cli/README.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CLI(Command Line Interface)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../userguide/compat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    互換性
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    プラグイン開発ガイド
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            プラグイン開発ガイド
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    開発者ガイド
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Messaging system
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Messaging system
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plugin_broker_python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Java
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Java
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. はじめに
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. はじめに">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 対象者
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 前提知識
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-sinetstream" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. SINETStream の内部構造について
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. SINETStream の内部構造について">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 モジュール構成
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 処理シーケンス
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 処理シーケンス">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-messagereader" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.1 MessageReader
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-messagewriter" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.2 MessageWriter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#223-asyncmessagereader" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.3 AsyncMessageReader
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#224-asyncmessagewriter" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.4 AsyncMessageWriter
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. プラグインの実装方法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. プラグインの実装方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 概要
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 プロバイダ構成ファイルの作成
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 サービスプロバイダの実装
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 サービスプロバイダの実装">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#331-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.1 メッセージ送信(同期API)のためのクラス
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#332-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.2 メッセージ受信(同期API)のためのクラス
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#333-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.3 メッセージ送信(非同期API)のためのクラス
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#334-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.4 メッセージ受信(非同期API)のためのクラス
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. プラグインの実装例
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. プラグインの実装例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 ファイル構成
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 実装クラス
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2 実装クラス">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#421-queuemessageproviderjava" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2.1 QueueMessageProvider.java
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#422-queuemessagereaderjava" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2.2 QueueMessageReader.java
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#423-queuemessagewriterjava" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2.3 QueueMessageWriter.java
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#424-queueasyncmessagereaderjava" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2.4 QueueAsyncMessageReader.java
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#425-queueasyncmessagewriterjava" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2.5 QueueAsyncMessageWriter.java
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 プロバイダ構成ファイルの作成
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-jar" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.4 jarファイルの作成
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.5 ソースコード
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    message type
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            message type
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plugin_value_type_python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plugin_value_type_java/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    compression
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            compression
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plugin_compression_python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plugin_compression_java/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../message_format/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    メッセージフォーマット
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. はじめに
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. はじめに">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 対象者
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 前提知識
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-sinetstream" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. SINETStream の内部構造について
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. SINETStream の内部構造について">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 モジュール構成
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 処理シーケンス
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 処理シーケンス">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-messagereader" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.1 MessageReader
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-messagewriter" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.2 MessageWriter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#223-asyncmessagereader" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.3 AsyncMessageReader
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#224-asyncmessagewriter" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.4 AsyncMessageWriter
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. プラグインの実装方法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. プラグインの実装方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 概要
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 プロバイダ構成ファイルの作成
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 サービスプロバイダの実装
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 サービスプロバイダの実装">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#331-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.1 メッセージ送信(同期API)のためのクラス
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#332-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.2 メッセージ受信(同期API)のためのクラス
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#333-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.3 メッセージ送信(非同期API)のためのクラス
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#334-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.4 メッセージ受信(非同期API)のためのクラス
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. プラグインの実装例
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. プラグインの実装例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 ファイル構成
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 実装クラス
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2 実装クラス">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#421-queuemessageproviderjava" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2.1 QueueMessageProvider.java
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#422-queuemessagereaderjava" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2.2 QueueMessageReader.java
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#423-queuemessagewriterjava" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2.3 QueueMessageWriter.java
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#424-queueasyncmessagereaderjava" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2.4 QueueAsyncMessageReader.java
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#425-queueasyncmessagewriterjava" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2.5 QueueAsyncMessageWriter.java
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 プロバイダ構成ファイルの作成
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-jar" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.4 jarファイルの作成
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.5 ソースコード
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<!--
+Copyright (C) 2020 National Institute of Informatics
+
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+
+<p><a href="https://translate.google.com/translate?hl=en&amp;sl=ja&amp;tl=en&amp;u=https://nii-gakunin-cloud.github.io/sinetstream/docs/developer_guide/plugin_broker_java.html" title="google translate">English</a></p>
+<h1 id="messaging-system-java">プラグイン開発ガイド(Messaging system / Java)</h1>
+<p>新たなメッセージングシステムをSINETStream (Java)で扱えるようにするためのプラグインを開発する手順について説明します。</p>
+<h2 id="1">1. はじめに</h2>
+<p>SINETStream v1.2では以下に示すメッセージングシステムに対応しています。</p>
+<ul>
+<li><a href="https://kafka.apache.org/">Apache Kafka</a></li>
+<li><a href="http://mqtt.org/">MQTT</a></li>
+</ul>
+<p>上記のメッセージングシステムに対応するための処理はプラグインとして実装されています。
+さらに、新たなプラグインを実装することで、
+上記に示したメッセージングシステム以外のものをSINETStreamで扱えるようになります。</p>
+<p>このドキュメントでは新たなメッセージングシステムをサポートするためのプラグインを開発する手順について説明します。</p>
+<h3 id="11">1.1 対象者</h3>
+<p>このドキュメントが対象としている読者を以下に示します。</p>
+<ul>
+<li>SINETStreamで新たなメッセージングシステムを利用できるようにしたい開発者</li>
+<li>SINETStream内部の詳細について理解したい開発者</li>
+</ul>
+<h3 id="12">1.2 前提知識</h3>
+<p>このドキュメントの説明は、以下の知識を有していることを前提としています。</p>
+<ul>
+<li>Java 8</li>
+<li><a href="https://docs.oracle.com/javase/jp/8/docs/api/java/util/ServiceLoader.html">ServiceLoader</a>の利用方法</li>
+<li>SINETStream の Java APIの利用方法、設定ファイルの記述方法</li>
+</ul>
+<h2 id="2-sinetstream">2. SINETStream の内部構造について</h2>
+<p>プラグインを開発する手順を説明する前に、開発の際に必要となるSINETStreamの内部構造について説明します。</p>
+<h3 id="21">2.1 モジュール構成</h3>
+<p>SINETStreamのモジュール構成を以下の図に示します。</p>
+<p><img alt="モジュール構成" src="../images/SINETStream-module.png" /></p>
+<p>青枠で示した部分がSINETStream本体です。
+この部分はメッセージングシステムによらない機能を提供しています。
+緑枠で示した部分がSINETStreamのプラグインです。
+メッセージングシステムとのインターフェイスはこの部分に閉じた実装となります。
+各メッセージングシステムに対する操作は、SPIを実装したプラグインを介して行われます。</p>
+<p>モジュールの各部分についての簡単な説明を以下に記します。</p>
+<ul>
+<li>SINETStream本体<ul>
+<li>API<ul>
+<li>ライブラリとしてSINETStreamを利用する場合のインターフェースを定める</li>
+</ul>
+</li>
+<li>SPI<ul>
+<li>SINETStream本体とプラグインとの間のインターフェースを定める</li>
+</ul>
+</li>
+<li>シリアライザ<ul>
+<li>APIが受け取ったオブジェクトをバイト列に変換する機能</li>
+</ul>
+</li>
+<li>デシリアライザ<ul>
+<li>メッセージングシステムから取得したバイト列をオブジェクトに変換する機能</li>
+</ul>
+</li>
+<li>メタデータの埋め込み<ul>
+<li>メッセージにメタデータを付加する機能</li>
+<li>SINETStream v1.1 で付加するメタデータはメッセージ送信のタイムスタンプとなる</li>
+</ul>
+</li>
+<li>メタデータの取り出し<ul>
+<li>メッセージに付加されているメタデータを取り出す機能</li>
+</ul>
+</li>
+<li>暗号化<ul>
+<li>メッセージの暗号化を行う機能</li>
+</ul>
+</li>
+<li>復号化<ul>
+<li>暗号化されたメッセージを復号する機能</li>
+</ul>
+</li>
+<li>設定ファイル読み込み<ul>
+<li>SINETStreamの設定ファイルを読み込む機能</li>
+</ul>
+</li>
+<li>プラグイン管理<ul>
+<li>SINETStreamのプラグインを管理する機能</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>プラグイン<ul>
+<li>Kafkaプラグイン<ul>
+<li>Kafkaブローカとの間でメッセージの送受信を行う機能</li>
+<li>実際の処理はApache Kafka <a href="https://kafka.apache.org/24/javadoc/index.html?org/apache/kafka/clients/producer/KafkaProducer.html">Producer</a>, <a href="https://kafka.apache.org/24/javadoc/index.html?org/apache/kafka/clients/consumer/KafkaConsumer.html">Consumer</a>の機能を呼び出すことで実現している</li>
+</ul>
+</li>
+<li>MQTTプラグイン<ul>
+<li>MQTTブローカとの間でメッセージの送受信を行う機能</li>
+<li>実際の処理は<a href="https://www.eclipse.org/paho/clients/java/">Eclipse Paho</a>の機能を呼び出すことで実現している</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="22">2.2 処理シーケンス</h3>
+<p>SINETStreamでメッセージの送受信を行うためのクラスMessageReader, MesageWriter, AsyncMessageReader, AsyncMessageWriter の処理シーケンスについて説明します。</p>
+<h4 id="221-messagereader">2.2.1 MessageReader</h4>
+<p>以下に示すメッセージ受信処理を SINETStreamで行った場合のシーケンス図を示します。
+ここではKafkaブローカーからメッセージを受信することを想定しています。</p>
+<pre><code class="language-java">MessageReaderFactory&lt;String&gt; factory =
+    MessageReaderFactory.&lt;String&gt;builder()
+            .service(&quot;kafka-service&quot;)
+            .build();
+
+try (MessageReader&lt;String&gt; reader = factory.getReader()) {
+    Message&lt;String&gt; msg;
+    while (Objects.nonNull(msg = reader.read())) {
+        System.out.print(msg.getValue());
+    }
+}
+</code></pre>
+<p><img alt="MessageReader" src="../images/reader_sequence_java.png" /></p>
+<p>図中のクラスについての簡単な説明を以下に記します。</p>
+<ul>
+<li>ユーザプログラム<ul>
+<li>SINETStreamを利用するユーザプログラム</li>
+</ul>
+</li>
+<li>MessageReaderFactory<ul>
+<li><code>MessageReader</code>のファクトリクラス</li>
+</ul>
+</li>
+<li>MessageReader<ul>
+<li>ユーザプログラムに対して、SINETStreamのメッセージ受信APIを提供するインタフェース</li>
+</ul>
+</li>
+<li>KafkaMessageReader<ul>
+<li>Kafkaブローカーからメッセージを受信するKafkaプラグインのクラス</li>
+</ul>
+</li>
+<li>KafkaMessageProvider<ul>
+<li>Kafkaのサービスクラス</li>
+</ul>
+</li>
+<li>ServiceLoader<ul>
+<li>登録されているサービスをロードする</li>
+</ul>
+</li>
+</ul>
+<h4 id="222-messagewriter">2.2.2 MessageWriter</h4>
+<p>以下に示すメッセージ送信処理を SINETStreamで行った場合のシーケンス図を示します。
+ここではKafkaブローカーにメッセージを送信することを想定しています。</p>
+<pre><code class="language-java">MessageWriterFactory&lt;String&gt; factory =
+    MessageWriterFactory.&lt;String&gt;builder()
+            .service(&quot;kafka-service&quot;)
+            .build();
+
+try (MessageWriter&lt;String&gt; writer = factory.getWriter()) {
+    for (String msg : messages) {
+        writer.write(msg);
+    }
+}
+</code></pre>
+<p><img alt="MessageWriter" src="../images/writer_sequence_java.png" /></p>
+<p>図中のクラスについての簡単な説明を以下に記します。</p>
+<ul>
+<li>ユーザプログラム<ul>
+<li>SINETStreamを利用するユーザプログラム</li>
+</ul>
+</li>
+<li>MessageWriterFactory<ul>
+<li><code>MessageWriter</code>のファクトリクラス</li>
+</ul>
+</li>
+<li>MessageWriter<ul>
+<li>ブローカーにメッセージを送信するSINETStreamのクラス</li>
+</ul>
+</li>
+<li>KafkaMessageWriter<ul>
+<li>ユーザプログラムに対して、SINETStreamのメッセージ送信APIを提供するインタフェース</li>
+</ul>
+</li>
+<li>KafkaMessageProvider<ul>
+<li>Kafkaのサービスクラス</li>
+</ul>
+</li>
+<li>ServiceLoader<ul>
+<li>登録されているサービスをロードする</li>
+</ul>
+</li>
+</ul>
+<h4 id="223-asyncmessagereader">2.2.3 AsyncMessageReader</h4>
+<p>以下に示す非同期APIのメッセージ受信処理を SINETStreamで行った場合のシーケンス図を示します。
+ここではKafkaブローカーからメッセージを受信することを想定しています。</p>
+<pre><code class="language-java">MessageReaderFactory&lt;String&gt; factory =
+    MessageReaderFactory.&lt;String&gt;builder()
+            .service(&quot;kafka-service&quot;)
+            .build();
+
+try (AsyncMessageReader&lt;String&gt; reader = factory.getAsyncReader()) {
+    reader.addOnMessageCallback((message) -&gt; {
+        System.out.print(msg.getValue());
+    });
+
+    // 他の処理
+    otherTask();
+}
+</code></pre>
+<p><img alt="AsyncMessageReader" src="../images/async_reader_sequence_java.png" /></p>
+<p>図中のクラスについての簡単な説明を以下に記します。</p>
+<ul>
+<li>ユーザプログラム<ul>
+<li>SINETStreamを利用するユーザプログラム</li>
+</ul>
+</li>
+<li>MessageReaderFactory<ul>
+<li><code>AsyncMessageReader</code>のファクトリクラス</li>
+</ul>
+</li>
+<li>AsyncMessageReader<ul>
+<li>ユーザプログラムに対して、SINETStreamの非同期メッセージ受信APIを提供するインタフェース</li>
+</ul>
+</li>
+<li>KafkaAsyncMessageReader<ul>
+<li>Kafkaブローカーからメッセージを非同期受信するKafkaプラグインのクラス</li>
+</ul>
+</li>
+<li>KafkaMessageProvider<ul>
+<li>Kafkaのサービスクラス</li>
+</ul>
+</li>
+<li>ServiceLoader<ul>
+<li>登録されているサービスをロードする</li>
+</ul>
+</li>
+</ul>
+<h4 id="224-asyncmessagewriter">2.2.4 AsyncMessageWriter</h4>
+<p>以下に示す非同期APIのメッセージ送信処理を SINETStreamで行った場合のシーケンス図を示します。
+ここではKafkaブローカーにメッセージを送信することを想定しています。</p>
+<pre><code class="language-java">MessageWriterFactory&lt;String&gt; factory =
+    MessageWriterFactory.&lt;String&gt;builder()
+            .service(&quot;kafka-service&quot;)
+            .build();
+
+try (AsyncMessageWriter&lt;String&gt; writer = factory.getAsyncWriter()) {
+    for (String msg : messages) {
+        writer.write(msg)
+            .then(r -&gt; System.err.println(&quot;success&quot;));
+    }
+}
+</code></pre>
+<p><img alt="MessageWriter" src="../images/async_writer_sequence_java.png" /></p>
+<p>図中のクラスについての簡単な説明を以下に記します。</p>
+<ul>
+<li>ユーザプログラム<ul>
+<li>SINETStreamを利用するユーザプログラム</li>
+</ul>
+</li>
+<li>MessageWriterFactory<ul>
+<li><code>MessageWriter</code>のファクトリクラス</li>
+</ul>
+</li>
+<li>AsyncMessageWriter<ul>
+<li>ブローカーにメッセージを非同期で送信するSINETStreamのクラス</li>
+</ul>
+</li>
+<li>KafkaMessageWriter<ul>
+<li>ユーザプログラムに対して、SINETStreamの非同期メッセージ送信APIを提供するインタフェース</li>
+</ul>
+</li>
+<li>KafkaMessageProvider<ul>
+<li>Kafkaのサービスクラス</li>
+</ul>
+</li>
+<li>ServiceLoader<ul>
+<li>登録されているサービスをロードする</li>
+</ul>
+</li>
+</ul>
+<h2 id="3">3. プラグインの実装方法</h2>
+<h3 id="31">3.1 概要</h3>
+<p>SINETStreamでは <a href="https://docs.oracle.com/javase/jp/8/docs/api/java/util/ServiceLoader.html">ServiceLoader</a> を用いてプラグインを実現しています。
+プラグインを作成するためには以下の作業が必要となります。</p>
+<ul>
+<li>プロバイダ構成ファイルの作成</li>
+<li>サービスプロバイダの実装</li>
+</ul>
+<p>それぞれの作業項目の詳細について以下に記します。</p>
+<h3 id="32">3.2 プロバイダ構成ファイルの作成</h3>
+<p>プロバイダ構成ファイルにサービスプロバイダを登録することで、
+ServiceLoaderがプラグインを見つけることができるようになります。</p>
+<p>構成ファイルはリソースディレクトリの<code>META-INF/services/</code>に配置します。
+ファイル名はサービスプロバイダの完全修飾クラス名にする必要があります。
+SINETStreamのメッセージ受信、送信に対応するサービスプロバイダの場合、以下のファイル名となります。</p>
+<ul>
+<li>メッセージ受信(同期API)に対応するサービスプロバイダ<ul>
+<li><code>jp.ad.sinet.stream.spi.MessageReaderProvider</code></li>
+</ul>
+</li>
+<li>メッセージ送信(同期API)に対応するサービスプロバイダ<ul>
+<li><code>jp.ad.sinet.stream.spi.MessageWriterProvider</code></li>
+</ul>
+</li>
+<li>メッセージ受信(非同期API)に対応するサービスプロバイダ<ul>
+<li><code>jp.ad.sinet.stream.spi.AsyncMessageReaderProvider</code></li>
+</ul>
+</li>
+<li>メッセージ送信(非同期API)に対応するサービスプロバイダ<ul>
+<li><code>jp.ad.sinet.stream.spi.AsyncMessageWriterProvider</code></li>
+</ul>
+</li>
+</ul>
+<p>構成ファイルには、サービスプロバイダの実装クラスを完全修飾名で１クラス1行で記述します。</p>
+<p>例えば Kafkaブローカーにメッセージ送信を行うクラス<code>jp.ad.sinet.stream.plugins.kafka.KafkaMessageProvider</code>を登録する場合、
+以下の内容を構成ファイル<code>META-INF/services/jp.ad.sinet.stream.spi.MessageWriterProvider</code>に記します。</p>
+<pre><code>jp.ad.sinet.stream.plugins.kafka.KafkaMessageProvider
+</code></pre>
+<p>SINETStreamには４つのサービスプロバイダがありますが、１つのプラグインで全てのサービスプロバイダに対応する必要はありません。
+サポートするものに対応する構成ファイルのみを作成してください。</p>
+<h3 id="33">3.3 サービスプロバイダの実装</h3>
+<h4 id="331-api">3.3.1 メッセージ送信(同期API)のためのクラス</h4>
+<p>メッセージ送信(同期API)を行うサービスプロバイダを実装するには、
+以下に示すインターフェースの実装クラスを作成する必要があります。</p>
+<ul>
+<li><code>jp.ad.sinet.stream.spi.MessageWriterProvider</code><ul>
+<li>サービスプロバイダインタフェース</li>
+</ul>
+</li>
+<li><code>jp.ad.sinet.stream.spi.PluginMessageWriter</code><ul>
+<li>メッセージ送信処理のインタフェース</li>
+</ul>
+</li>
+</ul>
+<p><code>MessageWriterProvider</code>のメソッドを以下に示します。</p>
+<ul>
+<li><code>PluginMessageWriter getWriter(WriterParameters params)</code><ul>
+<li>メッセージングシステム固有の送信処理を行うWriterクラスを返す</li>
+<li>引数の<code>params</code>を通してSINETStreamの設定ファイルまたはファクトリクラス<code>MessageWriterFactory</code>で設定したパラメータが渡される</li>
+</ul>
+</li>
+<li><code>String getType()</code><ul>
+<li>メッセージングシステムのタイプを表す名前を返す</li>
+<li>メッセージングシステム固有の処理については、このメソッドが返す値と設定ファイルの <code>type</code> に指定された値が一致したプラグインによって処理される</li>
+</ul>
+</li>
+</ul>
+<p><code>PluginMessageWriter</code>の主なメソッドを以下に示します。</p>
+<ul>
+<li><code>void write(byte[] message)</code><ul>
+<li>ブローカーにメッセージを送信する</li>
+</ul>
+</li>
+<li><code>void close()</code><ul>
+<li>ブローカーとの接続を切断する</li>
+</ul>
+</li>
+<li><code>Object getMetrics()</code><ul>
+<li>サービスプロバイダ固有のメトリクス情報を返す</li>
+<li>固有の情報がなければ<code>null</code>を返す</li>
+</ul>
+</li>
+<li><code>void resetMetrics()</code><ul>
+<li>サービスプロバイダ固有のメトリクス情報をリセットする</li>
+</ul>
+</li>
+</ul>
+<h4 id="332-api">3.3.2 メッセージ受信(同期API)のためのクラス</h4>
+<p>メッセージ受信(同期API)を行うサービスプロバイダを実装するには、
+以下に示すインターフェースの実装クラスを作成する必要がある。</p>
+<ul>
+<li><code>jp.ad.sinet.stream.spi.MessageReaderProvider</code><ul>
+<li>メッセージングシステム固有の受信処理を行うReaderクラスを返す</li>
+</ul>
+</li>
+<li><code>jp.ad.sinet.stream.spi.PluginMessageReader</code><ul>
+<li>メッセージ受信処理のインタフェース</li>
+</ul>
+</li>
+</ul>
+<p><code>MessageReaderProvider</code>のメソッドを以下に示します。</p>
+<ul>
+<li><code>PluginMessageReader getReader(ReaderParameters params)</code><ul>
+<li>メッセージングシステム固有の受信処理を行うReaderクラスを返す</li>
+<li>引数の<code>params</code>を通してSINETStreamの設定ファイルまたはファクトリクラス<code>MessageReaderFactory</code>で設定したパラメータが渡される</li>
+</ul>
+</li>
+<li><code>String getType()</code><ul>
+<li>メッセージングシステムのタイプを表す名前を返す</li>
+<li>メッセージングシステム固有の処理については、このメソッドが返す値と設定ファイルの <code>type</code> に指定された値が一致したプラグインによって処理される</li>
+</ul>
+</li>
+</ul>
+<p><code>PluginMessageReader</code>の主なメソッドを以下に示します。</p>
+<ul>
+<li><code>PluginMessageWrapper read()</code><ul>
+<li>ブローカーのメッセージを受信する</li>
+</ul>
+</li>
+<li><code>void close()</code><ul>
+<li>ブローカーとの接続を切断する</li>
+</ul>
+</li>
+<li><code>Object getMetrics()</code><ul>
+<li>サービスプロバイダ固有のメトリクス情報を返す</li>
+<li>固有の情報がなければ<code>null</code>を返す</li>
+</ul>
+</li>
+</ul>
+<h4 id="333-api">3.3.3 メッセージ送信(非同期API)のためのクラス</h4>
+<p>メッセージ送信(非同期API)を行うサービスプロバイダを実装するには、
+以下に示すインターフェースの実装クラスを作成する必要があります。</p>
+<ul>
+<li><code>jp.ad.sinet.stream.spi.AsyncMessageWriterProvider</code><ul>
+<li>サービスプロバイダインタフェース</li>
+</ul>
+</li>
+<li><code>jp.ad.sinet.stream.spi.PluginAsyncMessageWriter</code><ul>
+<li>メッセージ送信処理のインタフェース</li>
+</ul>
+</li>
+</ul>
+<p><code>AsyncMessageWriterProvider</code>のメソッドを以下に示します。</p>
+<ul>
+<li><code>PluginAsyncMessageWriter getAsyncWriter(WriterParameters params)</code><ul>
+<li>メッセージングシステム固有の送信処理を行うWriterクラスを返す</li>
+<li>引数の<code>params</code>を通してSINETStreamの設定ファイルまたはファクトリクラス<code>MessageWriterFactory</code>で設定したパラメータが渡される</li>
+</ul>
+</li>
+<li><code>String getType()</code><ul>
+<li>メッセージングシステムのタイプを表す名前を返す</li>
+<li>メッセージングシステム固有の処理については、このメソッドが返す値と設定ファイルの <code>type</code> に指定された値が一致したプラグインによって処理される</li>
+</ul>
+</li>
+</ul>
+<p><code>PluginAsyncMessageWriter</code>の主なメソッドを以下に示します。</p>
+<ul>
+<li><code>Promise&lt;?, ? extends Throwable, ?&gt; write(byte[] message)</code><ul>
+<li>ブローカーにメッセージを送信する</li>
+<li>戻り値は<a href="https://github.com/jdeferred/jdeferred">JDeferred</a> の<code>Promise</code>を返す</li>
+</ul>
+</li>
+<li><code>void close()</code><ul>
+<li>ブローカーとの接続を切断する</li>
+</ul>
+</li>
+<li><code>Object getMetrics()</code><ul>
+<li>サービスプロバイダ固有のメトリクス情報を返す</li>
+<li>固有の情報がなければ<code>null</code>を返す</li>
+</ul>
+</li>
+</ul>
+<h4 id="334-api">3.3.4 メッセージ受信(非同期API)のためのクラス</h4>
+<p>メッセージ受信(非同期API)を行うサービスプロバイダを実装するには、
+以下に示すインターフェースの実装クラスを作成する必要がある。</p>
+<ul>
+<li><code>jp.ad.sinet.stream.spi.AsyncMessageReaderProvider</code><ul>
+<li>メッセージングシステム固有の受信処理を行うReaderクラスを返す</li>
+</ul>
+</li>
+<li><code>jp.ad.sinet.stream.spi.PluginAsyncMessageReader</code><ul>
+<li>メッセージ受信処理のインタフェース</li>
+</ul>
+</li>
+</ul>
+<p><code>AsyncMessageReaderProvider</code>のメソッドを以下に示します。</p>
+<ul>
+<li><code>PluginAsyncMessageReader getAsyncReader(ReaderParameters params)</code><ul>
+<li>メッセージングシステム固有の受信処理を行うReaderクラスを返す</li>
+<li>引数の<code>params</code>を通してSINETStreamの設定ファイルまたはファクトリクラス<code>MessageReaderFactory</code>で設定したパラメータが渡される</li>
+</ul>
+</li>
+<li><code>String getType()</code><ul>
+<li>メッセージングシステムのタイプを表す名前を返す</li>
+<li>メッセージングシステム固有の処理については、このメソッドが返す値と設定ファイルの <code>type</code> に指定された値が一致したプラグインによって処理される</li>
+</ul>
+</li>
+</ul>
+<p><code>PluginAsyncMessageReader</code>の主なメソッドを以下に示します。</p>
+<ul>
+<li>
+<p><code>void addOnMessageCallback(Consumer&lt;PluginMessageWrapper&gt; onMessage)</code></p>
+<ul>
+<li>メッセージを受信したときに呼び出すコールバック関数<code>onMessage</code>を登録する</li>
+<li>コールバック関数はSINETStreamがデシリアライズする前のメッセージをラップした<code>PluginMessageWrapper</code>のオブジェクトを引数で渡す</li>
+</ul>
+</li>
+<li>
+<p><code>void addOnMessageCallback(Consumer&lt;PluginMessageWrapper&gt; onMessage, Consumer&lt;Throwable&gt; onFailure)</code></p>
+<ul>
+<li>メッセージ受信したときのコールバック関数<code>onMessage</code>、エラーが発生したときのコールバック関数<code>onFailure</code>を登録する</li>
+<li>引数に<code>null</code>が指定された場合、対応するコールバック関数は登録されない</li>
+<li>コールバック関数<code>onFailure</code>はエラーが発生した際の例外オブジェクトが引数で渡される</li>
+</ul>
+</li>
+<li><code>void close()</code><ul>
+<li>ブローカーとの接続を切断する</li>
+</ul>
+</li>
+<li><code>Object getMetrics()</code><ul>
+<li>サービスプロバイダ固有のメトリクス情報を返す</li>
+<li>固有の情報がなければ<code>null</code>を返す</li>
+</ul>
+</li>
+</ul>
+<h2 id="4">4. プラグインの実装例</h2>
+<p>プラグイン実装の具体的な手順を示すために実装例を示します。</p>
+<p>ここで示す実装例では実際のブローカーにアクセスするのではなく、
+プロセス内で<code>java.util.Queue</code>オブジェクトを利用したデータの受け渡しを行う処理をSINETStreamのプラグインとして実現します。</p>
+<h3 id="41">4.1 ファイル構成</h3>
+<p>以下のファイルを作成します。</p>
+<ul>
+<li>src/main/java/ssplugin/<ul>
+<li>QueueMessageProvider.java</li>
+<li>QueueMessage.java</li>
+<li>QueueMessageReader.java</li>
+<li>QueueMessageWriter.java</li>
+<li>QueueAsyncMessageReader.java</li>
+<li>QueueAsyncMessageWriter.java</li>
+</ul>
+</li>
+<li>src/main/resources/META-INF/services/<ul>
+<li>jp.ad.sinet.stream.spi.MessageReaderProvider</li>
+<li>jp.ad.sinet.stream.spi.MessageWriterProvider</li>
+<li>jp.ad.sinet.stream.spi.AsyncMessageReaderProvider</li>
+<li>jp.ad.sinet.stream.spi.AsyncMessageWriterProvider</li>
+</ul>
+</li>
+<li>build.gradle</li>
+<li>settings.gradle</li>
+</ul>
+<h3 id="42">4.2 実装クラス</h3>
+<p>プラグインとして実装するクラスについて説明します。</p>
+<blockquote>
+<p>ここでは主な処理についてのみの説明となります。サンプルコード全体を確認する場合は「<a href="#45-ソースコード">ソースコード</a>」のリンク先を参照してください。</p>
+</blockquote>
+<h4 id="421-queuemessageproviderjava">4.2.1 QueueMessageProvider.java</h4>
+<p>プラグインのプロバイダインタフェース<code>MessageReaderProvider</code>, <code>MessageWriterProvider</code>を実装したクラスになります。</p>
+<pre><code class="language-java">public class QueueMessageProvider implements MessageReaderProvider, MessageWriterProvider,
+        AsyncMessageReaderProvider, AsyncMessageWriterProvider {
+
+    private static final ConcurrentMap&lt;String, BlockingQueue&lt;QueueMessage&gt;&gt; queues = new ConcurrentHashMap&lt;&gt;();
+
+    @Override
+    public String getType() {
+        return &quot;queue&quot;;
+    }
+
+    @Override
+    public PluginMessageReader getReader(ReaderParameters params) {
+        String topic = params.getTopics().get(0);
+        BlockingQueue&lt;QueueMessage&gt; queue = queues.computeIfAbsent(topic, key -&gt; new LinkedBlockingQueue&lt;&gt;());
+        return new QueueMessageReader(params, queue);
+    }
+
+    @Override
+    public PluginMessageWriter getWriter(WriterParameters params) {
+        String topic = params.getTopic();
+        BlockingQueue&lt;QueueMessage&gt; queue = queues.computeIfAbsent(topic, key -&gt; new LinkedBlockingQueue&lt;&gt;());
+        return new QueueMessageWriter(params, queue);
+    }
+
+    @Override
+    public PluginAsyncMessageReader getAsyncReader(ReaderParameters params) {
+        String topic = params.getTopics().get(0);
+        BlockingQueue&lt;QueueMessage&gt; queue = queues.computeIfAbsent(topic, key -&gt; new LinkedBlockingQueue&lt;&gt;());
+        return new QueueAsyncMessageReader(params, queue);
+    }
+
+    @Override
+    public PluginAsyncMessageWriter getAsyncWriter(WriterParameters params) {
+        String topic = params.getTopic();
+        BlockingQueue&lt;QueueMessage&gt; queue = queues.computeIfAbsent(topic, key -&gt; new LinkedBlockingQueue&lt;&gt;());
+        return new QueueAsyncMessageWriter(params, queue);
+    }
+}
+</code></pre>
+<p><code>getType()</code>でメッセージングシステムのタイプ名を返します。
+<code>getReader()</code>でプラグインの<code>PluginMessageReader</code>実装となる<code>QueueMessageReader</code>オブジェクトを返します。
+<code>getWriter()</code>でプラグインの<code>PluginMessageWriter</code>実装となる<code>QueueMessageWriter</code>オブジェクトを返します。
+<code>getAsyncReader()</code>でプラグインの<code>PluginAsyncMessageReader</code>実装となる<code>QueueAsyncMessageReader</code>オブジェクトを返します。
+<code>getAsyncWriter()</code>でプラグインの<code>PluginAsyncMessageWriter</code>実装となる<code>QueueAsyncMessageWriter</code>オブジェクトを返します。</p>
+<p><code>QueueMessageReader</code>, <code>QueueMessageWriter</code>, <code>QueueAsyncMessageReader</code>, <code>QueueAsyncMessageWriter</code>のコンストラクタには
+<code>BlockingQueue</code>のオブジェクト <code>queue</code>を引数で渡します。<code>queue</code>を通してメッセージが受け渡されことになります。</p>
+<h4 id="422-queuemessagereaderjava">4.2.2 QueueMessageReader.java</h4>
+<p><code>PluginMessageReader</code>を実装したクラスになります。</p>
+<pre><code class="language-java">public class QueueMessageReader implements PluginMessageReader {
+(中略)
+    @Override
+    public PluginMessageWrapper read() {
+        try {
+            return queue.poll(receiveTimeout.getSeconds(), TimeUnit.SECONDS);
+        } catch (InterruptedException e) {
+            throw new SinetStreamIOException(e);
+        }
+    }
+(中略)
+}
+</code></pre>
+<p><code>read()</code>はメッセージングシステムからメッセージの取得を行い、その値を返すメソッドになります。
+ここでは <code>queue</code> からメッセージを取得して、その値を返しています。</p>
+<h4 id="423-queuemessagewriterjava">4.2.3 QueueMessageWriter.java</h4>
+<p><code>PluginMessageWriter</code>を実装したクラスになります。</p>
+<pre><code class="language-java">public class QueueMessageWriter implements PluginMessageWriter {
+(中略)
+    @Override
+    public void write(byte[] aByte) {
+        QueueMessage msg = new QueueMessage(topic, aByte);
+        try {
+            queue.put(msg);
+        } catch (InterruptedException e) {
+            throw new SinetStreamIOException(e);
+        }
+    }
+(中略)
+}
+</code></pre>
+<p><code>write()</code>は引数で渡されたバイト列をメッセージングシステムに送信するメソッドになります。
+ここでは、引数で受け取ったバイト列を<code>QueueMessage</code>クラスでラップして <code>queue</code> に送っています。</p>
+<h4 id="424-queueasyncmessagereaderjava">4.2.4 QueueAsyncMessageReader.java</h4>
+<p><code>PluginAsyncMessageReader</code>を実装したクラスになります。</p>
+<pre><code class="language-java">public class QueueAsyncMessageReader implements PluginAsyncMessageReader {
+(中略)
+    public QueueAsyncMessageReader(ReaderParameters params, BlockingQueue&lt;QueueMessage&gt; queue) {
+(中略)
+        executor = Executors.newSingleThreadExecutor();
+        future = executor.submit(this::pollingTask);
+    }
+
+    private void pollingTask() {
+        try {
+            while (!closed.get()) {
+                onMessage(queue.take());
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void onMessage(PluginMessageWrapper message) {
+        for (Consumer&lt;PluginMessageWrapper&gt; callback : onMessageCallbacks) {
+            try {
+                callback.accept(message);
+            } catch (Throwable ex) {
+                onFailure(ex);
+            }
+        }
+    }
+(中略)
+    @Override
+    public void addOnMessageCallback(Consumer&lt;PluginMessageWrapper&gt; onMessage, Consumer&lt;Throwable&gt; onFailure) {
+        if (Objects.nonNull(onMessage)) {
+            onMessageCallbacks.add(onMessage);
+        }
+        if (Objects.nonNull(onFailure)) {
+            onFailureCallbacks.add(onFailure);
+        }
+    }
+(中略)
+}
+</code></pre>
+<p><code>addOnMessageCallback()</code>は、メッセージングシステムからメッセージの取得した際に呼び出すコールバック関数を登録します。
+また、コンストラクタで起動した<code>executor</code>のスレッドで<code>pollingTask()</code> を実行し <code>queue</code> からのメッセージの取得を行います。
+メッセージの取得に成功すると登録されているコールバック関数をメッセージを引数にして呼び出します。</p>
+<h4 id="425-queueasyncmessagewriterjava">4.2.5 QueueAsyncMessageWriter.java</h4>
+<p><code>PluginAsyncMessageWriter</code>を実装したクラスになります。</p>
+<pre><code class="language-java">public class QueueAsyncMessageWriter implements PluginAsyncMessageWriter {
+(中略)
+    private final DefaultDeferredManager manager =
+            new DefaultDeferredManager(Executors.newFixedThreadPool(4));
+(中略)
+    @Override
+    public Promise&lt;?, ? extends Throwable, ?&gt; write(byte[] bytes) {
+        if (closed.get()) {
+            throw new SinetStreamIOException();
+        }
+        return manager.when(() -&gt; enqueue(bytes));
+    }
+
+    private void enqueue(byte[] bytes) {
+        QueueMessage msg = new QueueMessage(topic, bytes);
+        try {
+            queue.put(msg);
+        } catch (InterruptedException e) {
+            throw new SinetStreamIOException(e);
+        }
+    }
+(中略)
+}
+</code></pre>
+<p><code>PluginAsyncMessageWriter</code>は非同期APIを想定しているので、メッセージ送信処理の<code>write()</code>では<code>queue</code>への追加を直接は行っていません。
+<code>manager.when()</code>を呼び出すことで<code>manager</code>が管理するスレッドプールに<code>queue</code>へのメッセージ追加のタスクを依頼しています。
+そのため<code>write()</code>はブロックせずに直ぐに返ります。</p>
+<h3 id="43">4.3 プロバイダ構成ファイルの作成</h3>
+<p>リソースディレクトリの<code>META-INF/services/</code>に４つの構成ファイルを以下の内容で作成します。</p>
+<ul>
+<li><code>jp.ad.sinet.stream.spi.MessageReaderProvider</code></li>
+</ul>
+<pre><code>ssplugin.QueueMessageProvider
+</code></pre>
+<ul>
+<li><code>jp.ad.sinet.stream.spi.MessageWriterProvider</code></li>
+</ul>
+<pre><code>ssplugin.QueueMessageProvider
+</code></pre>
+<ul>
+<li><code>jp.ad.sinet.stream.spi.AsyncMessageReaderProvider</code></li>
+</ul>
+<pre><code>ssplugin.QueueMessageProvider
+</code></pre>
+<ul>
+<li><code>jp.ad.sinet.stream.spi.AsyncMessageWriterProvider</code></li>
+</ul>
+<pre><code>ssplugin.QueueMessageProvider
+</code></pre>
+<h3 id="44-jar">4.4 jarファイルの作成</h3>
+<p>プラグインのjarファイルを作成する手順を以下に示します。</p>
+<ol>
+<li><a href="https://gradle.org">Gradle</a>をインストールする<ul>
+<li>参考: <a href="https://gradle.org/install/">インストール手順</a></li>
+</ul>
+</li>
+<li>gradle を実行して jar ファイルを作成する</li>
+</ol>
+<pre><code class="language-bash">$ gradle jar
+</code></pre>
+<ol>
+<li><code>build/libs/</code>にjarファイルが作成されたことを確認する</li>
+</ol>
+<pre><code class="language-bash">$ ls build/libs/
+SINETStream-queue-1.2.0.jar
+</code></pre>
+<h3 id="45">4.5 ソースコード</h3>
+<p>プラグインの実装例となるファイルへのリンクを以下に示します。</p>
+<ul>
+<li>src/main/java/ssplugin/<ul>
+<li><a href="https://github.com/nii-gakunin-cloud/sinetstream/blob/main/docs/developer_guide/sample/messaging-system/java/src/main/java/ssplugin/QueueMessageProvider.java">QueueMessageProvider.java</a></li>
+<li><a href="https://github.com/nii-gakunin-cloud/sinetstream/blob/main/docs/developer_guide/sample/messaging-system/java/src/main/java/ssplugin/QueueMessage.java">QueueMessage.java</a></li>
+<li><a href="https://github.com/nii-gakunin-cloud/sinetstream/blob/main/docs/developer_guide/sample/messaging-system/java/src/main/java/ssplugin/QueueMessageReader.java">QueueMessageReader.java</a></li>
+<li><a href="https://github.com/nii-gakunin-cloud/sinetstream/blob/main/docs/developer_guide/sample/messaging-system/java/src/main/java/ssplugin/QueueMessageWriter.java">QueueMessageWriter.java</a></li>
+<li><a href="https://github.com/nii-gakunin-cloud/sinetstream/blob/main/docs/developer_guide/sample/messaging-system/java/src/main/java/ssplugin/QueueAsyncMessageReader.java">QueueAsyncMessageReader.java</a></li>
+<li><a href="https://github.com/nii-gakunin-cloud/sinetstream/blob/main/docs/developer_guide/sample/messaging-system/java/src/main/java/ssplugin/QueueAsyncMessageWriter.java">QueueAsyncMessageWriter.java</a></li>
+</ul>
+</li>
+<li>src/main/resources/META-INF/services/<ul>
+<li><a href="https://github.com/nii-gakunin-cloud/sinetstream/blob/main/docs/developer_guide/sample/messaging-system/java/src/main/resources/META-INF/services/jp.ad.sinet.stream.spi.MessageReaderProvider">jp.ad.sinet.stream.spi.MessageReaderProvider</a></li>
+<li><a href="https://github.com/nii-gakunin-cloud/sinetstream/blob/main/docs/developer_guide/sample/messaging-system/java/src/main/resources/META-INF/services/jp.ad.sinet.stream.spi.MessageWriterProvider">jp.ad.sinet.stream.spi.MessageWriterProvider</a></li>
+<li><a href="https://github.com/nii-gakunin-cloud/sinetstream/blob/main/docs/developer_guide/sample/messaging-system/java/src/main/resources/META-INF/services/jp.ad.sinet.stream.spi.AsyncMessageReaderProvider">jp.ad.sinet.stream.spi.AsyncMessageReaderProvider</a></li>
+<li><a href="https://github.com/nii-gakunin-cloud/sinetstream/blob/main/docs/developer_guide/sample/messaging-system/java/src/main/resources/META-INF/services/jp.ad.sinet.stream.spi.AsyncMessageWriterProvider">jp.ad.sinet.stream.spi.AsyncMessageWriterProvider</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/nii-gakunin-cloud/sinetstream/blob/main/docs/developer_guide/sample/messaging-system/java/build.gradle">build.gradle</a></li>
+<li><a href="https://github.com/nii-gakunin-cloud/sinetstream/blob/main/docs/developer_guide/sample/messaging-system/java/settings.gradle">settings.gradle</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  ページトップへ戻る
+</button>
+        
+      </main>
+      
+        <div class="site-footer-copyright">Copyright(C) National Institute of Informatics</div>
+<div class="site-footer-logo">
+  <a href="https://www.nii.ac.jp/">
+    
+    <img src="../../images/NIIlogo_JP_ls.png" alt="NII 国立情報学研究所">
+    
+  </a>
+</div>
+<footer class="md-footer">
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
+      
+    
+  </body>
+</html>

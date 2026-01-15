@@ -1,0 +1,3178 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://onukiyuma.github.io/SINETStream/server/brokers/%E3%83%97%E3%83%A9%E3%82%A4%E3%83%99%E3%83%BC%E3%83%88%E8%AA%8D%E8%A8%BC%E5%B1%80%E3%81%A7%E8%A8%BC%E6%98%8E%E6%9B%B8%E3%82%92%E4%BD%9C%E6%88%90/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../Kafkabroker%E3%81%AE%E6%A7%8B%E7%AF%89%E6%89%8B%E9%A0%86/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
+    
+    
+      
+        <title>プライベート認証局で証明書を作成する - SINETStream</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../styles/custom.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href="../../.." title="SINETStream" class="md-header__button md-logo" aria-label="SINETStream" data-md-component="logo">
+      
+  <img src="../../../images/SiNETStream.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SINETStream
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              プライベート認証局で証明書を作成する
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="言語切り替え">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="ja" class="md-select__link">
+              日本語
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../en/server/brokers/%E3%83%97%E3%83%A9%E3%82%A4%E3%83%99%E3%83%BC%E3%83%88%E8%AA%8D%E8%A8%BC%E5%B1%80%E3%81%A7%E8%A8%BC%E6%98%8E%E6%9B%B8%E3%82%92%E4%BD%9C%E6%88%90/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="検索">
+        
+        <button type="reset" class="md-search__icon md-icon" title="クリア" aria-label="クリア" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="タブ" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../docm/" class="md-tabs__link">
+          
+  
+  SINETStreamについて
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../tutorial/" class="md-tabs__link">
+          
+  
+  チュートリアル
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../userguide/" class="md-tabs__link">
+          
+  
+  ユーザガイド
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../developer_guide/" class="md-tabs__link">
+          
+  
+  プラグイン開発ガイド
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="SINETStream" class="md-nav__button md-logo" aria-label="SINETStream" data-md-component="logo">
+      
+  <img src="../../../images/SiNETStream.png" alt="logo">
+
+    </a>
+    SINETStream
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    SINETStreamについて
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            SINETStreamについて
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../docm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ドキュメント
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../performance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SINETStream性能測定結果
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../livedemo/livedemo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SINETStreamのライブデモ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    SINETStreamサーバ構築手順
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            SINETStreamサーバ構築手順
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    サーバ構築手順
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    プライベート認証局で証明書を作成する
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    プライベート認証局で証明書を作成する
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      プライベート認証局を構築する
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="プライベート認証局を構築する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#centos-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      ここで示す手順は CentOS 7 で実行することを前提としている。
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openssl" class="md-nav__link">
+    <span class="md-ellipsis">
+      openssl パッケージをインストールする
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      証明書や秘密鍵などを格納するディレクトリを作成する
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      プライベート認証局のために必要となる設定を行う
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cacsr" class="md-nav__link">
+    <span class="md-ellipsis">
+      CA証明書のCSRと秘密鍵を作成する
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ca" class="md-nav__link">
+    <span class="md-ellipsis">
+      自己署名によるCA証明書を作成する
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ca_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      作成したCA証明書を手元にコピーする。
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      サーバ証明書の秘密鍵、証明書を作成する
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="サーバ証明書の秘密鍵、証明書を作成する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sansubjectaltname" class="md-nav__link">
+    <span class="md-ellipsis">
+      証明書のSAN(subjectAltName)にサーバのホスト名を追加するための設定
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#csrcertificate-signing-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      サーバの秘密鍵とサーバ証明書のCSR(Certificate Signing Request)を作成する
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ca_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      CA証明書で署名をおこない、サーバ証明書を作成する
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      作成したサーバ秘密鍵とサーバ証明書を手元にコピーする
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      クライアント認証のための秘密鍵、証明書を作成する
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="クライアント認証のための秘密鍵、証明書を作成する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#csr" class="md-nav__link">
+    <span class="md-ellipsis">
+      クライアント証明書のCSRと秘密鍵を作成する
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ca_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      CA証明書で署名をおこない、クライアント証明書を作成する
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Kafkabroker%E3%81%AE%E6%A7%8B%E7%AF%89%E6%89%8B%E9%A0%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kafka brokerの構築手順
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mosquitto%E6%A7%8B%E7%AF%89%E6%89%8B%E9%A0%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    mosquitto(MQTT broker)の構築手順
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CHANGELOG/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    更新履歴
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    チュートリアル
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            チュートリアル
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Python/Java版
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Python/Java版
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    クイックスタートガイド
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorial/TUTORIAL-STEP1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    STEP1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorial/TUTORIAL-STEP2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    STEP2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Android版
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Android版
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorial-android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    クイックスタートガイド
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_2" id="__nav_3_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    sinetstream-android-echo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            sinetstream-android-echo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorial-android/TUTORIAL-android-step1-overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    テキスト送受信アプリの実行
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorial-android/TUTORIAL-android-step1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ANDROID-STEP1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    sinetstream-android-sensor-publisher
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            sinetstream-android-sensor-publisher
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorial-android/TUTORIAL-android-step2-overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    センサ情報収集アプリの実行
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorial-android/TUTORIAL-android-step2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ANDROID-STEP2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorial-android/TUTORIAL-android-step2-webbrowser/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    センサーデータ可視化用のウェブインタフェース
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorial-android/TUTORIAL-android-step2-location/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    端末位置情報の自動更新
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorial-android/sinetstreamhelper-tutorial-container/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SINETStream Android Tutorial Container
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorial-android/TUTORIAL-android-install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Androidサンプルアプリケーションの導入
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorial-android/TUTORIAL-android-keychain/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    システム秘匿領域への証明書ファイルの導入
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorial-android/sinetstreamhelper-tutorial-container/TUTORIAL-docker-container/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DOCKER-CONTAINER
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    ユーザガイド
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            ユーザガイド
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../userguide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ユーザガイド
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../userguide/api-python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../userguide/api-java/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Android版
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            Android版
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../userguide/android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SINETStream for Android ユーザガイド
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../userguide/api-android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Android版SINETStreamライブラリ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="http://javadoc.android.sinetstream.net/sinetstream-android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API (Javadoc)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../userguide/config-android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Android版のSINETStream設定ファイル
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../userguide/config-client-android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Android版の設定クライアント
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    SINETStreamHelper
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            SINETStreamHelper
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../userguide/libhelper/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SINETStreamHelper ユーザガイド
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../userguide/api-libhelper/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SINETStreamHelperライブラリ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="http://javadoc.android.sinetstream.net/sinetstream-android-helper/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API (Javadoc)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../userguide/config/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    設定ファイル
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../userguide/auth/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    認証と認可
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/nii-gakunin-cloud/sinetstream/blob/main/java/sample/cli/README.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CLI(Command Line Interface)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../userguide/compat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    互換性
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    プラグイン開発ガイド
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            プラグイン開発ガイド
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../developer_guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    開発者ガイド
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Messaging system
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Messaging system
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../developer_guide/plugin_broker_python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../developer_guide/plugin_broker_java/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    message type
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            message type
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../developer_guide/plugin_value_type_python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../developer_guide/plugin_value_type_java/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    compression
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            compression
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../developer_guide/plugin_compression_python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../developer_guide/plugin_compression_java/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../developer_guide/message_format/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    メッセージフォーマット
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      プライベート認証局を構築する
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="プライベート認証局を構築する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#centos-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      ここで示す手順は CentOS 7 で実行することを前提としている。
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openssl" class="md-nav__link">
+    <span class="md-ellipsis">
+      openssl パッケージをインストールする
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      証明書や秘密鍵などを格納するディレクトリを作成する
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      プライベート認証局のために必要となる設定を行う
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cacsr" class="md-nav__link">
+    <span class="md-ellipsis">
+      CA証明書のCSRと秘密鍵を作成する
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ca" class="md-nav__link">
+    <span class="md-ellipsis">
+      自己署名によるCA証明書を作成する
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ca_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      作成したCA証明書を手元にコピーする。
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      サーバ証明書の秘密鍵、証明書を作成する
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="サーバ証明書の秘密鍵、証明書を作成する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sansubjectaltname" class="md-nav__link">
+    <span class="md-ellipsis">
+      証明書のSAN(subjectAltName)にサーバのホスト名を追加するための設定
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#csrcertificate-signing-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      サーバの秘密鍵とサーバ証明書のCSR(Certificate Signing Request)を作成する
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ca_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      CA証明書で署名をおこない、サーバ証明書を作成する
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      作成したサーバ秘密鍵とサーバ証明書を手元にコピーする
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      クライアント認証のための秘密鍵、証明書を作成する
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="クライアント認証のための秘密鍵、証明書を作成する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#csr" class="md-nav__link">
+    <span class="md-ellipsis">
+      クライアント証明書のCSRと秘密鍵を作成する
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ca_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      CA証明書で署名をおこない、クライアント証明書を作成する
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<!--
+Copyright (C) 2025 National Institute of Informatics
+
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+
+<h1 id="_1">プライベート認証局で証明書を作成する</h1>
+<p>概要: <code>server</code> 上にdockerコンテナでCentOS 7を立ち上げ、その中にCAを構築しサーバー証明書・クライアント証明書を発行する。</p>
+<p>詳細なドキュメントは <a href="../../../userguide/certificate/">プライベート認証局における証明書の作成手順</a> を参照のこと。</p>
+<h2 id="_2">プライベート認証局を構築する</h2>
+<pre><code class="language-bash">server=server1.example.jp
+user=piyo
+
+country=&quot;JP&quot;
+
+subject=&quot;/C=${country}/ST=Example_State/O=Example_Organization/CN=private-ca&quot;
+server_fqdn=&quot;broker.example.org&quot;
+
+client_common_name=&quot;client0&quot;
+</code></pre>
+<h3 id="centos-7">ここで示す手順は CentOS 7 で実行することを前提としている。</h3>
+<pre><code class="language-bash">ssh ${user}@${server} 'docker run --detach --tty --name sinetstream_ca centos:7'
+ssh ${user}@${server} 'docker ps'
+</code></pre>
+<pre><code>c654874e8c7b777f9ffb4ee2ccab2521798665ddc07aced14b602219afe55ce4
+CONTAINER ID        IMAGE                            COMMAND                  CREATED             STATUS                  PORTS                                            NAMES
+c654874e8c7b        centos:7                         "/bin/bash"              1 second ago        Up Less than a second                                                    sinetstream_ca
+33b8b736b890        eclipse-mosquitto:1.6            "/docker-entrypoint.…"   13 days ago         Up 13 days              0.0.0.0:1883-&gt;1883/tcp, 0.0.0.0:9001-&gt;9001/tcp   mosquitto_mosquitto_1
+6adecd62865a        hlebalbau/kafka-manager:stable   "/kafka-manager/bin/…"   3 months ago        Up 3 months                                                              manager_kafka-manager_1
+ece7b78ddfb7        zookeeper                        "/docker-entrypoint.…"   10 months ago       Up 3 months             2181/tcp, 2888/tcp, 3888/tcp                     some-zookeeper
+</code></pre>
+<h3 id="openssl">openssl パッケージをインストールする</h3>
+<pre><code class="language-bash">ssh ${user}@${server} 'docker exec sinetstream_ca yum -y update'
+</code></pre>
+<pre><code>Loaded plugins: fastestmirror, ovl
+Determining fastest mirrors
+ * base: ftp.riken.jp
+ * extras: ftp.riken.jp
+ * updates: ftp.riken.jp
+Resolving Dependencies
+--&gt; Running transaction check
+---&gt; Package binutils.x86_64 0:2.27-41.base.el7 will be updated
+---&gt; Package binutils.x86_64 0:2.27-41.base.el7_7.3 will be an update
+---&gt; Package ca-certificates.noarch 0:2018.2.22-70.0.el7_5 will be updated
+---&gt; Package ca-certificates.noarch 0:2019.2.32-76.el7_7 will be an update
+---&gt; Package curl.x86_64 0:7.29.0-54.el7 will be updated
+---&gt; Package curl.x86_64 0:7.29.0-54.el7_7.2 will be an update
+---&gt; Package device-mapper.x86_64 7:1.02.158-2.el7 will be updated
+---&gt; Package device-mapper.x86_64 7:1.02.158-2.el7_7.2 will be an update
+---&gt; Package device-mapper-libs.x86_64 7:1.02.158-2.el7 will be updated
+---&gt; Package device-mapper-libs.x86_64 7:1.02.158-2.el7_7.2 will be an update
+---&gt; Package hostname.x86_64 0:3.13-3.el7 will be updated
+---&gt; Package hostname.x86_64 0:3.13-3.el7_7.1 will be an update
+---&gt; Package kmod.x86_64 0:20-25.el7 will be updated
+---&gt; Package kmod.x86_64 0:20-25.el7_7.1 will be an update
+---&gt; Package kmod-libs.x86_64 0:20-25.el7 will be updated
+---&gt; Package kmod-libs.x86_64 0:20-25.el7_7.1 will be an update
+---&gt; Package libblkid.x86_64 0:2.23.2-61.el7 will be updated
+---&gt; Package libblkid.x86_64 0:2.23.2-61.el7_7.1 will be an update
+---&gt; Package libcurl.x86_64 0:7.29.0-54.el7 will be updated
+---&gt; Package libcurl.x86_64 0:7.29.0-54.el7_7.2 will be an update
+---&gt; Package libmount.x86_64 0:2.23.2-61.el7 will be updated
+---&gt; Package libmount.x86_64 0:2.23.2-61.el7_7.1 will be an update
+---&gt; Package libsmartcols.x86_64 0:2.23.2-61.el7 will be updated
+---&gt; Package libsmartcols.x86_64 0:2.23.2-61.el7_7.1 will be an update
+---&gt; Package libuuid.x86_64 0:2.23.2-61.el7 will be updated
+---&gt; Package libuuid.x86_64 0:2.23.2-61.el7_7.1 will be an update
+---&gt; Package nss.x86_64 0:3.44.0-4.el7 will be updated
+---&gt; Package nss.x86_64 0:3.44.0-7.el7_7 will be an update
+---&gt; Package nss-softokn.x86_64 0:3.44.0-5.el7 will be updated
+---&gt; Package nss-softokn.x86_64 0:3.44.0-8.el7_7 will be an update
+---&gt; Package nss-softokn-freebl.x86_64 0:3.44.0-5.el7 will be updated
+---&gt; Package nss-softokn-freebl.x86_64 0:3.44.0-8.el7_7 will be an update
+---&gt; Package nss-sysinit.x86_64 0:3.44.0-4.el7 will be updated
+---&gt; Package nss-sysinit.x86_64 0:3.44.0-7.el7_7 will be an update
+---&gt; Package nss-tools.x86_64 0:3.44.0-4.el7 will be updated
+---&gt; Package nss-tools.x86_64 0:3.44.0-7.el7_7 will be an update
+---&gt; Package nss-util.x86_64 0:3.44.0-3.el7 will be updated
+---&gt; Package nss-util.x86_64 0:3.44.0-4.el7_7 will be an update
+---&gt; Package procps-ng.x86_64 0:3.3.10-26.el7 will be updated
+---&gt; Package procps-ng.x86_64 0:3.3.10-26.el7_7.1 will be an update
+---&gt; Package sqlite.x86_64 0:3.7.17-8.el7 will be updated
+---&gt; Package sqlite.x86_64 0:3.7.17-8.el7_7.1 will be an update
+---&gt; Package systemd.x86_64 0:219-67.el7_7.1 will be updated
+---&gt; Package systemd.x86_64 0:219-67.el7_7.4 will be an update
+---&gt; Package systemd-libs.x86_64 0:219-67.el7_7.1 will be updated
+---&gt; Package systemd-libs.x86_64 0:219-67.el7_7.4 will be an update
+---&gt; Package tzdata.noarch 0:2019b-1.el7 will be updated
+---&gt; Package tzdata.noarch 0:2019c-1.el7 will be an update
+---&gt; Package util-linux.x86_64 0:2.23.2-61.el7 will be updated
+---&gt; Package util-linux.x86_64 0:2.23.2-61.el7_7.1 will be an update
+--&gt; Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package                Arch       Version                    Repository   Size
+================================================================================
+Updating:
+ binutils               x86_64     2.27-41.base.el7_7.3       updates     5.9 M
+ ca-certificates        noarch     2019.2.32-76.el7_7         updates     399 k
+ curl                   x86_64     7.29.0-54.el7_7.2          updates     270 k
+ device-mapper          x86_64     7:1.02.158-2.el7_7.2       updates     294 k
+ device-mapper-libs     x86_64     7:1.02.158-2.el7_7.2       updates     322 k
+ hostname               x86_64     3.13-3.el7_7.1             updates      17 k
+ kmod                   x86_64     20-25.el7_7.1              updates     122 k
+ kmod-libs              x86_64     20-25.el7_7.1              updates      51 k
+ libblkid               x86_64     2.23.2-61.el7_7.1          updates     181 k
+ libcurl                x86_64     7.29.0-54.el7_7.2          updates     223 k
+ libmount               x86_64     2.23.2-61.el7_7.1          updates     183 k
+ libsmartcols           x86_64     2.23.2-61.el7_7.1          updates     141 k
+ libuuid                x86_64     2.23.2-61.el7_7.1          updates      83 k
+ nss                    x86_64     3.44.0-7.el7_7             updates     854 k
+ nss-softokn            x86_64     3.44.0-8.el7_7             updates     330 k
+ nss-softokn-freebl     x86_64     3.44.0-8.el7_7             updates     224 k
+ nss-sysinit            x86_64     3.44.0-7.el7_7             updates      65 k
+ nss-tools              x86_64     3.44.0-7.el7_7             updates     528 k
+ nss-util               x86_64     3.44.0-4.el7_7             updates      79 k
+ procps-ng              x86_64     3.3.10-26.el7_7.1          updates     291 k
+ sqlite                 x86_64     3.7.17-8.el7_7.1           updates     394 k
+ systemd                x86_64     219-67.el7_7.4             updates     5.1 M
+ systemd-libs           x86_64     219-67.el7_7.4             updates     411 k
+ tzdata                 noarch     2019c-1.el7                updates     493 k
+ util-linux             x86_64     2.23.2-61.el7_7.1          updates     2.0 M
+
+Transaction Summary
+================================================================================
+Upgrade  25 Packages
+
+Total download size: 19 M
+Downloading packages:
+Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
+Public key for ca-certificates-2019.2.32-76.el7_7.noarch.rpm is not installed
+warning: /var/cache/yum/x86_64/7/updates/packages/ca-certificates-2019.2.32-76.el7_7.noarch.rpm: Header V3 RSA/SHA256 Signature, key ID f4a80eb5: NOKEY
+--------------------------------------------------------------------------------
+Total                                               63 MB/s |  19 MB  00:00
+Retrieving key from file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+Importing GPG key 0xF4A80EB5:
+ Userid     : "CentOS-7 Key (CentOS 7 Official Signing Key) &lt;security@centos.org&gt;"
+ Fingerprint: 6341 ab27 53d7 8a78 a7c2 7bb1 24c6 a8a7 f4a8 0eb5
+ Package    : centos-release-7-7.1908.0.el7.centos.x86_64 (@CentOS)
+ From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Updating   : nss-util-3.44.0-4.el7_7.x86_64                              1/50
+  Updating   : systemd-libs-219-67.el7_7.4.x86_64                          2/50
+  Updating   : libuuid-2.23.2-61.el7_7.1.x86_64                            3/50
+  Updating   : libblkid-2.23.2-61.el7_7.1.x86_64                           4/50
+  Updating   : libmount-2.23.2-61.el7_7.1.x86_64                           5/50
+  Updating   : nss-softokn-freebl-3.44.0-8.el7_7.x86_64                    6/50
+  Updating   : libsmartcols-2.23.2-61.el7_7.1.x86_64                       7/50
+  Updating   : util-linux-2.23.2-61.el7_7.1.x86_64                         8/50
+  Updating   : binutils-2.27-41.base.el7_7.3.x86_64                        9/50
+install-info: No such file or directory for /usr/share/info/as.info.gz
+install-info: No such file or directory for /usr/share/info/binutils.info.gz
+install-info: No such file or directory for /usr/share/info/gprof.info.gz
+install-info: No such file or directory for /usr/share/info/ld.info.gz
+install-info: No such file or directory for /usr/share/info/standards.info.gz
+  Updating   : kmod-20-25.el7_7.1.x86_64                                  10/50
+  Updating   : kmod-libs-20-25.el7_7.1.x86_64                             11/50
+  Updating   : sqlite-3.7.17-8.el7_7.1.x86_64                             12/50
+  Updating   : nss-softokn-3.44.0-8.el7_7.x86_64                          13/50
+  Updating   : nss-sysinit-3.44.0-7.el7_7.x86_64                          14/50
+  Updating   : nss-3.44.0-7.el7_7.x86_64                                  15/50
+  Updating   : libcurl-7.29.0-54.el7_7.2.x86_64                           16/50
+  Updating   : systemd-219-67.el7_7.4.x86_64                              17/50
+Failed to get D-Bus connection: Operation not permitted
+  Updating   : 7:device-mapper-libs-1.02.158-2.el7_7.2.x86_64             18/50
+  Updating   : 7:device-mapper-1.02.158-2.el7_7.2.x86_64                  19/50
+  Updating   : curl-7.29.0-54.el7_7.2.x86_64                              20/50
+  Updating   : nss-tools-3.44.0-7.el7_7.x86_64                            21/50
+  Updating   : procps-ng-3.3.10-26.el7_7.1.x86_64                         22/50
+  Updating   : tzdata-2019c-1.el7.noarch                                  23/50
+  Updating   : hostname-3.13-3.el7_7.1.x86_64                             24/50
+  Updating   : ca-certificates-2019.2.32-76.el7_7.noarch                  25/50
+  Cleanup    : nss-tools-3.44.0-4.el7.x86_64                              26/50
+  Cleanup    : curl-7.29.0-54.el7.x86_64                                  27/50
+  Cleanup    : 7:device-mapper-1.02.158-2.el7.x86_64                      28/50
+  Cleanup    : 7:device-mapper-libs-1.02.158-2.el7.x86_64                 29/50
+  Cleanup    : systemd-219-67.el7_7.1.x86_64                              30/50
+  Cleanup    : util-linux-2.23.2-61.el7.x86_64                            31/50
+  Cleanup    : libcurl-7.29.0-54.el7.x86_64                               32/50
+  Cleanup    : nss-sysinit-3.44.0-4.el7.x86_64                            33/50
+  Cleanup    : nss-3.44.0-4.el7.x86_64                                    34/50
+  Cleanup    : nss-softokn-3.44.0-5.el7.x86_64                            35/50
+  Cleanup    : libmount-2.23.2-61.el7.x86_64                              36/50
+  Cleanup    : libblkid-2.23.2-61.el7.x86_64                              37/50
+  Cleanup    : nss-softokn-freebl-3.44.0-5.el7.x86_64                     38/50
+  Cleanup    : kmod-20-25.el7.x86_64                                      39/50
+  Cleanup    : procps-ng-3.3.10-26.el7.x86_64                             40/50
+  Cleanup    : tzdata-2019b-1.el7.noarch                                  41/50
+  Cleanup    : ca-certificates-2018.2.22-70.0.el7_5.noarch                42/50
+  Cleanup    : systemd-libs-219-67.el7_7.1.x86_64                         43/50
+  Cleanup    : binutils-2.27-41.base.el7.x86_64                           44/50
+  Cleanup    : nss-util-3.44.0-3.el7.x86_64                               45/50
+  Cleanup    : libuuid-2.23.2-61.el7.x86_64                               46/50
+  Cleanup    : sqlite-3.7.17-8.el7.x86_64                                 47/50
+  Cleanup    : libsmartcols-2.23.2-61.el7.x86_64                          48/50
+  Cleanup    : kmod-libs-20-25.el7.x86_64                                 49/50
+  Cleanup    : hostname-3.13-3.el7.x86_64                                 50/50
+  Verifying  : util-linux-2.23.2-61.el7_7.1.x86_64                         1/50
+  Verifying  : nss-tools-3.44.0-7.el7_7.x86_64                             2/50
+  Verifying  : systemd-libs-219-67.el7_7.4.x86_64                          3/50
+  Verifying  : 7:device-mapper-libs-1.02.158-2.el7_7.2.x86_64              4/50
+  Verifying  : 7:device-mapper-1.02.158-2.el7_7.2.x86_64                   5/50
+  Verifying  : sqlite-3.7.17-8.el7_7.1.x86_64                              6/50
+  Verifying  : procps-ng-3.3.10-26.el7_7.1.x86_64                          7/50
+  Verifying  : kmod-20-25.el7_7.1.x86_64                                   8/50
+  Verifying  : curl-7.29.0-54.el7_7.2.x86_64                               9/50
+  Verifying  : ca-certificates-2019.2.32-76.el7_7.noarch                  10/50
+  Verifying  : libuuid-2.23.2-61.el7_7.1.x86_64                           11/50
+  Verifying  : kmod-libs-20-25.el7_7.1.x86_64                             12/50
+  Verifying  : binutils-2.27-41.base.el7_7.3.x86_64                       13/50
+  Verifying  : hostname-3.13-3.el7_7.1.x86_64                             14/50
+  Verifying  : nss-sysinit-3.44.0-7.el7_7.x86_64                          15/50
+  Verifying  : libmount-2.23.2-61.el7_7.1.x86_64                          16/50
+  Verifying  : systemd-219-67.el7_7.4.x86_64                              17/50
+  Verifying  : nss-softokn-3.44.0-8.el7_7.x86_64                          18/50
+  Verifying  : libsmartcols-2.23.2-61.el7_7.1.x86_64                      19/50
+  Verifying  : tzdata-2019c-1.el7.noarch                                  20/50
+  Verifying  : libcurl-7.29.0-54.el7_7.2.x86_64                           21/50
+  Verifying  : nss-3.44.0-7.el7_7.x86_64                                  22/50
+  Verifying  : nss-util-3.44.0-4.el7_7.x86_64                             23/50
+  Verifying  : nss-softokn-freebl-3.44.0-8.el7_7.x86_64                   24/50
+  Verifying  : libblkid-2.23.2-61.el7_7.1.x86_64                          25/50
+  Verifying  : nss-tools-3.44.0-4.el7.x86_64                              26/50
+  Verifying  : curl-7.29.0-54.el7.x86_64                                  27/50
+  Verifying  : nss-softokn-freebl-3.44.0-5.el7.x86_64                     28/50
+  Verifying  : util-linux-2.23.2-61.el7.x86_64                            29/50
+  Verifying  : nss-util-3.44.0-3.el7.x86_64                               30/50
+  Verifying  : procps-ng-3.3.10-26.el7.x86_64                             31/50
+  Verifying  : libmount-2.23.2-61.el7.x86_64                              32/50
+  Verifying  : nss-sysinit-3.44.0-4.el7.x86_64                            33/50
+  Verifying  : kmod-libs-20-25.el7.x86_64                                 34/50
+  Verifying  : libblkid-2.23.2-61.el7.x86_64                              35/50
+  Verifying  : libuuid-2.23.2-61.el7.x86_64                               36/50
+  Verifying  : systemd-libs-219-67.el7_7.1.x86_64                         37/50
+  Verifying  : 7:device-mapper-1.02.158-2.el7.x86_64                      38/50
+  Verifying  : libcurl-7.29.0-54.el7.x86_64                               39/50
+  Verifying  : nss-softokn-3.44.0-5.el7.x86_64                            40/50
+  Verifying  : systemd-219-67.el7_7.1.x86_64                              41/50
+  Verifying  : hostname-3.13-3.el7.x86_64                                 42/50
+  Verifying  : ca-certificates-2018.2.22-70.0.el7_5.noarch                43/50
+  Verifying  : 7:device-mapper-libs-1.02.158-2.el7.x86_64                 44/50
+  Verifying  : nss-3.44.0-4.el7.x86_64                                    45/50
+  Verifying  : binutils-2.27-41.base.el7.x86_64                           46/50
+  Verifying  : kmod-20-25.el7.x86_64                                      47/50
+  Verifying  : tzdata-2019b-1.el7.noarch                                  48/50
+  Verifying  : libsmartcols-2.23.2-61.el7.x86_64                          49/50
+  Verifying  : sqlite-3.7.17-8.el7.x86_64                                 50/50
+
+Updated:
+  binutils.x86_64 0:2.27-41.base.el7_7.3
+  ca-certificates.noarch 0:2019.2.32-76.el7_7
+  curl.x86_64 0:7.29.0-54.el7_7.2
+  device-mapper.x86_64 7:1.02.158-2.el7_7.2
+  device-mapper-libs.x86_64 7:1.02.158-2.el7_7.2
+  hostname.x86_64 0:3.13-3.el7_7.1
+  kmod.x86_64 0:20-25.el7_7.1
+  kmod-libs.x86_64 0:20-25.el7_7.1
+  libblkid.x86_64 0:2.23.2-61.el7_7.1
+  libcurl.x86_64 0:7.29.0-54.el7_7.2
+  libmount.x86_64 0:2.23.2-61.el7_7.1
+  libsmartcols.x86_64 0:2.23.2-61.el7_7.1
+  libuuid.x86_64 0:2.23.2-61.el7_7.1
+  nss.x86_64 0:3.44.0-7.el7_7
+  nss-softokn.x86_64 0:3.44.0-8.el7_7
+  nss-softokn-freebl.x86_64 0:3.44.0-8.el7_7
+  nss-sysinit.x86_64 0:3.44.0-7.el7_7
+  nss-tools.x86_64 0:3.44.0-7.el7_7
+  nss-util.x86_64 0:3.44.0-4.el7_7
+  procps-ng.x86_64 0:3.3.10-26.el7_7.1
+  sqlite.x86_64 0:3.7.17-8.el7_7.1
+  systemd.x86_64 0:219-67.el7_7.4
+  systemd-libs.x86_64 0:219-67.el7_7.4
+  tzdata.noarch 0:2019c-1.el7
+  util-linux.x86_64 0:2.23.2-61.el7_7.1
+
+Complete!
+</code></pre>
+<pre><code class="language-bash">ssh ${user}@${server} 'docker exec sinetstream_ca yum -y install openssl'
+</code></pre>
+<pre><code>Loaded plugins: fastestmirror, ovl
+Loading mirror speeds from cached hostfile
+ * base: ftp.riken.jp
+ * extras: ftp.riken.jp
+ * updates: ftp.riken.jp
+Resolving Dependencies
+--&gt; Running transaction check
+---&gt; Package openssl.x86_64 1:1.0.2k-19.el7 will be installed
+--&gt; Processing Dependency: make for package: 1:openssl-1.0.2k-19.el7.x86_64
+--&gt; Running transaction check
+---&gt; Package make.x86_64 1:3.82-24.el7 will be installed
+--&gt; Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package          Arch            Version                   Repository     Size
+================================================================================
+Installing:
+ openssl          x86_64          1:1.0.2k-19.el7           base          493 k
+Installing for dependencies:
+ make             x86_64          1:3.82-24.el7             base          421 k
+
+Transaction Summary
+================================================================================
+Install  1 Package (+1 Dependent package)
+
+Total download size: 914 k
+Installed size: 1.9 M
+Downloading packages:
+--------------------------------------------------------------------------------
+Total                                              7.1 MB/s | 914 kB  00:00
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : 1:make-3.82-24.el7.x86_64                                    1/2
+  Installing : 1:openssl-1.0.2k-19.el7.x86_64                               2/2
+  Verifying  : 1:openssl-1.0.2k-19.el7.x86_64                               1/2
+  Verifying  : 1:make-3.82-24.el7.x86_64                                    2/2
+
+Installed:
+  openssl.x86_64 1:1.0.2k-19.el7
+
+Dependency Installed:
+  make.x86_64 1:3.82-24.el7
+
+Complete!
+</code></pre>
+<h3 id="_3">証明書や秘密鍵などを格納するディレクトリを作成する</h3>
+<pre><code class="language-bash">ssh ${user}@${server} 'docker exec sinetstream_ca mkdir -p /etc/pki/CA/certs /etc/pki/CA/crl /etc/pki/CA/newcerts /etc/pki/CA/private'
+</code></pre>
+<h3 id="_4">プライベート認証局のために必要となる設定を行う</h3>
+<ul>
+<li>unique_subject<ul>
+<li>CA証明書のロールオーバーを簡単にするために no を指定する</li>
+</ul>
+</li>
+<li>copy_extensions<ul>
+<li>証明書のリクエストが SAN(subjectAltName)をコピーできるようにするためにcopyを指定する</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-bash">ssh ${user}@${server} 'docker exec sinetstream_ca sed --in-place &quot;/unique_subject/s/^.*/unique_subject = no/;/copy_extensions/s/^.*/copy_extensions = copy/&quot; /etc/pki/tls/openssl.cnf'
+</code></pre>
+<p>プライベート認証局が署名した証明書を記録するためのファイル index.txt を作成する</p>
+<pre><code class="language-bash">ssh ${user}@${server} 'docker exec sinetstream_ca touch /etc/pki/CA/index.txt'
+</code></pre>
+<h3 id="cacsr">CA証明書のCSRと秘密鍵を作成する</h3>
+<pre><code class="language-bash">
+ssh ${user}@${server} &quot;docker exec sinetstream_ca \
+    openssl req -new \
+                -keyout /etc/pki/CA/private/cakey.pem \
+                -out /etc/pki/CA/careq.pem \
+                -nodes \
+                -subj ${subject}&quot;
+ssh ${user}@${server} 'docker exec sinetstream_ca ls -l /etc/pki/CA/private/cakey.pem'
+</code></pre>
+<pre><code>Generating a 2048 bit RSA private key
+................................................................................+++
+.....................................................+++
+writing new private key to '/etc/pki/CA/private/cakey.pem'
+-----
+-rw-r--r-- 1 root root 1704 Mar 24 09:56 /etc/pki/CA/private/cakey.pem
+</code></pre>
+<h3 id="ca">自己署名によるCA証明書を作成する</h3>
+<pre><code class="language-bash">ssh ${user}@${server} &quot;docker exec sinetstream_ca \
+    openssl ca -batch \
+               -in /etc/pki/CA/careq.pem \
+               -selfsign \
+               -extensions v3_ca \
+               -keyfile /etc/pki/CA/private/cakey.pem \
+               -days 3650 \
+               -create_serial \
+               -out /etc/pki/CA/cacert.pem&quot;
+ssh ${user}@${server} &quot;docker exec sinetstream_ca ls -l /etc/pki/CA/cacert.pem&quot;
+</code></pre>
+<pre><code>Using configuration from /etc/pki/tls/openssl.cnf
+Check that the request matches the signature
+Signature ok
+Certificate Details:
+        Serial Number:
+            c5:b2:cf:5c:ab:23:77:90
+        Validity
+            Not Before: Mar 24 09:56:33 2020 GMT
+            Not After : Mar 22 09:56:33 2030 GMT
+        Subject:
+            countryName               = JP
+            stateOrProvinceName       = Example_State
+            organizationName          = Example_Organization
+            commonName                = private-ca
+        X509v3 extensions:
+            X509v3 Subject Key Identifier:
+                B6:0A:CE:3D:55:44:0A:2C:9E:B1:29:4E:7F:C5:DB:4C:87:4B:06:DB
+            X509v3 Authority Key Identifier:
+                keyid:B6:0A:CE:3D:55:44:0A:2C:9E:B1:29:4E:7F:C5:DB:4C:87:4B:06:DB
+
+            X509v3 Basic Constraints:
+                CA:TRUE
+Certificate is to be certified until Mar 22 09:56:33 2030 GMT (3650 days)
+
+Write out database with 1 new entries
+Data Base Updated
+-rw-r--r-- 1 root root 4349 Mar 24 09:56 /etc/pki/CA/cacert.pem
+</code></pre>
+<p>作成したCA証明書/etc/pki/CA/cacert.pemの内容を確認する</p>
+<pre><code class="language-bash">ssh ${user}@${server} &quot;docker exec sinetstream_ca openssl x509 -in /etc/pki/CA/cacert.pem -noout -text&quot;
+</code></pre>
+<pre><code>Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number:
+            c5:b2:cf:5c:ab:23:77:90
+    Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C=JP, ST=Example_State, O=Example_Organization, CN=private-ca
+        Validity
+            Not Before: Mar 24 09:56:33 2020 GMT
+            Not After : Mar 22 09:56:33 2030 GMT
+        Subject: C=JP, ST=Example_State, O=Example_Organization, CN=private-ca
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (2048 bit)
+                Modulus:
+                    00:ee:1b:a6:de:5b:2d:df:d8:2d:d7:43:94:b7:14:
+                    13:57:38:50:ca:9f:1c:fc:96:6c:9d:9b:03:2c:50:
+                    5e:df:11:23:28:d1:6d:6d:1b:3f:ef:36:1c:2e:b1:
+                    bb:5a:8d:81:1e:e2:6c:24:bb:35:95:bf:27:48:c5:
+                    29:91:06:f0:a5:ec:00:3f:35:d2:c5:2b:31:ef:83:
+                    32:ba:99:dd:5f:c2:6a:4a:29:b2:78:ec:ae:60:98:
+                    eb:3d:79:69:65:de:49:bd:ec:7a:e4:f8:32:3e:99:
+                    df:40:fd:43:72:bd:5e:bd:5c:11:12:93:e5:5d:f3:
+                    da:77:11:98:08:4a:48:ab:f9:5b:cf:1c:62:09:c0:
+                    d5:9b:d1:97:43:6a:14:60:a3:c0:2f:56:5a:0c:01:
+                    a9:d6:b0:f6:49:40:38:cd:af:c3:83:db:6b:10:89:
+                    d8:ab:22:69:b9:2e:00:75:1d:1d:1b:55:8c:35:02:
+                    a4:8a:36:72:33:94:da:e3:49:27:38:6d:b7:59:91:
+                    4f:42:a7:7e:98:46:33:fb:87:78:17:af:61:da:5f:
+                    47:ab:f4:e3:3c:6c:62:e9:e2:1b:e9:e7:07:b7:04:
+                    72:68:d2:f0:96:4d:26:03:2a:e2:11:83:2f:2d:d7:
+                    19:7b:72:a8:1a:9f:2c:0c:54:81:62:61:f7:ee:f2:
+                    ab:f1
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Subject Key Identifier:
+                B6:0A:CE:3D:55:44:0A:2C:9E:B1:29:4E:7F:C5:DB:4C:87:4B:06:DB
+            X509v3 Authority Key Identifier:
+                keyid:B6:0A:CE:3D:55:44:0A:2C:9E:B1:29:4E:7F:C5:DB:4C:87:4B:06:DB
+
+            X509v3 Basic Constraints:
+                CA:TRUE
+    Signature Algorithm: sha256WithRSAEncryption
+         6a:03:04:6f:96:f7:43:d5:2a:2b:79:4f:f6:b5:d2:6c:91:9c:
+         f7:88:d3:37:92:61:a0:ea:74:ec:c8:6c:2a:c3:b1:45:5b:de:
+         e4:db:fe:c4:c2:e9:d0:44:96:e5:23:09:f1:51:73:c3:31:af:
+         57:77:4e:9a:26:1a:f2:7b:8b:03:9b:44:8c:2b:04:e2:bf:44:
+         e9:18:fe:91:19:54:73:cf:b9:c8:8f:e2:ad:f3:ea:80:0c:c7:
+         bb:26:36:c9:e9:9b:45:f2:48:61:b8:91:0e:3a:16:46:c8:a2:
+         63:f4:80:c9:8d:59:a9:4a:6e:7e:f6:1f:3d:7e:61:1b:03:f0:
+         3b:42:3d:00:b8:60:5d:7a:a1:c3:19:71:63:b8:c4:75:e8:ae:
+         62:7d:d5:e2:a0:73:cd:c8:5e:f4:e3:c7:63:79:37:2d:e4:f4:
+         99:3d:24:e5:11:92:06:1a:4d:92:62:8d:7f:a0:d5:b7:57:84:
+         bd:0f:14:a9:9a:0b:be:86:41:ef:94:d3:8f:11:e9:f2:a8:76:
+         40:20:87:81:70:53:91:c2:3f:b1:26:e7:b7:b1:0f:4c:a8:e0:
+         90:27:5f:4b:b3:0d:86:db:ee:29:7b:52:76:d2:6e:c7:f3:e8:
+         44:5b:04:8e:0e:06:a3:41:e4:68:53:f1:c8:f7:4e:53:db:2c:
+         39:5b:58:d0
+</code></pre>
+<h3 id="ca_1">作成したCA証明書を手元にコピーする。</h3>
+<pre><code class="language-bash">ssh ${user}@${server} 'docker exec sinetstream_ca cat /etc/pki/CA/cacert.pem' &gt; cacert.pem
+ls -l cacert.pem
+</code></pre>
+<pre><code>-rw-r--r-- 1 jovyan users 4349 Mar 27 14:38 cacert.pem
+</code></pre>
+<h2 id="_5">サーバ証明書の秘密鍵、証明書を作成する</h2>
+<h3 id="sansubjectaltname">証明書のSAN(subjectAltName)にサーバのホスト名を追加するための設定</h3>
+<pre><code class="language-bash">ssh ${user}@${server} &quot;docker exec sinetstream_ca /bin/sh -c 'cat &gt;&gt;/etc/pki/tls/openssl.cnf'&quot; &lt;&lt; EOF
+[ req ]
+req_extensions = v3_req
+
+[ v3_req ]
+subjectAltName = @alt_names
+
+[ alt_names ]
+DNS = ${server_fqdn}
+EOF
+</code></pre>
+<h3 id="csrcertificate-signing-request">サーバの秘密鍵とサーバ証明書のCSR(Certificate Signing Request)を作成する</h3>
+<pre><code class="language-bash">ssh ${user}@${server} &quot;docker exec sinetstream_ca \
+    openssl req -new \
+                -keyout /etc/pki/CA/private/broker.key \
+                -out /etc/pki/CA/broker.csr \
+                -nodes \
+                -subj /C=${country}/CN=${server_fqdn}&quot;
+</code></pre>
+<pre><code>Generating a 2048 bit RSA private key
+...+++
+...........+++
+writing new private key to '/etc/pki/CA/private/broker.key'
+-----
+</code></pre>
+<h3 id="ca_2">CA証明書で署名をおこない、サーバ証明書を作成する</h3>
+<pre><code class="language-bash">ssh ${user}@${server} &quot;docker exec sinetstream_ca \
+    openssl ca -batch \
+               -keyfile /etc/pki/CA/private/cakey.pem \
+               -cert /etc/pki/CA/cacert.pem \
+               -in /etc/pki/CA/broker.csr \
+               -out /etc/pki/CA/certs/broker.crt \
+               -policy policy_anything&quot;
+</code></pre>
+<pre><code>Using configuration from /etc/pki/tls/openssl.cnf
+Check that the request matches the signature
+Signature ok
+Certificate Details:
+        Serial Number:
+            c5:b2:cf:5c:ab:23:77:91
+        Validity
+            Not Before: Mar 24 09:56:59 2020 GMT
+            Not After : Mar 24 09:56:59 2021 GMT
+        Subject:
+            countryName               = JP
+            commonName                = broker.example.org
+        X509v3 extensions:
+            X509v3 Basic Constraints:
+                CA:FALSE
+            Netscape Comment:
+                OpenSSL Generated Certificate
+            X509v3 Subject Key Identifier:
+                5C:68:29:27:7A:84:4E:B6:32:99:01:6A:8C:D3:B9:EE:D9:D4:AC:E3
+            X509v3 Authority Key Identifier:
+                keyid:B6:0A:CE:3D:55:44:0A:2C:9E:B1:29:4E:7F:C5:DB:4C:87:4B:06:DB
+
+Certificate is to be certified until Mar 24 09:56:59 2021 GMT (365 days)
+
+Write out database with 1 new entries
+Data Base Updated
+</code></pre>
+<p>作成したサーバ証明書/etc/pki/CA/certs/broker.crtの内容を確認する</p>
+<pre><code class="language-bash">ssh ${user}@${server} &quot;docker exec sinetstream_ca \
+    openssl x509 -in /etc/pki/CA/certs/broker.crt -noout -text&quot;
+</code></pre>
+<pre><code>Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number:
+            c5:b2:cf:5c:ab:23:77:91
+    Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C=JP, ST=Example_State, O=Example_Organization, CN=private-ca
+        Validity
+            Not Before: Mar 24 09:56:59 2020 GMT
+            Not After : Mar 24 09:56:59 2021 GMT
+        Subject: C=JP, CN=broker.example.org
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (2048 bit)
+                Modulus:
+                    00:ef:29:c2:32:89:21:7b:8f:5a:b2:82:fe:df:df:
+                    eb:a1:89:a9:b7:d3:7d:3d:5d:39:9e:c7:72:11:5f:
+                    43:63:f0:bd:d6:07:1d:f6:00:52:fd:e2:88:3a:e7:
+                    85:2f:b7:f8:51:db:2f:c8:2e:19:00:9d:3e:c9:fc:
+                    95:d6:8d:b6:8c:35:0f:50:4c:6c:6f:fa:23:d7:4c:
+                    97:7a:ec:87:98:38:1e:96:aa:05:2f:ad:76:16:77:
+                    0d:a0:2a:5d:ae:b3:18:ea:3d:93:83:63:6c:61:f1:
+                    7e:15:6d:81:c4:1a:8d:ab:24:a6:bf:f0:ff:f1:7b:
+                    22:a1:52:cd:36:c0:08:24:5e:24:bd:b3:38:31:a2:
+                    3b:32:be:95:2d:23:db:1d:83:91:6a:75:38:0a:cc:
+                    51:10:57:f7:6b:70:b8:e8:72:ef:40:cd:a9:c0:f3:
+                    0b:e4:30:8d:b7:ac:c9:d2:f7:87:6c:c4:dc:d0:b7:
+                    b0:04:35:42:f3:ed:9c:b9:3c:77:26:c9:3e:61:86:
+                    1e:db:98:65:e6:cf:d3:cc:72:fb:05:d5:7e:96:57:
+                    2b:ac:ce:dd:81:e7:03:b4:2e:02:2d:6e:a5:7b:51:
+                    27:d4:8b:1a:98:35:df:50:8d:0e:43:96:8e:3c:5c:
+                    86:b1:47:91:f7:65:3e:55:f1:91:41:11:8b:0c:71:
+                    cc:cf
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Basic Constraints:
+                CA:FALSE
+            Netscape Comment:
+                OpenSSL Generated Certificate
+            X509v3 Subject Key Identifier:
+                5C:68:29:27:7A:84:4E:B6:32:99:01:6A:8C:D3:B9:EE:D9:D4:AC:E3
+            X509v3 Authority Key Identifier:
+                keyid:B6:0A:CE:3D:55:44:0A:2C:9E:B1:29:4E:7F:C5:DB:4C:87:4B:06:DB
+
+    Signature Algorithm: sha256WithRSAEncryption
+         a0:4e:93:61:3a:99:c0:3a:01:ff:d7:5a:b9:6a:36:1c:75:ea:
+         7f:df:6a:4f:a9:31:00:44:67:26:f3:df:12:af:4f:7a:72:2f:
+         8d:88:23:de:35:00:ad:5e:4b:fb:0d:f0:18:d0:2f:d1:c6:aa:
+         6e:b4:bc:7b:6e:d2:64:3e:59:54:a1:e6:35:7a:d9:c2:08:1a:
+         a0:7d:77:1a:4e:f4:e7:30:a4:11:c8:82:c2:60:bf:dd:0f:a2:
+         ca:f5:a6:0c:20:18:b8:c9:db:73:e4:43:62:f2:67:ee:95:d5:
+         5d:9a:4f:df:f9:1e:e3:b0:dd:e7:44:e2:46:79:a8:09:85:5a:
+         eb:e0:c0:26:41:ab:a0:6a:9c:e7:21:00:40:e0:7f:ce:66:c1:
+         95:0f:2b:60:f4:ca:f2:b7:8b:cf:f8:83:1e:96:f5:38:99:d8:
+         ea:fc:a8:55:51:e9:6a:02:f9:b0:59:9e:36:ae:90:11:b9:05:
+         74:01:73:8e:2d:e6:66:d4:08:94:ff:c7:08:f5:a0:89:92:0d:
+         92:72:2d:10:52:e9:1b:e2:13:d3:46:dc:db:51:75:2b:00:66:
+         07:a8:c1:67:8d:83:5e:6d:6f:66:6c:30:71:b0:df:c2:d4:cd:
+         03:c7:ec:39:12:f8:8a:72:50:3a:1f:a4:9a:50:62:56:80:12:
+         9d:73:52:d4
+</code></pre>
+<h3 id="_6">作成したサーバ秘密鍵とサーバ証明書を手元にコピーする</h3>
+<p>サーバ秘密鍵にパスフレーズを設定してないので盗難に注意する。</p>
+<pre><code class="language-bash">ssh ${user}@${server} 'docker exec sinetstream_ca cat /etc/pki/CA/private/broker.key ' &gt; broker.key
+ssh ${user}@${server} 'docker exec sinetstream_ca cat /etc/pki/CA/certs/broker.crt' &gt; broker.crt
+ls -l broker.key broker.crt
+</code></pre>
+<pre><code>-rw-r--r-- 1 jovyan users 4389 Mar 27 15:01 broker.crt
+-rw-r--r-- 1 jovyan users 1704 Mar 27 15:01 broker.key
+</code></pre>
+<h2 id="_7">クライアント認証のための秘密鍵、証明書を作成する</h2>
+<h3 id="csr">クライアント証明書のCSRと秘密鍵を作成する</h3>
+<pre><code class="language-bash">
+
+ssh ${user}@${server} &quot;docker exec sinetstream_ca \
+    openssl req -new \
+                -keyout /etc/pki/CA/private/${client_common_name}.key \
+                -out /etc/pki/CA/${client_common_name}.csr \
+                -nodes \
+                -subj /C=${country}/CN=${client_common_name}&quot;
+</code></pre>
+<pre><code>Generating a 2048 bit RSA private key
+..............................................................................................+++
+..............+++
+writing new private key to '/etc/pki/CA/private/client0.key'
+-----
+</code></pre>
+<h3 id="ca_3">CA証明書で署名をおこない、クライアント証明書を作成する</h3>
+<pre><code class="language-bash">ssh ${user}@${server} &quot;docker exec sinetstream_ca \
+    openssl ca -batch \
+               -keyfile /etc/pki/CA/private/cakey.pem \
+               -cert /etc/pki/CA/cacert.pem \
+               -in /etc/pki/CA/client0.csr \
+               -out /etc/pki/CA/certs/${client_common_name}.crt \
+               -policy policy_anything&quot;
+</code></pre>
+<pre><code>Using configuration from /etc/pki/tls/openssl.cnf
+Check that the request matches the signature
+Signature ok
+Certificate Details:
+        Serial Number:
+            c5:b2:cf:5c:ab:23:77:92
+        Validity
+            Not Before: Mar 24 09:57:22 2020 GMT
+            Not After : Mar 24 09:57:22 2021 GMT
+        Subject:
+            countryName               = JP
+            commonName                = client0
+        X509v3 extensions:
+            X509v3 Basic Constraints:
+                CA:FALSE
+            Netscape Comment:
+                OpenSSL Generated Certificate
+            X509v3 Subject Key Identifier:
+                35:F6:D3:43:27:74:2B:D4:45:DD:61:46:1D:29:9F:F4:3F:68:E0:DD
+            X509v3 Authority Key Identifier:
+                keyid:B6:0A:CE:3D:55:44:0A:2C:9E:B1:29:4E:7F:C5:DB:4C:87:4B:06:DB
+
+Certificate is to be certified until Mar 24 09:57:22 2021 GMT (365 days)
+
+Write out database with 1 new entries
+Data Base Updated
+</code></pre>
+<p>作成したクライアント証明書/etc/pki/CA/certs/client0.crtの内容を確認する</p>
+<pre><code class="language-bash">ssh ${user}@${server} &quot;docker exec sinetstream_ca \
+    openssl x509 -in /etc/pki/CA/certs/${client_common_name}.crt -noout -text&quot;
+</code></pre>
+<pre><code>Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number:
+            c5:b2:cf:5c:ab:23:77:92
+    Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C=JP, ST=Example_State, O=Example_Organization, CN=private-ca
+        Validity
+            Not Before: Mar 24 09:57:22 2020 GMT
+            Not After : Mar 24 09:57:22 2021 GMT
+        Subject: C=JP, CN=client0
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (2048 bit)
+                Modulus:
+                    00:b9:19:24:59:70:05:6a:a9:be:40:f6:bd:f6:0a:
+                    74:77:8f:e2:d9:66:56:30:30:79:01:ce:82:e4:bf:
+                    cd:cc:c7:04:74:4a:f4:83:e5:c9:04:96:d9:98:bd:
+                    ce:39:71:ff:83:34:39:7e:26:dd:24:7d:af:b2:25:
+                    1d:7f:2b:32:45:89:28:a9:e0:f1:13:79:60:70:ae:
+                    5f:e9:c5:29:ea:08:f9:df:0b:20:2f:cd:7f:9b:0f:
+                    9f:14:5a:91:5d:e2:7c:31:75:b7:90:cb:ce:45:ec:
+                    87:5e:49:6e:28:9e:1b:05:16:3e:d1:86:d7:e4:6f:
+                    4c:74:07:97:0f:7f:97:20:26:7e:cb:55:7e:99:23:
+                    12:31:e5:48:9b:83:8c:ec:41:87:a2:86:c9:71:1f:
+                    66:13:84:05:55:50:34:b9:a9:0b:62:35:a6:38:b9:
+                    68:8c:04:a6:e9:e4:a3:ed:14:f9:2c:cf:28:f2:1c:
+                    30:9b:4f:f0:bd:2b:fd:b9:35:8d:5d:c7:c3:c6:1e:
+                    e5:79:b8:2e:f2:90:10:0d:bb:14:b0:01:5e:b1:4e:
+                    19:eb:64:12:4b:07:e5:22:1a:4b:cf:f9:60:cf:9b:
+                    f1:b8:7f:70:28:d2:11:82:92:e0:9e:a1:67:33:ea:
+                    b3:30:c5:3d:e1:69:0a:17:de:e9:59:6d:4a:e3:bb:
+                    e9:c9
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Basic Constraints:
+                CA:FALSE
+            Netscape Comment:
+                OpenSSL Generated Certificate
+            X509v3 Subject Key Identifier:
+                35:F6:D3:43:27:74:2B:D4:45:DD:61:46:1D:29:9F:F4:3F:68:E0:DD
+            X509v3 Authority Key Identifier:
+                keyid:B6:0A:CE:3D:55:44:0A:2C:9E:B1:29:4E:7F:C5:DB:4C:87:4B:06:DB
+
+    Signature Algorithm: sha256WithRSAEncryption
+         da:b4:6d:f4:ba:59:b2:75:6d:a6:98:63:96:ba:78:31:18:cf:
+         0d:1c:31:b6:23:ee:c6:f2:df:88:7a:62:ac:1b:c3:bf:e8:f2:
+         0d:b2:f7:41:b4:26:6a:bd:7d:31:ba:53:b2:ef:de:4f:e6:72:
+         1e:1d:fb:ff:7b:0e:7a:ac:98:a6:e9:18:6f:6b:68:b1:d5:e3:
+         96:d1:03:21:ab:78:d5:ea:52:86:80:03:95:87:68:95:f8:df:
+         2b:be:d7:d8:c7:93:f2:37:a3:58:da:0b:3f:91:90:c5:31:e6:
+         56:e0:56:aa:29:2e:ac:e1:a8:aa:ce:b1:8e:ff:c1:f1:91:3a:
+         d7:6b:22:97:30:d5:18:c2:8a:af:f7:0d:5a:27:6f:75:a6:8c:
+         af:48:df:be:1d:d5:19:0f:6c:65:ad:cc:9d:12:2d:9d:e5:09:
+         f8:d4:2a:40:47:e2:71:bc:85:7f:bf:01:4d:d4:0b:89:e4:b8:
+         0d:75:e9:78:6f:5f:aa:59:c7:e1:99:89:c0:be:bc:02:32:15:
+         eb:ed:17:e7:e2:cb:f5:ba:e5:46:8d:c7:5a:cb:f3:30:43:84:
+         0e:8c:59:57:d9:94:ee:eb:18:36:a0:c3:bf:52:7f:ec:96:68:
+         a6:52:3d:40:75:08:c9:45:f6:0d:e9:58:ae:c6:16:b9:4b:ee:
+         7a:5c:47:41
+</code></pre>
+<pre><code class="language-bash">
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  ページトップへ戻る
+</button>
+        
+      </main>
+      
+        <div class="site-footer-copyright">Copyright(C) National Institute of Informatics</div>
+<div class="site-footer-logo">
+  <a href="https://www.nii.ac.jp/">
+    
+    <img src="../../../images/NIIlogo_JP_ls.png" alt="NII 国立情報学研究所">
+    
+  </a>
+</div>
+<footer class="md-footer">
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.expand", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
+      
+    
+  </body>
+</html>
