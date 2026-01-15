@@ -1,0 +1,3025 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://onukiyuma.github.io/SINETStream/userguide/config-android/">
+      
+      
+        <link rel="prev" href="../api-android/">
+      
+      
+        <link rel="next" href="../config-client-android/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
+    
+    
+      
+        <title>Android版のSINETStream設定ファイル - SINETStream</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../styles/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sinetstream" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href="../.." title="SINETStream" class="md-header__button md-logo" aria-label="SINETStream" data-md-component="logo">
+      
+  <img src="../../images/SiNETStream.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SINETStream
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Android版のSINETStream設定ファイル
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="言語切り替え">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="ja" class="md-select__link">
+              日本語
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../en/userguide/config-android/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="検索">
+        
+        <button type="reset" class="md-search__icon md-icon" title="クリア" aria-label="クリア" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="タブ" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../docm/" class="md-tabs__link">
+          
+  
+  SINETStreamについて
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../tutorial/" class="md-tabs__link">
+          
+  
+  チュートリアル
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  ユーザガイド
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../developer_guide/" class="md-tabs__link">
+          
+  
+  プラグイン開発ガイド
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="SINETStream" class="md-nav__button md-logo" aria-label="SINETStream" data-md-component="logo">
+      
+  <img src="../../images/SiNETStream.png" alt="logo">
+
+    </a>
+    SINETStream
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    SINETStreamについて
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            SINETStreamについて
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ドキュメント
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../performance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SINETStream性能測定結果
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../livedemo/livedemo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SINETStreamのライブデモ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    SINETStreamサーバ構築手順
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            SINETStreamサーバ構築手順
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../server/brokers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    サーバ構築手順
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../server/brokers/%E3%83%97%E3%83%A9%E3%82%A4%E3%83%99%E3%83%BC%E3%83%88%E8%AA%8D%E8%A8%BC%E5%B1%80%E3%81%A7%E8%A8%BC%E6%98%8E%E6%9B%B8%E3%82%92%E4%BD%9C%E6%88%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    プライベート認証局で証明書を作成する
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../server/brokers/Kafkabroker%E3%81%AE%E6%A7%8B%E7%AF%89%E6%89%8B%E9%A0%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kafka brokerの構築手順
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../server/brokers/mosquitto%E6%A7%8B%E7%AF%89%E6%89%8B%E9%A0%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    mosquitto(MQTT broker)の構築手順
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CHANGELOG/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    更新履歴
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    チュートリアル
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            チュートリアル
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Python/Java版
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Python/Java版
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    クイックスタートガイド
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/TUTORIAL-STEP1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    STEP1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/TUTORIAL-STEP2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    STEP2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Android版
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Android版
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    クイックスタートガイド
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_2" id="__nav_3_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    sinetstream-android-echo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            sinetstream-android-echo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/TUTORIAL-android-step1-overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    テキスト送受信アプリの実行
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/TUTORIAL-android-step1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ANDROID-STEP1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    sinetstream-android-sensor-publisher
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            sinetstream-android-sensor-publisher
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/TUTORIAL-android-step2-overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    センサ情報収集アプリの実行
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/TUTORIAL-android-step2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ANDROID-STEP2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/TUTORIAL-android-step2-webbrowser/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    センサーデータ可視化用のウェブインタフェース
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/TUTORIAL-android-step2-location/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    端末位置情報の自動更新
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/sinetstreamhelper-tutorial-container/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SINETStream Android Tutorial Container
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/TUTORIAL-android-install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Androidサンプルアプリケーションの導入
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/TUTORIAL-android-keychain/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    システム秘匿領域への証明書ファイルの導入
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/sinetstreamhelper-tutorial-container/TUTORIAL-docker-container/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DOCKER-CONTAINER
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    ユーザガイド
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            ユーザガイド
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ユーザガイド
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-java/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Android版
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            Android版
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SINETStream for Android ユーザガイド
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Android版SINETStreamライブラリ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="http://javadoc.android.sinetstream.net/sinetstream-android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API (Javadoc)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Android版のSINETStream設定ファイル
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Android版のSINETStream設定ファイル
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#androidsinetstream" class="md-nav__link">
+    <span class="md-ellipsis">
+      Android版のSINETStream設定ファイル
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      概要
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      サービスによる記述内容のブロック化
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      設定サーバとの連携
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      設定項目一覧
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="設定項目一覧">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      基本的なパラメータ
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    <span class="md-ellipsis">
+      APIのパラメータ
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssltls" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSL/TLSに関するパラメータ
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SSL/TLSに関するパラメータ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-ssltls" class="md-nav__link">
+    <span class="md-ellipsis">
+      形式1: SSL/TLS証明書の使用方法が限定的
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-androidssltls" class="md-nav__link">
+    <span class="md-ellipsis">
+      形式2: Androidのキーチェインに格納されたSSL/TLS証明書を使う
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-ssltls" class="md-nav__link">
+    <span class="md-ellipsis">
+      形式3: 設定サーバからダウンロードしたSSL/TLS証明書を使う
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mqtt" class="md-nav__link">
+    <span class="md-ellipsis">
+      MQTT固有のパラメータ
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MQTT固有のパラメータ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      基本
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mqtt_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      MQTTのユーザ認証に関するパラメータ
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mqttlwt-last-will-and-testament" class="md-nav__link">
+    <span class="md-ellipsis">
+      MQTTのLWT (Last Will and Testament) に関するパラメータ
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mqttssltls" class="md-nav__link">
+    <span class="md-ellipsis">
+      MQTTのSSL/TLSパラメータ
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config-client-android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Android版の設定クライアント
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    SINETStreamHelper
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            SINETStreamHelper
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../libhelper/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SINETStreamHelper ユーザガイド
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-libhelper/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SINETStreamHelperライブラリ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="http://javadoc.android.sinetstream.net/sinetstream-android-helper/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API (Javadoc)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    設定ファイル
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../auth/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    認証と認可
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/nii-gakunin-cloud/sinetstream/blob/main/java/sample/cli/README.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CLI(Command Line Interface)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    互換性
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    プラグイン開発ガイド
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            プラグイン開発ガイド
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    開発者ガイド
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Messaging system
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Messaging system
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_guide/plugin_broker_python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_guide/plugin_broker_java/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    message type
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            message type
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_guide/plugin_value_type_python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_guide/plugin_value_type_java/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    compression
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            compression
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_guide/plugin_compression_python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_guide/plugin_compression_java/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_guide/message_format/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    メッセージフォーマット
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#androidsinetstream" class="md-nav__link">
+    <span class="md-ellipsis">
+      Android版のSINETStream設定ファイル
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      概要
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      サービスによる記述内容のブロック化
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      設定サーバとの連携
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      設定項目一覧
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="設定項目一覧">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      基本的なパラメータ
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    <span class="md-ellipsis">
+      APIのパラメータ
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssltls" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSL/TLSに関するパラメータ
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SSL/TLSに関するパラメータ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-ssltls" class="md-nav__link">
+    <span class="md-ellipsis">
+      形式1: SSL/TLS証明書の使用方法が限定的
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-androidssltls" class="md-nav__link">
+    <span class="md-ellipsis">
+      形式2: Androidのキーチェインに格納されたSSL/TLS証明書を使う
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-ssltls" class="md-nav__link">
+    <span class="md-ellipsis">
+      形式3: 設定サーバからダウンロードしたSSL/TLS証明書を使う
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mqtt" class="md-nav__link">
+    <span class="md-ellipsis">
+      MQTT固有のパラメータ
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MQTT固有のパラメータ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      基本
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mqtt_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      MQTTのユーザ認証に関するパラメータ
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mqttlwt-last-will-and-testament" class="md-nav__link">
+    <span class="md-ellipsis">
+      MQTTのLWT (Last Will and Testament) に関するパラメータ
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mqttssltls" class="md-nav__link">
+    <span class="md-ellipsis">
+      MQTTのSSL/TLSパラメータ
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<!--
+Copyright (C) 2020 National Institute of Informatics
+
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+
+<p><a href="config-android.en.md">English</a></p>
+<h1 id="sinetstream">SINETStream ユーザガイド</h1>
+<h2 id="androidsinetstream">Android版のSINETStream設定ファイル</h2>
+<h2 id="_1">概要</h2>
+<p>Java版やPython版とは異なり、Android版のSINETStreamライブラリは足回りのメッセージングシステムとして(現状では)
+<a href="https://www.eclipse.org/paho/index.php?page=clients/android/index.php">Paho MQTT Android</a>
+のみを利用する。
+ここでの設定内容はPahoの<a href="https://www.eclipse.org/paho/files/javadoc/org/eclipse/paho/client/mqttv3/MqttConnectOptions.html">MqttConnectOptions</a>に反映される。
+オプション扱いの設定項目が省略された場合、MqttConnectOptions組み込みの値が使われる。</p>
+<h2 id="_2">サービスによる記述内容のブロック化</h2>
+<ul>
+<li>SINETStreamの設定ファイルの記述内容はサービス単位のブロックとして扱う。</li>
+<li>ファイル中に複数のサービス内容を記述できるため、それらを識別するための
+検索鍵として<code>service</code>が使われる。</li>
+</ul>
+<pre><code>   sinetstream_config.yml
+   +------------------------+
+   |  +------------------+  |
+   |  | service #1       |  |
+   |  |   ...            |  |
+   |  +------------------+  |
+   |      ...               |
+   |  +------------------+  |
+   |  | service #n       | &lt;---- target service
+   |  |   ...            |  |
+   |  +------------------+  |
+   +------------------------+
+</code></pre>
+<h2 id="_3">設定サーバとの連携</h2>
+<p><a href="https://www.sinetstream.net/docs/news/20211223-release_v16.html">SINETStream 1.6版</a>より、SINETStreamの設定情報を一元管理する<code>設定サーバ</code>を導入した。</p>
+<p>従来の「Android端末ごとにSINETStream設定ファイルを用意する」運用の他に、
+「システム管理者が<code>設定サーバ</code>に登録した内容をREST-API経由でAndroid端末に取り込む」運用も可能とする。
+前者の運用方法ではAndroid版のSINETStreamライブラリは単にYAML形式のローカルファイルを読み込むだけである。後者ではAndroid版のSINETStreamライブラリが<code>設定サーバ</code>からJSONデータをダウンロードしてメモリ上でのみ扱われる。</p>
+<p><code>設定サーバ</code>からダウンロードされるJSONデータ構造の概略を以下に示す。
+このうち下図右端に示す部分が従来のSINETStream設定ファイル相当（JSON形式で表現）となる。
+<code>設定サーバ</code>は、複数の情報ブロック（基本情報としてのSINETStream設定、SSL/TLS証明書のような添付情報、公開鍵のような秘匿情報）を一括して管理できる。
+基本情報以外の付加情報がある場合、それぞれオプション要素（<code>attachments</code>、<code>secrets</code>）としてJSONデータに含まれるとともに、基本情報部分も拡張項目が設定される。
+SINETStream設定における記法のバージョン識別のため、下図中央に示すヘッダ情報が含まれる。ただしJSONデータに添付情報や秘匿情報を含まず、かつ従来の<code>SINETStream 1.6版</code>に準じた記法に閉じる場合はヘッダ情報が省略される。</p>
+<pre><code>    JSON data                 config part        sinetstream_config
+   +---------------+     - - +----------+        part
+   | name          |    /    | (header) |
+   +---------------+ - -     +----------+ - - - +----------------+
+   | config        |         | config   |       | +------------+ |
+   +---------------+ - - - - +----------+ - -   | | service #1 | |
+   | (attachments) |                         \  | |   ...      | |
+   +---------------+                          \ | +------------+ |
+   | (secrets)     |                            +----------------+
+   +---------------+
+</code></pre>
+<h2 id="_4">設定項目一覧</h2>
+<h3 id="_5">基本的なパラメータ</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">大分類</th>
+<th style="text-align: left;">中分類</th>
+<th style="text-align: left;">小分類</th>
+<th style="text-align: left;">型</th>
+<th style="text-align: left;">値域</th>
+<th style="text-align: left;">必須</th>
+<th style="text-align: left;">備考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">service</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">任意</td>
+<td style="text-align: left;">o</td>
+<td style="text-align: left;">サービス識別子</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">type</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">{"mqtt"}</td>
+<td style="text-align: left;">o</td>
+<td style="text-align: left;">現状では<code>"mqtt"</code>のみ</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">brokers</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">hostport1[,hostport2[, ...]]</td>
+<td style="text-align: left;">o</td>
+<td style="text-align: left;">複数要素の場合はコンマで連結する</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>項目<code>brokers</code>に複数要素を指定した場合、候補順に接続試行を繰り返す。</li>
+<li>接続に成功した場合、あるいは全て接続失敗した場合に制御が戻る。</li>
+</ul>
+<h3 id="api">APIのパラメータ</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">大分類</th>
+<th style="text-align: left;">中分類</th>
+<th style="text-align: left;">小分類</th>
+<th style="text-align: left;">型</th>
+<th style="text-align: left;">値域</th>
+<th style="text-align: left;">必須</th>
+<th style="text-align: left;">備考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">topics</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">topic1[,topic2[, ...]]</td>
+<td style="text-align: left;">o</td>
+<td style="text-align: left;">複数要素の場合はコンマで連結する</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">client_id</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">Any</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">省略時はMQTTライブラリ内部で自動生成する</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">consistency</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">{"AT_MOST_ONCE","AT_LEAST_ONCE","EXACTLY_ONCE"}</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">省略時は"AT_LEAST_ONCE"</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>項目<code>client_id</code>は<code>無効</code>とする。</li>
+</ul>
+<blockquote>
+<p>ユーザ指定の<code>client_id</code>を用いると、PahoのMQTTライブラリ内部でエラーが発生する<a href="https://github.com/eclipse/paho.mqtt.android/issues/238">不具合</a>がある。<br>
+本現象を回避するため、SINETStream設定で<code>client_id</code>が指定されても無視する運用とする。</p>
+</blockquote>
+<h3 id="ssltls">SSL/TLSに関するパラメータ</h3>
+<h4 id="1-ssltls">形式1: SSL/TLS証明書の使用方法が限定的</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">大分類</th>
+<th style="text-align: left;">中分類</th>
+<th style="text-align: left;">小分類</th>
+<th style="text-align: left;">型</th>
+<th style="text-align: left;">値域</th>
+<th style="text-align: left;">必須</th>
+<th style="text-align: left;">備考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">tls</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Boolean</td>
+<td style="text-align: left;">{true,false}</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">省略時はfalse</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>子要素なしで「tls: true」指定の場合、以下に示す限定的な使用形態と看做す。</li>
+<li>クライアント証明書の提示をサーバ側から要求されない。</li>
+<li>
+<p>公的な認証局（CA）から払い出されたサーバ証明書が使われる。</p>
+<blockquote>
+<p>上記以外の使用条件だとSSL/TLS証明書の設定が不十分のため接続に失敗する。</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="2-androidssltls">形式2: Androidのキーチェインに格納されたSSL/TLS証明書を使う</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">大分類</th>
+<th style="text-align: left;">中分類</th>
+<th style="text-align: left;">小分類</th>
+<th style="text-align: left;">型</th>
+<th style="text-align: left;">値域</th>
+<th style="text-align: left;">必須</th>
+<th style="text-align: left;">備考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">tls</td>
+<td style="text-align: left;">protocol</td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">{TLSv1.2,TLSv1.3}</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">省略時は"TLSv1.2"</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">tls</td>
+<td style="text-align: left;">client_certs</td>
+<td style="text-align: left;">Boolean</td>
+<td style="text-align: left;">{true,false}</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">省略時はfalse</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">tls</td>
+<td style="text-align: left;">server_certs</td>
+<td style="text-align: left;">Boolean</td>
+<td style="text-align: left;">{true,false}</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">省略時はfalse</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">tls</td>
+<td style="text-align: left;">check_hostname</td>
+<td style="text-align: left;">Boolean</td>
+<td style="text-align: left;">{true,false}</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">省略時はtrue</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>SSL/TLS関連の証明書は、事前にAndroidシステム秘匿領域「<a href="https://developer.android.com/reference/android/security/KeyChain">キーチェイン</a>」に格納されたものを参照する運用とする。</li>
+<li>クライアント証明書を使う場合、項目<code>client_certs</code>をtrueとする。</li>
+<li>
+<p>自己署名サーバ証明書（いわゆるオレオレサーバ証明書）を使う場合、項目<code>server_certs</code>をtrueとする。</p>
+<blockquote>
+<p>対象のSSL/TLS証明書は以下のシステム設定階層を辿って参照できる。<br></p>
+<p>[クライアント証明書]<br>
+Settings -&gt; Security &amp; location -&gt; Encryption &amp; credentials -&gt; User credentials</p>
+<p>[自己署名サーバ証明書]<br>
+Settings -&gt; Security &amp; location -&gt; Encryption &amp; credentials -&gt; Trusted credentials -&gt; USER</p>
+</blockquote>
+</li>
+<li>
+<p>Androidの<code>キーチェイン</code>を利用する場合、項目<code>keyfilePassword</code>は無視される。</p>
+</li>
+<li>クライアント証明書の登録時は対となるパスワード入力をシステムから要求される。証明書の登録処理に成功すると<code>エイリアス</code>が払い出される。</li>
+<li>
+<p>クライアント証明書の参照時はこの<code>エイリアス</code>を指定する必要がある。</p>
+</li>
+<li>
+<p>項目<code>protocol</code>での<code>TLSv1.3</code>はAndroid 10 (APIレベル29）以降の対応となる。</p>
+</li>
+</ul>
+<blockquote>
+<p><a href="https://developer.android.com/reference/javax/net/ssl/SSLSocket.html#default-configuration-for-different-android-versions">Default configuration for different Android versions</a></p>
+</blockquote>
+<h4 id="3-ssltls">形式3: 設定サーバからダウンロードしたSSL/TLS証明書を使う</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">大分類</th>
+<th style="text-align: left;">中分類</th>
+<th style="text-align: left;">小分類</th>
+<th style="text-align: left;">型</th>
+<th style="text-align: left;">値域</th>
+<th style="text-align: left;">必須</th>
+<th style="text-align: left;">備考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">tls</td>
+<td style="text-align: left;">protocol</td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">{TLSv1.2,TLSv1.3}</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">省略時は"TLSv1.2"</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">tls</td>
+<td style="text-align: left;">keyfilePassword</td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">Any</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">クライアント証明書（xxx.pfx）のパスワード</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">tls</td>
+<td style="text-align: left;">check_hostname</td>
+<td style="text-align: left;">Boolean</td>
+<td style="text-align: left;">{true,false}</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">省略時はtrue</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>SSL/TLS関連の証明書は、設定サーバから取得したものを参照する。</li>
+<li>
+<p>クライアント証明書は添付情報（<code>attachments</code>配列のうち、<code>target</code>の値が<code>*.tls.certfile_data</code>に対応する要素の値）として入手できる。</p>
+<blockquote>
+<p>本要素の値はBase64エンコード文字列が埋め込まれた形となっているが、その実体はPFX形式のバイナリファイル（バイト列）が入っているはずである。</p>
+</blockquote>
+</li>
+<li>
+<p>自己署名サーバ証明書（いわゆるオレオレサーバ証明書）は添付情報（<code>attachments</code>配列のうち、<code>target</code>の値が<code>*.tls.ca_certs_data</code>に対応する要素の値）として入手できる。</p>
+<blockquote>
+<p>本要素の値はBase64エンコード文字列が埋め込まれた形となっているが、その実体はPEM形式のASCIIファイルが入っているはずである。</p>
+</blockquote>
+</li>
+<li>
+<p>クライアント証明書が添付情報に含まれる場合、項目<code>keyfilePassword</code>の指定が必須となる。</p>
+</li>
+<li>
+<p>逆に<code>keyfilePassword</code>が設定されてクライアント証明書が添付情報に含まれない場合は、このパスワードは無視される。</p>
+</li>
+<li>
+<p>設定サーバを利用する場合、項目<code>client_certs</code>および<code>server_certs</code>は無視される。</p>
+</li>
+<li>
+<p>項目<code>protocol</code>での<code>TLSv1.3</code>はAndroid 10 (APIレベル29）以降の対応となる。</p>
+</li>
+</ul>
+<blockquote>
+<p><a href="https://developer.android.com/reference/javax/net/ssl/SSLSocket.html#default-configuration-for-different-android-versions">Default configuration for different Android versions</a></p>
+</blockquote>
+<h3 id="mqtt">MQTT固有のパラメータ</h3>
+<h4 id="_6">基本</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">大分類</th>
+<th style="text-align: left;">中分類</th>
+<th style="text-align: left;">小分類</th>
+<th style="text-align: left;">型</th>
+<th style="text-align: left;">値域</th>
+<th style="text-align: left;">必須</th>
+<th style="text-align: left;">備考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">clean_session</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Boolean</td>
+<td style="text-align: left;">{true,false}</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">省略時はtrue</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">protocol [1]</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">{"MQTTv31","MQTTv311","DEFAULT"}</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">省略時は"DEFAULT"</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">transport</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">{"tcp","websocket"}</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">省略時は"tcp"</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">qos</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Integer</td>
+<td style="text-align: left;">{0,1,2}</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">省略時は1</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">retain</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Boolean</td>
+<td style="text-align: left;">{true,false}</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">省略時はtrue</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">max_inflight_messages_set</td>
+<td style="text-align: left;">inflight</td>
+<td style="text-align: left;">Integer</td>
+<td style="text-align: left;">正整数</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">省略時は10</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">reconnect_delay_set</td>
+<td style="text-align: left;">max_delay</td>
+<td style="text-align: left;">Integer</td>
+<td style="text-align: left;">正整数</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">省略時は128000</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">connect</td>
+<td style="text-align: left;">keepalive</td>
+<td style="text-align: left;">Integer</td>
+<td style="text-align: left;">正整数</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">省略時は60</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">connect</td>
+<td style="text-align: left;">automatic_reconnect</td>
+<td style="text-align: left;">Boolean</td>
+<td style="text-align: left;">{true,false}</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">省略時はfalse</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">connect</td>
+<td style="text-align: left;">connection_timeout</td>
+<td style="text-align: left;">Integer</td>
+<td style="text-align: left;">正整数</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">省略時は30</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">mqtt_debug [2]</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Boolean</td>
+<td style="text-align: left;">{true,false}</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Default: false</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>項目<code>protocol</code>での<code>"DEFAULT"</code>指定時は、
+<a href="https://www.eclipse.org/paho/files/javadoc/org/eclipse/paho/client/mqttv3/MqttConnectOptions.html#MQTT_VERSION_DEFAULT">まずMQTTv311を試し、次にMQTTv31を試す</a>という振る舞いとなる。</li>
+<li>項目<code>qos</code>に関しては、上記共通部の「APIのパラメータ」の項目<code>consistency</code>より
+こちらが優先される。</li>
+</ul>
+<p>[1]: 項目<code>protocol</code>の別名として<code>mqtt_version</code>を使っても良い。
+両者を同時に指定した場合、<code>protocol</code>を採用する。</p>
+<p>[2]: 開発者向け。MqttAndroidClientのデバッグトレースの有無を設定する。</p>
+<h4 id="mqtt_1">MQTTのユーザ認証に関するパラメータ</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">大分類</th>
+<th style="text-align: left;">中分類</th>
+<th style="text-align: left;">小分類</th>
+<th style="text-align: left;">型</th>
+<th style="text-align: left;">値域</th>
+<th style="text-align: left;">必須</th>
+<th style="text-align: left;">備考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">username_pw_set</td>
+<td style="text-align: left;">username</td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">Any</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">username_pw_set</td>
+<td style="text-align: left;">password</td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">Any</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>ユーザ認証パラメータは項目<code>username</code>と<code>password</code>の両方を同時に設定、
+または両方同時に省略のいずれかとすること。</li>
+</ul>
+<h4 id="mqttlwt-last-will-and-testament">MQTTのLWT (Last Will and Testament) に関するパラメータ</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">大分類</th>
+<th style="text-align: left;">中分類</th>
+<th style="text-align: left;">小分類</th>
+<th style="text-align: left;">型</th>
+<th style="text-align: left;">値域</th>
+<th style="text-align: left;">必須</th>
+<th style="text-align: left;">備考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">will_set</td>
+<td style="text-align: left;">topic</td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">Any</td>
+<td style="text-align: left;">o</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">will_set</td>
+<td style="text-align: left;">payload</td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">Any</td>
+<td style="text-align: left;">o</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">will_set</td>
+<td style="text-align: left;">qos</td>
+<td style="text-align: left;">Integer</td>
+<td style="text-align: left;">正整数</td>
+<td style="text-align: left;">o</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">will_set</td>
+<td style="text-align: left;">retain</td>
+<td style="text-align: left;">Boolean</td>
+<td style="text-align: left;">{true,false}</td>
+<td style="text-align: left;">o</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>親項目<code>will_set</code>なしだと子項目（たとえば<code>topic</code>）が基本パラメータの
+ものと重複してしまう。</li>
+<li>
+<p>曖昧さを防ぐため、上記４つの項目のいずれも必須とする。</p>
+</li>
+<li>
+<p>項目<code>payload</code>はバイト列として<code>Paho MQTT Android</code>ライブラリに渡される。</p>
+</li>
+<li>SINETStream設定ファイル上はBase64エンコード文字列としてペイロードを指定すること。</li>
+</ul>
+<h4 id="mqttssltls">MQTTのSSL/TLSパラメータ</h4>
+<!-- OBSOLETED
+|大分類|中分類|小分類|型|値域|必須|備考|
+|:-----|:-----|:-----|:-|:---|:---|:---|
+||tls_set|ca_certs|String|Any||自己署名サーバ証明書（xxx.crt）のファイル名|
+||tls_set|certfile|String|Any||クライアント証明書（xxx.pfx）のファイル名|
+||tls_set|keyfilePassword|String|Any||クライアント証明書（xxx.pfx）のパスワード|
+||tls_insecure_set|value|Boolean|{true,false}||省略時はtrue|
+-->
+
+<ul>
+<li>本カテゴリーは<code>無効</code>とする。</li>
+<li>上記共通部の「SSL/TLSに関するパラメータ」を使うこと。</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  ページトップへ戻る
+</button>
+        
+      </main>
+      
+        <div class="site-footer-copyright">Copyright(C) National Institute of Informatics</div>
+<div class="site-footer-logo">
+  <a href="https://www.nii.ac.jp/">
+    
+    <img src="../../images/NIIlogo_JP_ls.png" alt="NII 国立情報学研究所">
+    
+  </a>
+</div>
+<footer class="md-footer">
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,3186 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://onukiyuma.github.io/SINETStream/userguide/api-java/">
+      
+      
+        <link rel="prev" href="../api-python/">
+      
+      
+        <link rel="next" href="../android/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
+    
+    
+      
+        <title>Java API - SINETStream</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../styles/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#java-api" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href="../.." title="SINETStream" class="md-header__button md-logo" aria-label="SINETStream" data-md-component="logo">
+      
+  <img src="../../images/SiNETStream.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SINETStream
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Java API
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="言語切り替え">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="ja" class="md-select__link">
+              日本語
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../en/userguide/api-java/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="検索">
+        
+        <button type="reset" class="md-search__icon md-icon" title="クリア" aria-label="クリア" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="タブ" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../docm/" class="md-tabs__link">
+          
+  
+  SINETStreamについて
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../tutorial/" class="md-tabs__link">
+          
+  
+  チュートリアル
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  ユーザガイド
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../developer_guide/" class="md-tabs__link">
+          
+  
+  プラグイン開発ガイド
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="SINETStream" class="md-nav__button md-logo" aria-label="SINETStream" data-md-component="logo">
+      
+  <img src="../../images/SiNETStream.png" alt="logo">
+
+    </a>
+    SINETStream
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    SINETStreamについて
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            SINETStreamについて
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ドキュメント
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../performance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SINETStream性能測定結果
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../livedemo/livedemo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SINETStreamのライブデモ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    SINETStreamサーバ構築手順
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            SINETStreamサーバ構築手順
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../server/brokers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    サーバ構築手順
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../server/brokers/%E3%83%97%E3%83%A9%E3%82%A4%E3%83%99%E3%83%BC%E3%83%88%E8%AA%8D%E8%A8%BC%E5%B1%80%E3%81%A7%E8%A8%BC%E6%98%8E%E6%9B%B8%E3%82%92%E4%BD%9C%E6%88%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    プライベート認証局で証明書を作成する
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../server/brokers/Kafkabroker%E3%81%AE%E6%A7%8B%E7%AF%89%E6%89%8B%E9%A0%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kafka brokerの構築手順
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../server/brokers/mosquitto%E6%A7%8B%E7%AF%89%E6%89%8B%E9%A0%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    mosquitto(MQTT broker)の構築手順
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CHANGELOG/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    更新履歴
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    チュートリアル
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            チュートリアル
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Python/Java版
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Python/Java版
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    クイックスタートガイド
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/TUTORIAL-STEP1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    STEP1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/TUTORIAL-STEP2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    STEP2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Android版
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Android版
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    クイックスタートガイド
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_2" id="__nav_3_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    sinetstream-android-echo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            sinetstream-android-echo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/TUTORIAL-android-step1-overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    テキスト送受信アプリの実行
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/TUTORIAL-android-step1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ANDROID-STEP1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    sinetstream-android-sensor-publisher
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            sinetstream-android-sensor-publisher
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/TUTORIAL-android-step2-overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    センサ情報収集アプリの実行
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/TUTORIAL-android-step2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ANDROID-STEP2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/TUTORIAL-android-step2-webbrowser/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    センサーデータ可視化用のウェブインタフェース
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/TUTORIAL-android-step2-location/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    端末位置情報の自動更新
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/sinetstreamhelper-tutorial-container/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SINETStream Android Tutorial Container
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/TUTORIAL-android-install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Androidサンプルアプリケーションの導入
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/TUTORIAL-android-keychain/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    システム秘匿領域への証明書ファイルの導入
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/sinetstreamhelper-tutorial-container/TUTORIAL-docker-container/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DOCKER-CONTAINER
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    ユーザガイド
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            ユーザガイド
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ユーザガイド
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Java API
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Java API
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 使用例
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 使用例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      設定ファイル作成
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      メッセージ送信
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      メッセージ受信
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-java-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Java API クラス一覧
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Java API クラス一覧">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      主要クラス
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#21-messagewriterfactory" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 MessageWriterFactory クラス
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-messagewriter" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 MessageWriter クラス
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-asyncmessagewriter" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 AsyncMessageWriter クラス
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-messagereaderfactory" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 MessageReaderFactory クラス
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-messagereader" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5 MessageReader クラス
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-asyncmessagereader" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6 AsyncMessageReader クラス
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27-message" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.7 Message クラス
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#28-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.8 Metrics クラス
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.8 Metrics クラス">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      プロパティ
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#29" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.9 例外一覧
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. メッセージングシステム固有のパラメータ
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. チートシートの表示方法
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Android版
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            Android版
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SINETStream for Android ユーザガイド
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Android版SINETStreamライブラリ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="http://javadoc.android.sinetstream.net/sinetstream-android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API (Javadoc)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config-android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Android版のSINETStream設定ファイル
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config-client-android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Android版の設定クライアント
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    SINETStreamHelper
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            SINETStreamHelper
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../libhelper/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SINETStreamHelper ユーザガイド
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-libhelper/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SINETStreamHelperライブラリ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="http://javadoc.android.sinetstream.net/sinetstream-android-helper/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API (Javadoc)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    設定ファイル
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../auth/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    認証と認可
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/nii-gakunin-cloud/sinetstream/blob/main/java/sample/cli/README.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CLI(Command Line Interface)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    互換性
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    プラグイン開発ガイド
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            プラグイン開発ガイド
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    開発者ガイド
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Messaging system
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Messaging system
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_guide/plugin_broker_python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_guide/plugin_broker_java/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    message type
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            message type
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_guide/plugin_value_type_python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_guide/plugin_value_type_java/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    compression
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            compression
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_guide/plugin_compression_python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_guide/plugin_compression_java/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_guide/message_format/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    メッセージフォーマット
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 使用例
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 使用例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      設定ファイル作成
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      メッセージ送信
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      メッセージ受信
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-java-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Java API クラス一覧
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Java API クラス一覧">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      主要クラス
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#21-messagewriterfactory" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 MessageWriterFactory クラス
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-messagewriter" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 MessageWriter クラス
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-asyncmessagewriter" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 AsyncMessageWriter クラス
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-messagereaderfactory" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 MessageReaderFactory クラス
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-messagereader" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5 MessageReader クラス
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-asyncmessagereader" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6 AsyncMessageReader クラス
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27-message" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.7 Message クラス
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#28-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.8 Metrics クラス
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.8 Metrics クラス">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      プロパティ
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#29" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.9 例外一覧
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. メッセージングシステム固有のパラメータ
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. チートシートの表示方法
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<!--
+Copyright (C) 2019 National Institute of Informatics
+
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+
+<p><a href="api-java.en.md">English</a></p>
+<p>SINETStream ユーザガイド</p>
+<h1 id="java-api">Java API</h1>
+<pre>
+1. 使用例
+2. Java API クラス一覧
+ 2.1 MessageWriterFactory クラス
+ 2.2 MessageWriter クラス
+ 2.3 AsyncMessageWriter クラス
+ 2.4 MessageReaderFactory クラス
+ 2.5 MessageReader クラス
+ 2.6 AsyncMessageReader クラス
+ 2.7 Message クラス
+ 2.8 Metrics クラス
+ 2.9 例外一覧
+3. メッセージングシステム固有のパラメータ
+4. チートシートの表示方法
+</pre>
+
+<h2 id="1">1. 使用例</h2>
+<p>はじめに簡単な使用例を示す。</p>
+<p>この例では、異なるメッセージングシステムをバックエンドとする二つのサービス <code>service-1</code> と <code>service-2</code> を利用する。
+<code>service-1</code> のバックエンドは Apache Kafka で、4台のブローカー <code>kafka-1</code> ～ <code>kafka-4</code> で構成される。
+<code>service-2</code> のバックエンドは MQTT で、1台のブローカー <code>192.168.2.105</code> で構成される。</p>
+<h3 id="_1">設定ファイル作成</h3>
+<p>設定ファイルは、クライアントがブローカーに接続するための設定が記述されたファイルである。
+詳細は <a href="../config/">設定ファイル</a> を参照すること。</p>
+<p>この例では、以下の内容の設定ファイル <code>.sinetstream_config.yml</code> をクライアントマシンのカレントディレクトリに作成する。</p>
+<pre><code>service-1:
+  type: kafka
+  brokers:
+    - kafka-1:9092
+    - kafka-2:9092
+    - kafka-3:9092
+    - kafka-4:9092
+service-2:
+  type: mqtt
+  brokers: 192.168.2.105:1883
+  username_pw_set:
+    username: user01
+    password: pass01
+</code></pre>
+<h3 id="_2">メッセージ送信</h3>
+<p>サービス名 <code>service-1</code> に対応するメッセージングシステムのトピック <code>topic-1</code> に対してメッセージを送信する例を示す。</p>
+<pre><code>MessageWriterFactory&lt;String&gt; factory =
+    MessageWriterFactory.&lt;String&gt;builder()
+        .service(&quot;service-1&quot;)
+        .topic(&quot;topic-1&quot;)
+        .consistency(AT_LEAST_ONCE)
+        .build();
+
+try (MessageWriter&lt;String&gt; writer = factory.getWriter()) {
+    writer.write(&quot;Hello! This is the 1st message.&quot;);
+    writer.write(&quot;Hello! This is the 2nd message.&quot;);
+}
+</code></pre>
+<p>まず、パラメータ <code>service</code>, <code>topic</code>, <code>consistency</code> を指定してファクトリオブジェクト <code>factory</code> を作成する。
+この <code>factory</code> に対して <code>getWriter()</code> を呼び出し、メッセージを送信するためのライターを得る。
+その後、ライターの <code>write()</code> を呼び出してメッセージをブローカーに送信する。</p>
+<h3 id="_3">メッセージ受信</h3>
+<p>サービス名 <code>service-1</code> に対応するメッセージングシステムのトピック <code>topic-1</code> からメッセージを受信する例を示す。</p>
+<pre><code>MessageReaderFactory&lt;String&gt; factory =
+    MessageReaderFactory.&lt;String&gt;builder()
+        .service(&quot;service-1&quot;)
+        .topic(&quot;topic-1&quot;)
+        .consistency(AT_LEAST_ONCE)
+        .receiveTimeout(Duration.ofSeconds(60))
+        .build();
+
+try (MessageReader&lt;String&gt; reader = factory.getReader()) {
+    Message&lt;String&gt; msg;
+    while (Objects.nonNull(msg = reader.read())) {
+        System.out.println(msg.getValue());
+    }
+}
+</code></pre>
+<p>まず、パラメータ <code>service</code>, <code>topic</code>, <code>consistency</code>, <code>receiveTimeout</code> を指定してファクトリオブジェクト <code>factory</code> を作成する。
+この <code>factory</code> に対して <code>getReader()</code> を呼び出し、メッセージを受信するためのリーダーを得る。
+その後、リーダーの <code>read()</code> を呼び出してブローカーからメッセージを受信する。
+リーダーの <code>read()</code> を呼び出したあと、<code>receiveTimeout</code> に指定した時間メッセージが取得できなかった場合、<code>read()</code> が <code>null</code> を返しループが終了する。</p>
+<h2 id="2-java-api">2. Java API クラス一覧</h2>
+<h3 id="_4">主要クラス</h3>
+<ul>
+<li>jp.ad.sinet.stream.api.MessageWriter<ul>
+<li>メッセージを送信するクラス</li>
+</ul>
+</li>
+<li>jp.ad.sinet.stream.api.AsyncMessageWriter<ul>
+<li>メッセージを送信するクラス(同非期API)</li>
+</ul>
+</li>
+<li>jp.ad.sinet.stream.api.MessageReader<ul>
+<li>メッセージを受信するクラス</li>
+</ul>
+</li>
+<li>jp.ad.sinet.stream.api.AsyncMessageReader<ul>
+<li>メッセージを受信するクラス(非同期API)</li>
+</ul>
+</li>
+<li>jp.ad.sinet.stream.utils.MessageWriterFactory<ul>
+<li><code>MessageWriter</code> オブジェクトを作成するためのファクトリクラス</li>
+</ul>
+</li>
+<li>jp.ad.sinet.stream.utils.MessageReaderFactory<ul>
+<li><code>MessageReader</code> オブジェクトを作成するためのファクトリクラス</li>
+</ul>
+</li>
+</ul>
+<h3 id="21-messagewriterfactory">2.1 MessageWriterFactory クラス</h3>
+<p><code>MessageWriter</code> を取得するためのファクトリクラス。</p>
+<p>複数のパラメータを指定して <code>MessageWriter</code> のインスタンスを構築するためのビルダークラス <code>MessageWriterFactoryBuilder</code> が内部クラスとして用意されている。
+ビルダークラスでは以下のパラメータを指定できる。</p>
+<ul>
+<li>service(String)<ul>
+<li>サービス名</li>
+<li>対応するサービスが設定ファイルに記述されている必要がある</li>
+</ul>
+</li>
+<li>topic(String)<ul>
+<li>メッセージの送信先となるトピック名</li>
+</ul>
+</li>
+<li>configName(String)<ul>
+<li>コンフィグ名</li>
+<li>コンフィグ名が指定されるとコンフィグサーバからコンフィグ情報を取得する。</li>
+<li>コンフィグ情報のなかで定義されているサービスが1つしかないとわかっている場合はサービス名にnullを指定してもよい。</li>
+<li>コンフィグ名が指定されなかった場合、コンフィグ情報を得るために設定ファイルが読み込まれる。</li>
+</ul>
+</li>
+<li>clientId(String)<ul>
+<li>クライアントID</li>
+<li>指定されなかった場合は、値をライブラリ内部で自動生成する</li>
+</ul>
+</li>
+<li>consistency(Consistency)<ul>
+<li>列挙型で <code>AT_MOST_ONCE</code>, <code>AT_LEAST_ONCE</code>, <code>EXACTLY_ONCE</code> のいずれかの値をとる</li>
+<li>デフォルト値は <code>AT_MOST_ONCE</code></li>
+</ul>
+</li>
+<li>valueType(ValueType)<ul>
+<li>メッセージのデータ本体部分（ペイロード）のタイプ</li>
+<li><code>MessageWriter.write()</code> が送信するメッセージは、このパラメータに対応するシリアライザによってバイト列に変換される</li>
+<li>標準パッケージでは <code>SimpleValueType.BYTE_ARRAY</code>, <code>SimpleValueType.TEXT</code> の何れかを指定する<ul>
+<li><code>SimpleValueType.BYTE_ARRAY</code>(デフォルト値)を指定した場合、ペイロードの型は <code>byte[]</code> として処理する</li>
+<li><code>SimpleValueType.TEXT</code>を指定した場合、ペイロードの型は <code>java.lang.String</code> として処理する</li>
+</ul>
+</li>
+<li>追加パッケージをインストールすることにより、サポートする<code>ValueType</code>の種類を増やすことができる<ul>
+<li>SINETStream v1.1 以降では画像タイプを追加するパッケージを提供している</li>
+<li>画像タイプを指定する場合は<code>valueType()</code>の引数に <code>new ValueTypeFactory().get("image")</code> を設定する</li>
+<li>画像タイプを指定した場合、ペイロードの型は <code>java.awt.image.BufferedImage</code> として処理する</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>serializer(Serializer\&lt;T&gt;)<ul>
+<li>メッセージのデータ本体のシリアライザ</li>
+<li>このパラメータを指定しない場合、シリアライザは<code>valueType</code>の値から決定される</li>
+</ul>
+</li>
+<li>dataEncryption(Boolean)<ul>
+<li>メッセージを暗号化の有効、無効の指定</li>
+<li>暗号化を有効にする場合は、暗号化に関するパラメータ <code>crypto</code> が設定ファイルなどで指定されている必要がある</li>
+</ul>
+</li>
+<li>parameter(String key, Object value)<ul>
+<li>メッセージングシステム固有のパラメータを指定する。設定ファイルと異なる値を指定したい場合にマッピングを指定する</li>
+</ul>
+</li>
+<li>parameters(Map\&lt;String, Object&gt; parameters)<ul>
+<li>メッセージングシステム固有のパラメータを指定する。設定ファイルと異なる値を複数のマッピングペアで指定する</li>
+</ul>
+</li>
+</ul>
+<p>ビルダークラスのインスタンスを取得するには <code>MessageWriterFactory.builder()</code> を呼び出す。
+また、ビルダーオブジェクトからファクトリオブジェクトを得るには <code>build()</code> を呼び出す。
+以下に例を示す。</p>
+<pre><code>MessageWriterFactory&lt;String&gt; factory =
+    MessageWriterFactory.&lt;String&gt;builder()
+        .service(&quot;service-1&quot;)
+        .topic(&quot;topic-1&quot;)
+        .consistency(AT_LEAST_ONCE)
+        .build();
+</code></pre>
+<h3 id="22-messagewriter">2.2 MessageWriter クラス</h3>
+<p>ブローカーにメッセージを送信するクラス。</p>
+<p>ファクトリクラスのインスタンスに対して <code>getWriter()</code> を呼び出すことで、ライタークラス <code>MessageWriter</code> のインスタンスが取得できる。
+<code>MessageWriter</code> には <code>AutoCloseable</code> が実装されているので try-with-resources 文を利用できる。
+メッセージを送信するメソッド<code>write()</code>は送信処理が完了するまでブロックする。</p>
+<p>以下に例を示す。</p>
+<pre><code>MessageWriterFactory&lt;String&gt; factory = MessageWriterFactory.&lt;String&gt;builder()
+        .service(&quot;service-1&quot;).build();
+
+try (MessageWriter&lt;String&gt; writer = factory.getWriter()) {
+    writer.write(&quot;message-1&quot;);
+}
+</code></pre>
+<h3 id="23-asyncmessagewriter">2.3 AsyncMessageWriter クラス</h3>
+<p>ブローカーにメッセージを送信するクラス。</p>
+<p>ファクトリクラスのインスタンスに対して <code>getAsyncWriter()</code> を呼び出すことで、ライタークラス <code>AsyncMessageWriter</code> のインスタンスが取得できる。
+<code>AsyncMessageWriter</code> には <code>AutoCloseable</code> が実装されているので try-with-resources 文を利用できる。
+メッセージを送信するメソッド<code>write()</code>は非同期処理であり <a href="http://jdeferred.org/">JDeferred</a>の<code>Promise</code>オブジェクトを返す。</p>
+<p>以下に例を示す。</p>
+<pre><code>MessageWriterFactory&lt;String&gt; factory = MessageWriterFactory.&lt;String&gt;builder()
+        .service(&quot;service-1&quot;).build();
+
+try (AsyncMessageWriter&lt;String&gt; writer = factory.getAsyncWriter()) {
+    writer.write(&quot;message-1&quot;)
+          .done(result -&gt; System.out.println(&quot;write task done&quot;))
+          .fail(result -&gt; System.out.println(&quot;write task failed&quot;))
+}
+</code></pre>
+<p><code>write()</code>メソッドが返す<code>Promise</code>オブジェクトのメソッド <code>.done()</code>, <code>.fail()</code>を用いることで、
+送信結果（成功、失敗）に応じた処理を設定することができる。<code>Promise</code>の主なメソッドを以下に示す。</p>
+<ul>
+<li><code>done()</code>
+    –  遅延オブジェクトの処理が正常に完了した場合にトリガーされる</li>
+<li><code>fail()</code>
+    –  遅延オブジェクトの処理中に例外が発生したした場合にトリガーされる</li>
+<li><code>always()</code>
+    –  遅延オブジェクトの処理結果によらず全ての場合にトリガーされる</li>
+</ul>
+<h3 id="24-messagereaderfactory">2.4 MessageReaderFactory クラス</h3>
+<p><code>MessageReader</code> を取得するためのファクトリクラス。</p>
+<p>複数のパラメータを指定して <code>MessageReader</code> のインスタンスを構築するためのビルダークラス
+<code>MessageReaderFactoryBuilder</code> が内部クラスとして用意されている。
+ビルダークラスでは以下のパラメータを指定できる。</p>
+<ul>
+<li>service(String)<ul>
+<li>サービス名</li>
+<li>対応するサービスが設定ファイルに記述されている必要がある</li>
+</ul>
+</li>
+<li>topic(String)<ul>
+<li>メッセージの受信元となるトピック名</li>
+<li>topicsパラメータが指定されているときは無視される</li>
+</ul>
+</li>
+<li>configName(String)<ul>
+<li>コンフィグ名</li>
+<li>コンフィグ名が指定されるとコンフィグサーバからコンフィグ情報を取得する。</li>
+<li>コンフィグ情報のなかで定義されているサービスが1つしかないとわかっている場合はサービス名にnullを指定してもよい。</li>
+<li>コンフィグ名が指定されなかった場合、コンフィグ情報を得るために設定ファイルが読み込まれる。</li>
+</ul>
+</li>
+<li>topics(Collection\&lt;String&gt;)<ul>
+<li>メッセージの受信元となるトピックのコレクション</li>
+<li><code>MessageReader</code> では複数のトピックからメッセージを受信することができる</li>
+</ul>
+</li>
+<li>clientId(String)<ul>
+<li>クライアントID</li>
+<li>指定されなかった場合は、値をライブラリ内部で自動生成する</li>
+</ul>
+</li>
+<li>consistency(Consistency)<ul>
+<li>列挙型で <code>AT_MOST_ONCE</code>, <code>AT_LEAST_ONCE</code>, <code>EXACTLY_ONCE</code> のいずれかの値をとる</li>
+<li>デフォルト値は <code>AT_MOST_ONCE</code></li>
+</ul>
+</li>
+<li>valueType(ValueType)<ul>
+<li>メッセージのデータ本体部分（ペイロード）のタイプ</li>
+<li><code>MessageReader.read()</code> で受信するメッセージは、このパラメータに対応するデシリアライザによってバイト列から変換される</li>
+<li>標準パッケージでは <code>SimpleValueType.BYTE_ARRAY</code>, <code>SimpleValueType.TEXT</code> の何れかを指定する<ul>
+<li><code>SimpleValueType.BYTE_ARRAY</code>(デフォルト値)を指定した場合、ペイロードの型は <code>byte[]</code> として処理する</li>
+<li><code>SimpleValueType.TEXT</code>を指定した場合、ペイロードの型は <code>java.lang.String</code> として処理する</li>
+</ul>
+</li>
+<li>追加パッケージをインストールすることにより、サポートする<code>ValueType</code>の種類を増やすことができる<ul>
+<li>SINETStream v1.1 以降では画像タイプを追加するパッケージを提供している</li>
+<li>画像タイプを指定する場合は<code>valueType()</code>の引数に <code>new ValueTypeFactory().get("image")</code> を設定する</li>
+<li>画像タイプを指定した場合、ペイロードの型は <code>java.awt.image.BufferedImage</code> として処理する</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>deserializer(Serializer\&lt;T&gt;)<ul>
+<li>メッセージのデータ本体のデシリアライザ</li>
+<li>このパラメータを指定しない場合、デシリアライザは<code>valueType</code>の値から決定される</li>
+</ul>
+</li>
+<li>dataEncryption(Boolean)<ul>
+<li>暗号化されたメッセージの復号処理の有効、無効の指定</li>
+<li>暗号化を有効にする場合は、暗号化に関するパラメータ <code>crypto</code> が設定ファイルなどで指定されている必要がある</li>
+</ul>
+</li>
+<li>receiveTimeout(Duration)<ul>
+<li><code>MessageReader</code> の <code>read()</code> メソッドがメッセージの到着を待つ最大待ち時間</li>
+</ul>
+</li>
+<li>parameter(String key, Object value)<ul>
+<li>メッセージングシステム固有のパラメータを指定する。設定ファイルと異なる値を指定したい場合にマッピングを指定する</li>
+</ul>
+</li>
+<li>parameters(Map\&lt;String, Object&gt; parameters)<ul>
+<li>メッセージングシステム固有のパラメータを指定する。設定ファイルと異なる値を複数のマッピングペアで指定する</li>
+</ul>
+</li>
+</ul>
+<p>ビルダークラスのインスタンスを取得するには <code>MessageReaderFactory.builder()</code> を呼び出す。
+また、ビルダーオブジェクトからファクトリオブジェクトを得るには <code>build()</code> を呼び出す。
+以下に例を示す。</p>
+<pre><code>MessageReaderFactory&lt;String&gt; factory =
+    MessageReaderFactory.&lt;String&gt;builder()
+        .service(&quot;service-1&quot;)
+        .topic(&quot;topic-1&quot;)
+        .consistency(AT_LEAST_ONCE)
+        .build();
+</code></pre>
+<h3 id="25-messagereader">2.5 MessageReader クラス</h3>
+<p>ブローカーからメッセージを受信するクラス。</p>
+<p>ファクトリクラスのインスタンスに対して <code>getReader()</code> を呼び出すことで、リーダークラス <code>MessageReader</code> のインスタンスが取得できる。
+<code>MessageReader</code> には <code>AutoCloseable</code> が実装されているので try-with-resources 文を利用できる。
+メッセージを受信するメソッド<code>read()</code>はメッセージを受信するか<code>receiveTimeout()</code>に指定されているタイムアウト時間が経過するまではブロックする。</p>
+<p>以下に例を示す。</p>
+<pre><code>MessageReaderFactory&lt;String&gt; factory = MessageReaderFactory.&lt;String&gt;builder()
+        .service(&quot;service-1&quot;).receiveTimeout(Duration.ofSeconds(60)).build();
+
+try (MessageReader&lt;String&gt; reader = factory.getReader()) {
+    Message&lt;String&gt; msg;
+    while (Objects.nonNull(msg = reader.read())) {
+        System.out.println(&quot;TOPIC: &quot; + msg.getTopic() + &quot; MESSAGE: &quot; + msg.getValue());
+    }
+}
+</code></pre>
+<p><code>read()</code> メソッドの返り値は <code>Message&lt;T&gt;</code> クラスのインスタンスになる。</p>
+<h3 id="26-asyncmessagereader">2.6 AsyncMessageReader クラス</h3>
+<p>ブローカーからメッセージを受信するクラス。</p>
+<p>ファクトリクラスのインスタンスに対して <code>getAsyncReader()</code> を呼び出すことで、
+リーダークラス <code>AsyncMessageReader</code> のインスタンスが取得できる。</p>
+<p>受信したメッセージを処理するには<code>addOnMessageCallback()</code>メソッドでメッセージを受信した際に呼び出されるコールバックを設定する。
+コールバックの引数によって受信したメッセージが受け渡される。</p>
+<p>以下に例を示す。</p>
+<pre><code>MessageReaderFactory&lt;String&gt; factory = MessageReaderFactory.&lt;String&gt;builder()
+        .service(&quot;service-1&quot;).receiveTimeout(Duration.ofSeconds(60)).build();
+
+AsyncMessageReader&lt;String&gt; reader = factory.getAsyncReader();
+reader.addOnMessageCallback((msg) -&gt; {
+    System.out.println(&quot;TOPIC: &quot; + msg.getTopic() + &quot; MESSAGE: &quot; + msg.getValue());
+});
+
+// 他の処理など
+
+reader.close();
+</code></pre>
+<h3 id="27-message">2.7 Message クラス</h3>
+<p>ブローカーから受信したメッセージのクラス。</p>
+<ul>
+<li>getTopic()<ul>
+<li>トピック名を取得する。</li>
+</ul>
+</li>
+<li>getValue()<ul>
+<li>メッセージの値を取得する。</li>
+</ul>
+</li>
+<li>getTimestamp()<ul>
+<li>メッセージ送信時刻(Unix時間;単位は秒)を取得する。</li>
+<li>値 <code>0</code> は時刻が設定されてないことを示す。</li>
+</ul>
+</li>
+<li>getTimestampMicroseconds()<ul>
+<li>メッセージ送信時刻(Unix時間;単位はマイクロ秒単位)を取得する。</li>
+<li>値 <code>0</code> は時刻が設定されてないことを示す。</li>
+</ul>
+</li>
+</ul>
+<h3 id="28-metrics">2.8 Metrics クラス</h3>
+<p>メトリクス情報のクラス。
+Reader/Writerオブジェクトに対してgetMetrics()メソッドを呼び出すと得られる。</p>
+<ul>
+<li>MessageReader#getMetrics()</li>
+<li>AsyncMessageReader#getMetrics()</li>
+<li>MessageWriter#getMetrics()</li>
+<li>AsyncMessageWriter#getMetrics()</li>
+</ul>
+<p>Reader/Writerオブジェクトに対してresetMetrics()メソッドを呼び出すとReader/Writerの統計情報がリセットされる。
+引数 <code>reset_raw</code> にtrueを指定した場合に限り、SINETStreamの統計情報だけでなくメッセージングシステム固有の統計情報もリセットされる(可能であれば)。</p>
+<ul>
+<li>MessageReader#resetMetrics(boolean reset_raw)</li>
+<li>MessageWriter#resetMetrics(boolean reset_raw)</li>
+<li>AsyncMessageReader#resetMetrics(boolean reset_raw)</li>
+<li>AsyncMessageWriter#resetMetrics(boolean reset_raw)</li>
+</ul>
+<p>引数 <code>reset_raw</code> なしのresetMetrics()メソッドはreset_raw=falseを指定したのと同じである。</p>
+<ul>
+<li>MessageReader#resetMetrics()</li>
+<li>MessageWriter#resetMetrics()</li>
+<li>AsyncMessageReader#resetMetrics()</li>
+<li>AsyncMessageWriter#resetMetrics()</li>
+</ul>
+<blockquote>
+<p>Eclipse Paho(SINETStreamのMQTTプラグインで使用しているMQTTクライアントライブラリ)は統計情報を提供してない。
+Kafkaにはメッセージングシステム固有の統計情報があるがリセット機能はない。</p>
+</blockquote>
+<p>統計情報はSINETStreamメインライブラリとメッセージングシステムプラグインの境界で測定した値が使われる。
+したがって、SINETStreamの暗号化機能が有効の場合は暗号化されたメッセージが測定される。
+統計情報の更新タイミングはWriterではメッセージングシステムプラグインにデータ渡す直前(メッセージングシステムが実際に送信したかは関知しない)、
+Readerではメッセージングシステムプラグインからデータを受け取った直後である。
+圧縮に関する統計統計情報は例外で圧縮処理の前後で測定される。</p>
+<pre><code>  &lt;writer&gt;                      &lt;reader&gt;
+  Application                   Application
+    ↓                            ↑
+  value serializer              value deserializer
+    ↓                            ↑                ←msg_uncompressed_bytes_total
+  compressor                    decompressor
+    ↓                            ↑                ←msg_compressed_bytes_total
+  Avro serializer               Avro deserializer
+    ↓                            ↑
+  encrypt                       decrypt
+- - ↓  - - - - - - - - - - - - - ↑ - - - - - - - -←メトリクス測定境界
+  messaging system → broker → messaging system
+</code></pre>
+<h4 id="_5">プロパティ</h4>
+<ul>
+<li>getStartTime(), getStartTimeMillis()<ul>
+<li>測定を開始した時刻(Unix時間)<ul>
+<li>getStartTime()が返す時刻の単位は秒</li>
+<li>getStartTimeMillis()が返す時刻の単位はミリ秒</li>
+</ul>
+</li>
+<li>Reader/Writerオブジェクトを作成した時刻、またはリセットした時刻。</li>
+</ul>
+</li>
+<li>getEndTime(), getEndTimeMillis()<ul>
+<li>測定を終了した時刻(Unix時間)<ul>
+<li>getEndTime()が返す時刻の単位は秒</li>
+<li>getEndTimeMillis()が返す時刻の単位はミリ秒</li>
+</ul>
+</li>
+<li>getMetrics()メソッドを呼んだ時刻</li>
+</ul>
+</li>
+<li>getTime(), getTimeMillis()<ul>
+<li>測定時間 (= EndTime - StartTime)<ul>
+<li>getTime()が返す時間の単位は秒</li>
+<li>getTimeMillis()が返す時間の単位はミリ秒</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>getMsgCountTotal()<ul>
+<li>累積送受信メッセージ数</li>
+</ul>
+</li>
+<li>getMsgCountRate()<ul>
+<li>送受信メッセージ数レート</li>
+<li>= msg_count_total / time</li>
+<li>timeが0のときは0を返す。</li>
+</ul>
+</li>
+<li>getMsgUncompressedBytesTotal()<ul>
+<li>ユーザデータ累積送受信メッセージ量(bytes)</li>
+<li>value serializerを通した直後・value deserializerを通す直前</li>
+</ul>
+</li>
+<li>getMsgCompressedBytesTotal()<ul>
+<li>ユーザデータ圧縮後累積送受信メッセージ量(bytes)</li>
+</ul>
+</li>
+<li>getMsgCompressionRatio()<ul>
+<li>メッセージ圧縮率 (0に近い方が高圧縮率、1に近い方が低圧縮率)</li>
+<li>= msg_compression_ratio / msg_uncompressed_bytes_total</li>
+</ul>
+</li>
+<li>getMsgBytesTotal()<ul>
+<li>累積送受信メッセージ量(bytes)</li>
+</ul>
+</li>
+<li>getMsgBytesRate()<ul>
+<li>送受信メッセージ量レート</li>
+<li>= msg_bytes_total / time</li>
+<li>timeが0のときは0を返す。</li>
+</ul>
+</li>
+<li>getMsgSizeMin()<ul>
+<li>最小送受信メッセージサイズ(bytes)</li>
+</ul>
+</li>
+<li>getMsgSizeAvg()<ul>
+<li>平均送受信メッセージサイズ(bytes)</li>
+<li>= msg_bytes_total / msg_count_total</li>
+<li>msg_count_totalが0のときは0を返す。</li>
+</ul>
+</li>
+<li>getMsgSizeMax()<ul>
+<li>最大送受信メッセージサイズ(bytes)</li>
+</ul>
+</li>
+<li>getErrorCountTotal()<ul>
+<li>累積エラー数</li>
+</ul>
+</li>
+<li>
+<p>getErrorCountRate()</p>
+<ul>
+<li>エラーレート</li>
+<li>= error_count_total / time</li>
+<li>timeが0のときは0を返す。</li>
+</ul>
+</li>
+<li>
+<p>getRaw()</p>
+<ul>
+<li>メッセージングシステム固有の統計情報</li>
+</ul>
+</li>
+</ul>
+<h4 id="_6">使用例</h4>
+<p>受信したメッセージ数・バイト数を表示する。</p>
+<pre><code>try (MessageReader&lt;String&gt; reader = factory.getReader()) {
+    // (1)
+    Message&lt;String&gt; msg;
+    while (Objects.nonNull(msg = reader.read())) {
+        ;
+    }
+    Metrics metrics = reader.getMetrics();  // (1) からの累積の統計情報が得られる
+    System.out.println(&quot;COUNT: &quot; + metrics.getMsgCountTotal());
+    System.out.println(&quot;BYTES: &quot; + metrics.getMsgBytesTotal());
+}
+</code></pre>
+<p>10メッセージごとに受信レートを表示する。</p>
+<pre><code>try (MessageReader&lt;String&gt; reader = factory.getReader()) {
+    Message&lt;String&gt; msg;
+    int count = 0;
+    while (Objects.nonNull(msg = reader.read())) {
+        count++;
+        if (count == 10) {
+            count = 0;
+            Metrics metrics = reader.getMetrics();
+            reader.resetMetrics();
+            System.out.println(&quot;COUNT/s: &quot; + metrics.getMsgCountRate());
+            System.out.println(&quot;BYTES/s: &quot; + metrics.getMsgBytesRate());
+        }
+    }
+}
+</code></pre>
+<h3 id="29">2.9 例外一覧</h3>
+<table>
+<thead>
+<tr>
+<th>例外名</th>
+<th>メソッド名</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NoConfigException</td>
+<td>MessageReaderFactory#getReader() MessageReaderFactory#getAsyncReader() MessageWriterFactory#getWriter() MessageWriterFactory#getAsyncWriter()</td>
+<td>設定ファイルを読み込めない</td>
+</tr>
+<tr>
+<td>NoServiceException</td>
+<td>MessageReaderFactory#getReader() MessageReaderFactory#getAsyncReader() MessageWriterFactory#getWriter() MessageWriterFactory#getAsyncWriter()</td>
+<td>指定したサービス名に対応するエントリが設定ファイルに存在しない</td>
+</tr>
+<tr>
+<td>UnsupportedServiceException</td>
+<td>MessageReaderFactory#getReader() MessageReaderFactory#getAsyncReader() MessageWriterFactory#getWriter() MessageWriterFactory#getAsyncWriter()</td>
+<td>サポートしていないメッセージングシステムが指定された</td>
+</tr>
+<tr>
+<td>ConnectionException</td>
+<td>MessageReaderFactory#getReader() MessageReaderFactory#getAsyncReader() MessageWriterFactory#getWriter() MessageWriterFactory#getAsyncWriter()</td>
+<td>ブローカーに接続できない</td>
+</tr>
+<tr>
+<td>InvalidConfigurationException</td>
+<td>MessageReaderFactory#getReader() MessageReaderFactory#getAsyncReader() MessageWriterFactory#getWriter() MessageWriterFactory#getAsyncWriter()</td>
+<td>設定ファイルの記述内容に誤りがある</td>
+</tr>
+<tr>
+<td>SinetStreamIOException</td>
+<td>MessageReaderFactory#getReader() MessageReaderFactory#getAsyncReader() MessageWriterFactory#getWriter() MessageWriterFactory#getAsyncWriter()  MessageReader\&lt;T&gt;#read() MessageReader\&lt;T&gt;#close() MessageWriter\&lt;T&gt;#write(T) MessageWriter\&lt;T&gt;#close()</td>
+<td>メッセージングシステムとのIOでエラーが発生した</td>
+</tr>
+<tr>
+<td>SinetStreamException</td>
+<td>MessageReaderFactory#getReader() MessageReaderFactory#getAsyncReader() MessageWriterFactory#getWriter() MessageWriterFactory#getAsyncWriter() MessageReader\&lt;T&gt;#read() MessageReader\&lt;T&gt;#close() MessageWriter\&lt;T&gt;write(T) MessageWriter\&lt;T&gt;close()</td>
+<td>SINETStreamに関するその他のエラー</td>
+</tr>
+<tr>
+<td>InvalidMessageException</td>
+<td>MessageReader\&lt;T&gt;#read()</td>
+<td>メッセージのフォーマットが間違っている</td>
+</tr>
+<tr>
+<td>AuthenticationException</td>
+<td>MessageReaderFactory#getReader() MessageReaderFactory#getAsyncReader() MessageWriterFactory#getWriter() MessageWriterFactory#getAsyncWriter()</td>
+<td>ブローカーとの接続で認証エラーになった</td>
+</tr>
+<tr>
+<td>AuthorizationException</td>
+<td>MessageReader\&lt;T&gt;#read() MessageWriter\&lt;T&gt;#write()</td>
+<td>認可されない操作を行った(*)</td>
+</tr>
+</tbody>
+</table>
+<p>(*) メッセージングシステムのタイプや<code>Consistency</code>のパラメータによっては認可されない操作を行っても例外が発生しない場合がある。
+1. MQTT(Mosquitto)では認可されない操作を行ってもブローカーがエラーを返さないため例外が発生しない
+2. Kafkaのブローカーに対して<code>Consistency</code>に<code>AT_MOST_ONCE</code>を指定してメッセージの送信を行った場合、ブローカーからの応答を待たずに送信処理が完了するため、認可されない操作を行った場合も例外が発生しない</p>
+<h2 id="3">3. メッセージングシステム固有のパラメータ</h2>
+<ul>
+<li><a href="../config-kafka/">Kafka固有のパラメータ</a></li>
+<li><a href="../config-mqtt/">MQTT固有のパラメータ</a></li>
+<li><a href="../config-s3/">S3固有のパラメータ</a></li>
+</ul>
+<h2 id="4">4. チートシートの表示方法</h2>
+<p>APIのjarファイルを <code>java -jar</code> の後に指定して実行すると、チートシートが表示される。</p>
+<pre><code>$ java -jar SINETStream-api-1.6.0.jar
+
+==================================================
+MessageWriter example
+--------------------------------------------------
+MessageWriterFactory&lt;String&gt; factory = MessageWriterFactory.&lt;String&gt;builder()
+        .service(&quot;service-1&quot;)
+        .topic(&quot;topic-1&quot;)
+        .build();
+try (MessageWriter&lt;String&gt; writer = factory.getWriter()) {
+    writer.writer(&quot;message&quot;);
+}
+--------------------------------------------------
+MessageWriterFactory parameters:
+    service(String service)
+        Service name defined in the configuration file. (REQUIRED)
+    clientId(String clientId)
+        If not specified, the value is automatically generated.
+    configName(String configName)
+        configuration name.
+    consistency(Consistency consistency[=AT_MOST_ONCE])
+        consistency: AT_MOST_ONCE, AT_LEAST_ONCE, EXACTLY_ONCE
+    dataEncryption(Boolean dataEncryption[=false])
+        Message encryption.
+    parameter(String key, Object parameter)
+        Rewrites the parameters described in the configuration file only for the specified key / value pairs.
+    parameters(Map parameters)
+        Overwrites the parameters described in the configuration file with the specified values.
+    serializer(Serializer serializer)
+        If not specified, use default serializer according to valueType.
+    topic(String topic)
+        The topic to send.
+    valueType(ValueType valueType[=BYTE_ARRAY])
+        The type of message.
+==================================================
+MessageReader example
+--------------------------------------------------
+MessageReaderFactory&lt;String&gt; factory = MessageReaderFactory.&lt;String&gt;builder()
+        .service(&quot;service-1&quot;)
+        .topic(&quot;topic-1&quot;)
+        .build();
+try (MessageReader&lt;String&gt; reader = factory.getReader()) {
+    Message&lt;String&gt; msg;
+    while (Objects.nonNull(msg = reader.read)) {
+        System.out.println(msg.getValue());
+    }
+}
+--------------------------------------------------
+MessageReaderFactory parameters:
+    service(String service)
+        Service name defined in the configuration file. (REQUIRED)
+    clientId(String clientId)
+        If not specified, the value is automatically generated.
+    configName(String configName)
+        configuration name.
+    consistency(Consistency consistency[=AT_MOST_ONCE])
+        consistency: AT_MOST_ONCE, AT_LEAST_ONCE, EXACTLY_ONCE
+    dataEncryption(Boolean dataEncryption[=false])
+        Message encryption.
+    deserializer(Deserializer deserializer)
+        If not specified, use default deserializer according to valueType.
+    parameter(String key, Object parameter)
+        Rewrites the parameters described in the configuration file only for the specified key / value pairs.
+    parameters(Map parameters)
+        Overwrites the parameters described in the configuration file with the specified values.
+    topic(String topic)
+        The topic to receive.
+    topics(Collection topics)
+        A list of topics to receive.
+    valueType(ValueType valueType[=BYTE_ARRAY])
+        The type of message.
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  ページトップへ戻る
+</button>
+        
+      </main>
+      
+        <div class="site-footer-copyright">Copyright(C) National Institute of Informatics</div>
+<div class="site-footer-logo">
+  <a href="https://www.nii.ac.jp/">
+    
+    <img src="../../images/NIIlogo_JP_ls.png" alt="NII 国立情報学研究所">
+    
+  </a>
+</div>
+<footer class="md-footer">
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
+      
+    
+  </body>
+</html>

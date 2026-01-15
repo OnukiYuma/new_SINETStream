@@ -1,0 +1,3486 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://onukiyuma.github.io/SINETStream/userguide/libhelper/">
+      
+      
+        <link rel="prev" href="../config-client-android/">
+      
+      
+        <link rel="next" href="../api-libhelper/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
+    
+    
+      
+        <title>SINETStreamHelper ユーザガイド - SINETStream</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../styles/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sinetstreamhelper" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href="../.." title="SINETStream" class="md-header__button md-logo" aria-label="SINETStream" data-md-component="logo">
+      
+  <img src="../../images/SiNETStream.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SINETStream
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              SINETStreamHelper ユーザガイド
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="言語切り替え">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="ja" class="md-select__link">
+              日本語
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../en/userguide/libhelper/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="検索">
+        
+        <button type="reset" class="md-search__icon md-icon" title="クリア" aria-label="クリア" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="タブ" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../docm/" class="md-tabs__link">
+          
+  
+  SINETStreamについて
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../tutorial/" class="md-tabs__link">
+          
+  
+  チュートリアル
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  ユーザガイド
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../developer_guide/" class="md-tabs__link">
+          
+  
+  プラグイン開発ガイド
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="SINETStream" class="md-nav__button md-logo" aria-label="SINETStream" data-md-component="logo">
+      
+  <img src="../../images/SiNETStream.png" alt="logo">
+
+    </a>
+    SINETStream
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    SINETStreamについて
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            SINETStreamについて
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ドキュメント
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../performance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SINETStream性能測定結果
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../livedemo/livedemo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SINETStreamのライブデモ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    SINETStreamサーバ構築手順
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            SINETStreamサーバ構築手順
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../server/brokers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    サーバ構築手順
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../server/brokers/%E3%83%97%E3%83%A9%E3%82%A4%E3%83%99%E3%83%BC%E3%83%88%E8%AA%8D%E8%A8%BC%E5%B1%80%E3%81%A7%E8%A8%BC%E6%98%8E%E6%9B%B8%E3%82%92%E4%BD%9C%E6%88%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    プライベート認証局で証明書を作成する
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../server/brokers/Kafkabroker%E3%81%AE%E6%A7%8B%E7%AF%89%E6%89%8B%E9%A0%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kafka brokerの構築手順
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../server/brokers/mosquitto%E6%A7%8B%E7%AF%89%E6%89%8B%E9%A0%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    mosquitto(MQTT broker)の構築手順
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CHANGELOG/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    更新履歴
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    チュートリアル
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            チュートリアル
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Python/Java版
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Python/Java版
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    クイックスタートガイド
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/TUTORIAL-STEP1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    STEP1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/TUTORIAL-STEP2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    STEP2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Android版
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Android版
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    クイックスタートガイド
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_2" id="__nav_3_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    sinetstream-android-echo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            sinetstream-android-echo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/TUTORIAL-android-step1-overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    テキスト送受信アプリの実行
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/TUTORIAL-android-step1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ANDROID-STEP1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    sinetstream-android-sensor-publisher
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            sinetstream-android-sensor-publisher
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/TUTORIAL-android-step2-overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    センサ情報収集アプリの実行
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/TUTORIAL-android-step2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ANDROID-STEP2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/TUTORIAL-android-step2-webbrowser/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    センサーデータ可視化用のウェブインタフェース
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/TUTORIAL-android-step2-location/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    端末位置情報の自動更新
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/sinetstreamhelper-tutorial-container/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SINETStream Android Tutorial Container
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/TUTORIAL-android-install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Androidサンプルアプリケーションの導入
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/TUTORIAL-android-keychain/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    システム秘匿領域への証明書ファイルの導入
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/sinetstreamhelper-tutorial-container/TUTORIAL-docker-container/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DOCKER-CONTAINER
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    ユーザガイド
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            ユーザガイド
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ユーザガイド
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-java/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Android版
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            Android版
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SINETStream for Android ユーザガイド
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Android版SINETStreamライブラリ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="http://javadoc.android.sinetstream.net/sinetstream-android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API (Javadoc)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config-android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Android版のSINETStream設定ファイル
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config-client-android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Android版の設定クライアント
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    SINETStreamHelper
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            SINETStreamHelper
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    SINETStreamHelper ユーザガイド
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    SINETStreamHelper ユーザガイド
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 概要
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. モジュール構成
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. モジュール構成">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 センサ情報の収集
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 位置情報の収集
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 位置情報の収集">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-gps" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.1 GPSサービスを利用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-flp" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.2 FLPサービスを利用
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 携帯電話の電波受信状況の収集
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 作業準備
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 作業手順
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 作業手順">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 ビルド環境設定
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1 ビルド環境設定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#411" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1.1 ライブラリファイルの取得
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#412" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1.2 開発ソースへの組み込み
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#413" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1.3 リポジトリ追加
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 マニフェストファイルの記述
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2 マニフェストファイルの記述">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#421" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2.1 センサ情報取得に関する利用権限追加
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#423" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2.3 電話状態の参照に関する利用権限追加
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. アプリケーション実行時の権限の扱い
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. アプリケーション実行時の権限の扱い">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 センサ情報取得
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.1 センサ情報取得">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#511" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1.1 システム要件
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#512" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1.2 ユーザアプリケーション設定
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 位置情報取得
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.2 位置情報取得">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#521" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2.1 システム要件
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#522" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2.2 ユーザアプリケーション設定
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 携帯電話網の電波受信状況取得
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.3 携帯電話網の電波受信状況取得">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#531" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3.1 システム要件
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#532" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3.2 ユーザアプリケーション設定
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. まとめ
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-libhelper/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SINETStreamHelperライブラリ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="http://javadoc.android.sinetstream.net/sinetstream-android-helper/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API (Javadoc)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    設定ファイル
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../auth/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    認証と認可
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/nii-gakunin-cloud/sinetstream/blob/main/java/sample/cli/README.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CLI(Command Line Interface)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    互換性
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    プラグイン開発ガイド
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            プラグイン開発ガイド
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    開発者ガイド
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Messaging system
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Messaging system
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_guide/plugin_broker_python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_guide/plugin_broker_java/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    message type
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            message type
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_guide/plugin_value_type_python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_guide/plugin_value_type_java/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    compression
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            compression
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_guide/plugin_compression_python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_guide/plugin_compression_java/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_guide/message_format/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    メッセージフォーマット
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 概要
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. モジュール構成
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. モジュール構成">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 センサ情報の収集
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 位置情報の収集
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 位置情報の収集">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-gps" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.1 GPSサービスを利用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-flp" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.2 FLPサービスを利用
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 携帯電話の電波受信状況の収集
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 作業準備
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 作業手順
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 作業手順">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 ビルド環境設定
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1 ビルド環境設定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#411" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1.1 ライブラリファイルの取得
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#412" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1.2 開発ソースへの組み込み
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#413" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1.3 リポジトリ追加
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 マニフェストファイルの記述
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2 マニフェストファイルの記述">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#421" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2.1 センサ情報取得に関する利用権限追加
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#423" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2.3 電話状態の参照に関する利用権限追加
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. アプリケーション実行時の権限の扱い
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. アプリケーション実行時の権限の扱い">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 センサ情報取得
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.1 センサ情報取得">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#511" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1.1 システム要件
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#512" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1.2 ユーザアプリケーション設定
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 位置情報取得
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.2 位置情報取得">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#521" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2.1 システム要件
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#522" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2.2 ユーザアプリケーション設定
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 携帯電話網の電波受信状況取得
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.3 携帯電話網の電波受信状況取得">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#531" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3.1 システム要件
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#532" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3.2 ユーザアプリケーション設定
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. まとめ
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<!--
+Copyright (C) 2020-2021 National Institute of Informatics
+
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+
+<p><a href="https://translate.google.com/translate?hl=en&amp;sl=ja&amp;tl=en&amp;u=https://nii-gakunin-cloud.github.io/sinetstream/docs/userguide/libhelper.html" title="google translate">English</a></p>
+<h1 id="sinetstreamhelper">SINETStreamHelper ユーザガイド</h1>
+<p><strong>目次</strong></p>
+<pre>
+1. 概要
+2. モジュール構成
+    2.1 センサ情報の収集
+    2.2 位置情報の収集
+        2.2.1 GPSサービスを利用
+        2.2.2 FLPサービスを利用
+    2.3 携帯電話の電波受信状況の収集
+3. 作業準備
+4. 作業手順
+    4.1 ビルド環境設定
+        4.1.1 ライブラリファイルの取得
+        4.1.2 開発ソースへの組み込み
+        4.1.3 リポジトリ追加
+        4.1.4 依存関係追加
+    4.2 マニフェストファイルの記述
+        4.2.1 センサ情報取得に関する利用権限追加
+        4.2.2 端末位置情報の追跡取得に関する利用権限追加
+        4.2.3 電話状態の参照に関する利用権限追加
+    4.3 開発成果物のAndroid端末への導入
+        4.3.1 Androidエミュレータに導入する場合
+        4.3.2 Android実機に導入する場合
+5. アプリケーション実行時の権限の扱い
+    5.1 センサ情報取得
+        5.1.1 システム要件
+        5.1.2 ユーザアプリケーション設定
+    5.2 位置情報取得
+        5.2.1 システム要件
+        5.2.2 ユーザアプリケーション設定
+    5.3 携帯電話網の電波受信状況取得
+        5.3.1 システム要件
+        5.3.2 ユーザアプリケーション設定
+6. まとめ
+</pre>
+
+<h2 id="1">1. 概要</h2>
+<p><code>IoT（Internet of Things）</code>アプリケーションの一つとして、
+Android端末が実装する様々な<a href="https://developer.android.com/guide/topics/sensors/sensors_overview?hl=ja">センサ</a>
+デバイスから読取値を収集して
+<a href="https://nii-gakunin-cloud.github.io/sinetstream">SINETStream</a>
+上の<code>ブローカ</code>に送出する<code>パプリッシャ</code>機能が考えられる。</p>
+<p>ユーザアプリケーションは、
+<a href="https://developer.android.com/reference/android/hardware/SensorManager">SensorManager</a>を経由して個々のセンサデバイスの動作パラメータを設定したり、センサ読取値を参照したりすることができる。
+一方で、電力消費の考慮などハードウェア制御に関わる実装上の細かな点を隠蔽し、
+簡易に利用できるような補助ライブラリがあると使い勝手が良い。</p>
+<p>また、Android 8.0頃から権限管理が厳しくなってきており、多段に渡る動作条件の判定をアプリケーションを構成するアクティビティやフラグメントのライフサイクルを考慮しながら実装するのは難易度が高い。</p>
+<p>上記課題の一つの解として<code>SINETStreamHelper</code>ライブラリ（以降、本ライブラリと呼称）を用意する。
+本ライブラリは、基本機能としてAndroid端末から得られるセンサ読取値をJSON形式に成形して出力する。ユーザ指定により、端末属性（ユーザ情報、端末位置、電波受信状況）の任意の組み合わせをJSON出力に含めることも可能とする。</p>
+<p>1) ユーザ情報: [アカウント、備考]</p>
+<blockquote>
+<p>複数のAndroid端末で一斉に測定するときに互いを識別するための情報である。</p>
+</blockquote>
+<p>2) 端末位置情報: [緯度、経度、(取得時刻)]</p>
+<blockquote>
+<p>Android端末を任意の場所に固定するならその位置情報、あるいは同端末を移動しながら間歇的に取得した位置情報とその取得時刻を記録する。</p>
+</blockquote>
+<p>3) 電波受信状況: [ネットワーク種別、信号情報、取得時刻]</p>
+<blockquote>
+<p>Android端末が接続中の携帯電話網の種別と受信信号強度（<code>4G/LTE</code>なら<code>RSRP</code>など）、その取得時刻を記録する。</p>
+</blockquote>
+<h2 id="2">2. モジュール構成</h2>
+<p>本ライブラリは、基本機能として<code>センサ情報</code>を収集するモジュール、付加機能として<code>位置情報</code>および<code>電波情報</code>をそれぞれ収集するサブモジュール群から構成される。</p>
+<p>さらに、上記の各機能モジュールの使用にあたり<a href="https://developer.android.com/training/permissions/requesting?hl=ja">実行時の権限検査</a>を一元的に処理するための権限処理モジュールも用意する。</p>
+<pre><code>        #--------------------------------------+
+        |           User Application           |
+        +--------------------------------------+
+              A          A           A
+    ==========|==========|===========|==================== API functions
+              |          |           |
+      +-------|----------V-----------|----------------------+
+      |       |    +------------+    |    SINETStreamHelper |
+      |       |    | Permission |    |                      |
+      |       |    | Handler    |    |                      |
+      |       |    +------------+    |                      |
+      |       V                      V                      |
+      | +---------------+  +------------------------------+ |
+      | | BASE function |  | OPTIONAL function            | |
+      | |               |  |                              | |
+      | | +-----------+ |  | +-----------+  +-----------+ | |
+      | | | Sensor    | |  | | Location  |  | Celluar   | | |
+      | | | Module    | |  | | Submodule |  | Submodule | | |
+      | | +-----------+ |  | +-----------+  +-----------+ | |
+      | +---------------+  +------------------------------+ |
+      +-----------------------------------------------------+
+</code></pre>
+<p>〈凡例〉
+* 基本機能
+  * センサ情報モジュール
+    * センサ群の動作制御、測定値の読み取り、JSON形式での出力を担当する。
+* 付加機能
+  * 位置情報サブモジュール
+    * GPSなどの情報源経由でAndroid端末の位置情報を追跡取得する。
+  * 電話情報サブモジュール
+    * 携帯電話網の電波受信状況を読み取る。
+* 権限処理モジュール
+  * 実行時の権限検査を一元的に処理する。</p>
+<h3 id="21">2.1 センサ情報の収集</h3>
+<p>ほとんどのAndroid端末は様々な<a href="https://developer.android.com/guide/topics/sensors?hl=ja">センサ</a>素子が実装されており、<a href="https://developer.android.com/reference/android/hardware/SensorManager">SensorManager</a>経由でこれらの読み取り値を取得することができる。</p>
+<p>センサ情報収集に関する機能モジュール構成の概略は下図のようになる。</p>
+<pre><code>        #---------------------------------------+
+        | User Application                      |
+        +---------------------------------------+
+             |                      A
+    =========|======================|=============== API functions
+             |                      | [JSON]
+      +------|----------------------|-------------+
+      |      V                      |             |
+      | +------------------+   +----------------+ |
+      | | SensorController |--&gt;| SensorListener | |
+      | +------------------+   +----------------+ |
+      |      |      A                             |
+      |      V      |                             |
+      | +------------------+                      |
+      | |  SensorService   |                      |
+      | +------------------+    SINETStreamHelper |
+      +------|------A-----------------------------+
+             |      |
+    =========|======|==================================== Android System
+             |      |
+             V      | [SensorEvent]
+        +------------------+
+        |  SensorManager   |
+        +------------------+
+               |  A
+    ===========|==|============================================= Devices
+               |  |
+               V  | [Raw Data]
+            +--------+
+            | Sensor |+
+            | Device ||+
+            +--------+||   [pressure, temperature, gravity, ...]
+              +-------+|
+               +-------+
+</code></pre>
+<p>〈凡例〉
+* SensorController
+  * センサ制御情報の受け渡しなど、ユーザインタフェースを担当する。
+  * <code>SensorListener</code>のコールバックでセンサ読み取り値をJSON形式で返却する。
+* SensorService
+  * Androidの<a href="https://developer.android.com/reference/android/hardware/SensorManager">SensorManager</a>経由でセンサ制御を依頼する。
+  * <code>SensorManager</code>より<a href="https://developer.android.com/reference/android/hardware/SensorEvent">SensorEvent</a>としてセンサ読み取り値の非同期通知を受ける。
+* SensorListener
+  * ユーザアプリケーションが実装すべきコールバックインタフェースを定義する。</p>
+<p>センサ種別によりスカラ値、またはベクタ値が返却される。
+値の定義や単位の詳細は<a href="https://developer.android.com/reference/android/hardware/SensorEvent">SensorEvent</a>の記述を参照されたい。</p>
+<blockquote>
+<p><em>注意</em><br>
+着目のAndroid端末でどのセンサ種別を使えるかは実行環境依存である。
+ハードウェアとして実装されるセンサ素子、および稼働Android OSの版数の組み合わせにより<code>SensorManager</code>で対応可能なセンサ種別が異なるためである。</p>
+</blockquote>
+<h3 id="22">2.2 位置情報の収集</h3>
+<p>Android端末の位置情報（緯度経度）は、手動あるいは自動更新で設定可能とする。</p>
+<ul>
+<li>ユーザアプリケーション側からの設定指示</li>
+<li>指定された位置情報（緯度経度）を出力JSONデータに反映する。</li>
+<li>位置情報源の参照による自動更新</li>
+<li>方式1：<code>GPS</code>サービス経由で随時更新される位置情報をJSONデータに反映する。</li>
+<li>方式2：<code>FLP</code>サービス経由で随時更新される位置情報をJSONデータに反映する。</li>
+</ul>
+<p>以下では、後者の2通りの自動更新について概説する。</p>
+<h4 id="221-gps">2.2.1 GPSサービスを利用</h4>
+<p>着目のAndroid端末に<code>GPS</code>受信機が搭載されていれば、上空を飛び交う<code>GPS</code>衛星から直接受信した（あるいはトンネル内部や地下街などの場所では地上から中継された）<code>GPS</code>信号から端末位置情報を取得できる可能性がある。</p>
+<p><code>GPS</code>サービスにはAndroid初版（APIレベル1）から対応しており、<a href="https://developer.android.com/reference/android/location/LocationManager">LocationManager</a>を介して<code>GPS</code>経由の端末位置情報を収集することができる。</p>
+<blockquote>
+<p>実際には端末全体の設定状況やアプリケーション実行時権限の設定、
+あるいは<code>GPS</code>信号の受信状況にも左右される。</p>
+</blockquote>
+<p>Android端末の位置情報の情報源として<code>GPS</code>受信機のみを利用する場合、
+機能モジュール構成の概略は下図のようになる。</p>
+<pre><code>        #---------------------------------------------------+
+        | User Application                                  |
+        +---------------------------------------------------+
+             |  A                    |              A
+    =========|==|====================|==============|===== API functions
+             |  |                    |              |
+             |  | [Location]         | [Location]   | [JSON]
+      +------|--|--------------------|--------------|---------+
+      |      V  |         :          V              |         |
+      | +------------+    :    +------------+    +----------+ |
+      | | Location   |    :    | Sensor     |---&gt;| Sensor   | |
+      | | Tracker    |    :    | Controller |    | Listener | |
+      | +------------+    :    +------------+    +----------+ |
+      |      |  A         :          :                        |
+      |      V  | [Location]         V                        |
+      | +------------+    :        [...]                      |
+      | | GPS        |    :                                   |
+      | | Service    |    :                                   |
+      | +------------+    :                 SINETStreamHelper |
+      +------|--A---------------------------------------------+
+             |  |
+    =========|==|======================================== Android System
+             |  |
+             V  | [Location]
+      +----------------+
+      | Location       |
+      | Manager (GPS)  |
+      +----------------+
+             |  A
+    =========|==|=============================================== Devices
+             |  |
+             V  | [Raw Data]
+         +----------+
+         |   GPS    |
+         +----------+
+</code></pre>
+<p>〈凡例〉
+* LocationTracker
+  * 位置情報の動作制御など、ユーザインタフェースを担当する。
+* GpsService
+  * Androidの<a href="https://developer.android.com/reference/android/location/LocationManager">LocationManager</a>経由で<code>GPS</code>受信機の動作制御を依頼する。
+  * <code>GPS</code>用の<a href="https://developer.android.com/reference/android/location/LocationListener">LocationListener</a>に設定したコールバックにより、
+位置情報<a href="https://developer.android.com/reference/android/location/Location">Location</a>の非同期通知を受ける。</p>
+<blockquote>
+<p><em>注意</em><br>
+<code>LocationTracker</code>と<code>SensorController</code>は独立に動作する。
+位置情報はユーザアプリケーションを経由して<code>SensorController</code>に渡され、
+センサデータと併せてJSON形式に成形される。</p>
+</blockquote>
+<h4 id="222-flp">2.2.2 FLPサービスを利用</h4>
+<p><a href="https://developers.google.com/location-context?hl=ja">Google Play開発者サービスの位置情報API</a>として
+<a href="https://developers.google.com/location-context/fused-location-provider?hl=ja"><code>Fused Location Provider API (FLP)</code></a>が提供されている。
+これを利用することで、
+<code>GPS受信機</code>だけでなく<code>携帯電話網の基地局情報</code>、<code>Wi-Fiアクセスポイント</code>、あるいは<code>Bluetooth</code>など様々な位置情報源を組み合わせて精度良く位置情報を取得できる可能性がある。</p>
+<p><code>FLP</code>はAndroid 12（APIレベル31）以降で対応しており、<a href="https://developer.android.com/reference/android/location/LocationManager">LocationManager</a>を介して<code>FLP</code>経由の端末位置情報を収集することができる。</p>
+<blockquote>
+<p>実際には端末全体の設定状況やアプリケーション実行時権限の設定に左右される。</p>
+</blockquote>
+<p>Android端末の位置情報の情報源として<code>FLP</code>を利用する場合、
+機能モジュール構成の概略は下図のようになる。</p>
+<pre><code>        #---------------------------------------------------+
+        | User Application                                  |
+        +---------------------------------------------------+
+             |  A                    |              A
+    =========|==|====================|==============|===== API functions
+             |  |                    |              |
+             |  | [Location]         | [Location]   | [JSON]
+      +------|--|--------------------|--------------|---------+
+      |      V  |         :          V              |         |
+      | +------------+    :    +------------+    +----------+ |
+      | | Location   |    :    | Sensor     |---&gt;| Sensor   | |
+      | | Tracker    |    :    | Controller |    | Listener | |
+      | +------------+    :    +------------+    +----------+ |
+      |      |  A         :          :                        |
+      |      V  | [Location]         V                        |
+      | +------------+    :        [...]                      |
+      | | FLP        |    :                                   |
+      | | Service    |    :                                   |
+      | +------------+    :                 SINETStreamHelper |
+      +------|--A---------------------------------------------+
+             |  |
+    =========|==|======================================== Android System
+             |  |
+             |  |                ..............................
+             V  | [Location]     : GoogleAPI                  :
+      +----------------+         : +------------------------+ :
+      | Location       | &lt;---------| Fused                  | :
+      | Manager (FLP)  |      +---&gt;| LocationProviderClient | :
+      +----------------+      |  : +------------------------+ :
+             |  A             |  :.....A.......A.......A......:
+             |  |             |        |       |       |
+    =========|==|=============|========|=======|=======|======== Devices
+             |  |             |        |       |       |
+             V  | [Raw Data]  |        |       |       |
+         +----------+         |     +-----+ +----+ +-------+
+         |   GPS    |---------+     | NET | | BT | | Wi-Fi |
+         +----------+               +-----+ +----+ +-------+
+</code></pre>
+<p>〈凡例〉
+* LocationTracker
+  * 位置情報の動作制御など、ユーザインタフェースを担当する。
+* FlpService
+  * Androidの<a href="https://developer.android.com/reference/android/location/LocationManager">LocationManager</a>経由で<code>Google Play開発者サービス</code>の
+<a href="https://developers.google.com/android/reference/com/google/android/gms/location/FusedLocationProviderClient">FusedLocationProviderClient</a>の動作制御を依頼する。
+  * <code>FLP</code>用の<a href="https://developers.google.com/android/reference/com/google/android/gms/location/LocationCallback">LocationCallback</a>に設定したコールバックにより、
+位置情報<a href="https://developer.android.com/reference/android/location/Location">Location</a>の非同期通知を受ける。</p>
+<blockquote>
+<p><em>注意</em><br>
+<code>LocationTracker</code>と<code>SensorController</code>は独立に動作する。
+位置情報はユーザアプリケーションを経由して<code>SensorController</code>に渡され、
+センサデータと併せてJSON形式に成形される。</p>
+</blockquote>
+<h3 id="23">2.3 携帯電話の電波受信状況の収集</h3>
+<p>有効な<code>SIM（Subscriber Identity Module: 加入者識別情報）</code>をAndroid端末に装着して携帯電話網に接続している限り、同端末は最寄りの基地局との制御データ通信のために時々刻々と電波状況を監視している。</p>
+<p>Androidシステムの<a href="https://developer.android.com/reference/android/telephony/TelephonyManager">TelephonyManager</a>を介することで、電話機能の制御情報（ここでは電波受信状況）を収集することができる。</p>
+<p>電波受信状況の収集に関する機能モジュール構成の概略は下図のようになる。</p>
+<pre><code>        #---------------------------------------------------+
+        | User Application                                  |
+        +---------------------------------------------------+
+             |  A                    |              A
+    =========|==|====================|==============|===== API functions
+             |  |                    |              |
+             |  | [SignalInfo]       | [SignalInfo] | [JSON]
+      +------|--|--------------------|--------------|---------+
+      |      V  |         :          V              |         |
+      | +------------+    :    +------------+    +----------+ |
+      | | Cellular   |    :    | Sensor     |---&gt;| Sensor   | |
+      | | Monitor    |    :    | Controller |    | Listener | |
+      | +------------+    :    +------------+    +----------+ |
+      |      |  A         :          :                        |
+      |      V  | [SignalInfo]       V                        |
+      | +------------+    :        [...]                      |
+      | | Cellular   |    :                                   |
+      | | Service    |    :                                   |
+      | +------------+    :                 SINETStreamHelper |
+      +------|--A---------------------------------------------+
+             |  |
+    =========|==|======================================== Android System
+             |  |
+             V  | [SignalInfo]
+        +------------+
+        | Telephony  |
+        | Manager    |
+        +------------+
+             |  A
+    =========|==|=============================================== Devices
+             |  |
+             V  | [Raw Data]
+         +----------+
+         |  MODEM   |
+         +----------+
+</code></pre>
+<p>〈凡例〉
+* CellularMonitor
+  * 電波受信状況の通知制御など、ユーザインタフェースを担当する。
+  * 得られた電波受信状況をユーザアプリケーションにコールバックで通知する。
+* CellularService
+  * Androidの<a href="https://developer.android.com/reference/android/telephony/TelephonyManager">TelephonyManager</a>の動作制御を依頼する。
+  * Android11（APIレベル30）以下の場合：<a href="https://developer.android.com/reference/android/telephony/PhoneStateListener">PhoneStateListener</a>に設定したコールバックにより、
+信号強度<a href="https://developer.android.com/reference/android/telephony/SignalStrength">SignalStrength</a>の非同期通知を受ける。
+  * Android12（APIレベル31）以上の場合：<a href="https://developer.android.com/reference/android/telephony/TelephonyCallback">TelephonyCallback</a>に設定したコールバックにより、
+信号強度<a href="https://developer.android.com/reference/android/telephony/SignalStrength">SignalStrength</a>の非同期通知を受ける。</p>
+<blockquote>
+<p><em>注意</em><br>
+<code>CellularMonitor</code>と<code>SensorController</code>は独立に動作する。
+電波受信状況はユーザアプリケーションを経由して<code>SensorController</code>に渡され、
+センサデータと併せてJSON形式に成形される。</p>
+</blockquote>
+<h2 id="3">3. 作業準備</h2>
+<p>別紙<a href="../android/">SINETStream for Android ユーザガイド</a>の第3章を参照のこと。</p>
+<blockquote>
+<p><code>SINETStreamHelperライブラリ</code>の場合、Android動作環境の制約は特にない。</p>
+</blockquote>
+<h2 id="4">4. 作業手順</h2>
+<h3 id="41">4.1 ビルド環境設定</h3>
+<p>ユーザアプリケーションにとって、<code>SINETStreamHelper</code>は外部ライブラリとして参照するものである。
+すなわち「どこに何があるか」というリポジトリ参照先と、「どのバージョンのものを参照するか」という二種類の情報を開発環境に設定する必要がある。</p>
+<p><code>Android Studio</code>では、<a href="https://gradle.org/">Gradle Build Tool</a>によるビルド管理を行なっている。
+よって、ユーザアプリケーションが参照する外部ライブラリなどの設定情報は<code>Gradle</code>制御ファイルの一つである
+<a href="https://developer.android.com/studio/build#module-level?hl=ja">モジュールレベルの<code>build.gradle</code></a>にて設定する。
+<a href="https://developer.android.com/studio/build/dependencies?hl=ja">ビルド依存関係の追加</a>の記述を参照されたい。</p>
+<p>以降では、ユーザのAndroid開発ソースから<code>SINETStreamHelper</code>ライブラリを利用するための具体的な手順について記述する。</p>
+<h4 id="411">4.1.1 ライブラリファイルの取得</h4>
+<p><code>SINETStreamHelper</code>ライブラリは、
+ソースおよびバイナリの形式で<code>GitHub</code>上で公開される。</p>
+<p>国立情報学研究所（NII）が管理するリポジトリ
+<a href="https://github.com/nii-gakunin-cloud/sinetstream-android-helper/releases">sinetstream-android-helper</a>
+より、最新バージョンの<code>libhelper-x.y.z.aar</code>を手元にダウンロードする。</p>
+<blockquote>
+<p>便宜的に、ダウンロード先を<code>$HOME/Downloads</code>として話を進める。</p>
+</blockquote>
+<h4 id="412">4.1.2 開発ソースへの組み込み</h4>
+<p>Android開発環境で作業する対象プログラムを仮に<code>testapp</code>とすると、
+概略以下のようなディレクトリ内容になっているはずである。</p>
+<pre><code class="language-console">    % cd $(WORKDIR)/testapp
+    % ls -FC
+    app/          gradle/            gradlew      local.properties
+    build.gradle  gradle.properties  gradlew.bat  settings.gradle
+</code></pre>
+<p>アプリケーションソース格納用の<code>app</code>サブディレクトリ直下に、
+ローカルライブラリ格納用のディレクトリ<code>libs</code>を用意する。
+既にあればそれを使い、なければ作成する。
+前項で取得した<code>SINETStreamHelper</code>ライブラリをそこに格納する。</p>
+<pre><code class="language-console">    % cd app
+    % mkdir libs
+    % cd libs
+    % cp $HOME/Downloads/libhelper-x.y.z.aar .
+</code></pre>
+<h4 id="413">4.1.3 リポジトリ追加</h4>
+<p><code>SINETStreamHelper</code>ライブラリは、目的のものを手動で手元にダウンロードして、
+ローカルライブラリ格納用の<code>libs</code>ディレクトリに配置する。
+それを参照するよう、
+モジュールレベル（この場合<code>app</code>）の<code>build.gradle</code>に記述する。</p>
+<p>```gradle:app/build.gradle
+repositories {
+    flatDir {
+        // For SINETStreamHelper library
+        dirs "libs"
+    }
+}</p>
+<pre><code>
+
+#### 4.1.4 依存関係追加
+
+前項でリポジトリを指定した。そこから参照するライブラリ名とバージョンを、
+モジュールレベルの`build.gradle`に[ビルド依存関係を追加する](https://developer.android.com/studio/build/dependencies?hl=ja)。
+
+```gradle:app/build.gradle
+dependencies {
+    // SINETStreamHelper
+    implementation(name: 'sinetstream-android-helper-x.y.z', ext: 'aar')
+}
+</code></pre>
+<h3 id="42">4.2 マニフェストファイルの記述</h3>
+<p><code>SINETHelperライブラリ</code>を利用するユーザアプリケーションは、
+同ビルド環境の<a href="https://developer.android.com/guide/topics/manifest/manifest-intro?hl=ja">マニフェストファイル（AndroidManifest.xml）</a>において、
+所用の<a href="https://developer.android.com/guide/topics/manifest/manifest-intro?hl=ja#perms">権限</a>（<code>uses-permission</code>句）を宣言する必要がある。
+さもないと当該アプリケーション実行時に<code>権限エラー</code>が発生する。</p>
+<blockquote>
+<p><em>注意</em><br>
+上記の利用者権限は、ユーザアプリケーションが「潜在的に利用する可能性がある」項目群をビルド時に宣言するものである。
+Android8.0以降、アプリケーション実行時に権限検査が実施されるのみならず、
+利用者の手動操作により<a href="https://developer.android.com/about/versions/oreo/android-8.0-changes#rmp">いつでもこれらの権限を<code>On/Off</code>可能</a>となる。</p>
+</blockquote>
+<p>以降では、本ライブラリが具備する機能モジュールごとに記述する。</p>
+<h4 id="421">4.2.1 センサ情報取得に関する利用権限追加</h4>
+<p>Android端末が具備する<a href="https://developer.android.com/reference/android/hardware/Sensor">センサ</a>種別の大部分は、
+その利用に特別な利用権限を求められることはない。</p>
+<p>しかし、一部の生体情報など<a href="https://developers.google.com/fit/android/authorization#data_types_that_need_android_permissions">個人情報と考えられるセンサ種別</a>
+に関してはその限りではない。
+例えば歩数計アプリケーションなどで以下のセンサ種別</p>
+<ul>
+<li><a href="https://developer.android.com/reference/android/hardware/Sensor#TYPE_STEP_COUNTER">step_counter</a></li>
+<li><a href="https://developer.android.com/reference/android/hardware/Sensor#TYPE_STEP_DETECTOR">step_detector</a></li>
+</ul>
+<p>を利用する場合、以下の内容をマニフェストファイルに設定すること。</p>
+<p>```xml:AndroidManifest.xml
+<uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" /></p>
+<pre><code>
+
+#### 4.2.2 端末位置情報の追跡取得に関する利用権限追加
+
+Androidシステムにおいて端末の位置情報はプライバシー保護対象と考えられている。
+本ライブラリを利用するアプリケーションは、端末の位置情報にアクセスするため以下の権限をマニフェストファイルに追加で記述する必要がある。
+
+* FOREGROUND_SERVICE
+   * Android9以降はバックグラウンドサービスの位置情報取得の頻度に制限がかかるようになった。常にフォアグラウンドモードを利用する。
+* ACCESS_COARSE_LOCATION
+   * 精度の荒い位置情報を取得する。
+* ACCESS_FINE_LOCATION
+   * 精度の細かい位置情報を取得する。
+
+```xml:AndroidManifest.xml
+&lt;uses-permission android:name=&quot;android.permission.FOREGROUND_SERVICE&quot; /&gt;
+
+&lt;!-- Always include this permission --&gt;
+&lt;uses-permission android:name=&quot;android.permission.ACCESS_COARSE_LOCATION&quot; /&gt;
+
+&lt;!-- Include only if your app benefits from precise location access. --&gt;
+&lt;uses-permission android:name=&quot;android.permission.ACCESS_FINE_LOCATION&quot; /&gt;
+</code></pre>
+<blockquote>
+<p><em>注意<em><br>
+<code>GPS</code>や<code>FLP</code>経由で高精度の位置情報を取得するには、権限<code>ACCESS_FINE_LOCATION</code>と
+<code>ACCESS_COARSE_LOCATION</code>の両者を同時に指定すること。
+前者は後者を包含しているように思えるが、前者だけの指定だとビルドエラーとなる。</p>
+</blockquote>
+<h4 id="423">4.2.3 電話状態の参照に関する利用権限追加</h4>
+<p>Androidシステムにおいて、電話状態の参照は<a href="https://developer.android.com/guide/topics/permissions/overview?hl=ja#dangerous_permissions">危険な権限</a>として扱われる。このため以下の権限をマニフェストファイルに追加で記述する必要がある。</p>
+<ul>
+<li>READ_PHONE_STATE</li>
+<li>電波受信状況を取得する。</li>
+</ul>
+<p>```xml:AndroidManifest.xml
+<uses-permission android:name="android.permission.READ_PHONE_STATE" /></p>
+<pre><code>
+
+### 4.3 開発成果物のAndroid端末への導入
+
+開発環境`AndroidStudio`を準備し、ユーザアプリケーションを実装\[1\]\[2\]すると、
+`APK`（Android package）と呼ばれるアーカイブファイルが生成される。
+
+APKとは、アプリケーションを構成する「コード、データ、およびリソースファイル」をパッケージとして一つにまとめたものである。
+この生成物`APK`ファイルを実行環境（エミュレータや実機）に導入する方法について述べる。
+
+\[1\]:
+[アプリの基礎](https://developer.android.com/guide/components/fundamentals)
+&lt;br&gt;
+\[2\]:
+[アプリをビルドして実行する](https://developer.android.com/studio/run)
+
+
+#### 4.3.1 Androidエミュレータに導入する場合
+
+以下の要領で`APK`ファイルをエミュレータに導入し、[同エミュレータ上でアプリケーションを実行](https://developer.android.com/studio/run/emulator?hl=ja)する。
+
+1. Android仮想デバイス（AVD: Android Virtual Device）の用意
+
+&gt; 開発環境`AndroidStudio`付属の`Android仮想デバイス`（AVD）ツールを用いて、
+&gt; 所用の諸元（画面解像度、APIレベル、CPU種別など）に
+&gt; 沿った`AVD`を事前作成しておく。
+
+2. AVDの起動
+
+&gt; 目的の諸元を満たす`AVD`を起動するとAndroid端末イメージが表示される。
+&gt; GUI経由で実機同様に操作したり、
+&gt; 遠隔操作（`APK`導入やデバッグなど）ができるようになる。
+
+3. アプリケーションの導入と起動
+
+&gt; エミュレータが実行中に`AndroidStudio`上の「Run」コマンドを実行する。
+&gt; 必要に応じてソースが再構築され、生成`APK`ファイルがエミュレータに導入される。
+&gt; 続けて、当該プログラムが自動的に動作を開始する。
+
+
+#### 4.3.2 Android実機に導入する場合
+
+以下の要領で`APK`ファイルを実機に導入し、[同機上でアプリケーションを実行する](https://developer.android.com/studio/run/device)。
+
+1. Android実機の設定画面を操作し、開発者モードを有効化する。
+2. 設定コマンドの開発者メニュー経由で「USBデバッグ」を有効化する。
+3. 実機と開発機材をUSBケーブルで接続する。
+4. 実機に「デバッグモードで接続して良いか」を確認するダイアログが表示される。
+デバッグ接続を承認すると、`AndroidStudio`で認識される。
+5. この状態で`AndroidStudio`上の「Run」コマンドを実行する。
+
+あるいは、開発機材上で[Android Debug Bridge (adb)](https://developer.android.com/studio/command-line/adb)コマンドを直接操作することで、
+対象`APK`ファイルを実機に導入できる。
+
+```console
+PC% adb install -r XXX.apk
+Success
+</code></pre>
+<h2 id="5">5. アプリケーション実行時の権限の扱い</h2>
+<p>以下に挙げるようなAndroidシステムが提供する特定の機能</p>
+<ul>
+<li>一部のセンサ種別の利用</li>
+<li>端末位置情報の取得</li>
+<li>電波受信状況の取得</li>
+</ul>
+<p>を利用するには、Android端末のハードウェア仕様やAndroid OSに関するシステム要件のみならず、ユーザアプリケーション実行時の適切な<a href="https://developer.android.com/guide/topics/permissions/overview?hl=ja">権限管理</a>が必要となる。</p>
+<p>すなわち、以下のような多段にわたる条件を全て満足する必要がある。</p>
+<ul>
+<li><em>実行環境</em></li>
+<li>Android端末でハードウェア的に対応していること。そもそも動作基盤がなければ対処しようがない。</li>
+<li>Android OSでシステム的に対応していること。特定の版数以降のOSでないと対応していないことがある。</li>
+<li><a href="https://developer.android.com/guide/topics/permissions/overview?hl=ja#install-time"><em>導入時の権限</em></a></li>
+<li>ユーザプログラム開発時のマニフェストファイルで所用の<a href="https://developer.android.com/training/permissions/declaring?hl=ja">権限が宣言</a>されていること。</li>
+<li><a href="https://developer.android.com/guide/topics/permissions/overview?hl=ja#runtime"><em>実行時の権限</em></a></li>
+<li>Android端末全体として所用のシステム設定が有効化されていること。</li>
+<li>アプリケーション個別に所用の権限が有効化されていること。</li>
+</ul>
+<blockquote>
+<p><em>注意</em><br>
+実行時権限は、ユーザ操作により任意の契機でon/offできるものである。
+また、当該アプリケーションを一定期間起動していないと、システムにより実行時権限が解除されることもある。</p>
+</blockquote>
+<p>例えば、ユーザアプリケーションの実行時にAndroid端末の位置情報を取得するには、システム設定で位置情報を有効化し、さらに当該アプリケーション個別の権限設定で所用の項目を有効化する必要があるという具合である。</p>
+<p>動的に権限の付与や解除が可能となる実行時の権限の扱いに関してユーザアプリケーション開発者の負担を軽減するため、本ライブラリでは実行時権限を一元的に扱うインタフェースを用意する。</p>
+<h3 id="51">5.1 センサ情報取得</h3>
+<h4 id="511">5.1.1 システム要件</h4>
+<p>ユーザアプリケーションが生体情報のような個人情報に関わるセンサ値を参照するためには、前提条件として以下の全ての項目を満足する必要がある。</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>条件</th>
+<th>備考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://developer.android.com/reference/android/hardware/Sensor#TYPE_STEP_COUNTER">step_counter</a>センサ</td>
+<td>Android端末に搭載あり？</td>
+<td>ハードウェア実装で対応していること</td>
+</tr>
+<tr>
+<td><a href="https://developer.android.com/reference/android/hardware/Sensor#TYPE_STEP_DETECTOR">step_detector</a>センサ</td>
+<td>Android端末に搭載あり？</td>
+<td>ハードウェア実装で対応していること</td>
+</tr>
+<tr>
+<td>Android OS</td>
+<td>4.4W（APIレベル20）以降？</td>
+<td>古すぎるOSでは対応しない</td>
+</tr>
+</tbody>
+</table>
+<h4 id="512">5.1.2 ユーザアプリケーション設定</h4>
+<p>特定のセンサ種別の参照に関するシステム要件を満足していたとしても、それだけでは不十分である。
+Androidシステム上の<a href="https://developer.android.com/guide/topics/permissions/overview?hl=ja">権限管理方針</a>により、個々のアプリケーションごとに実行権限の付加状況（この場合は個人情報に関わるセンサ情報を取得できるか）が動的に管理される。
+すなわち、いったん利用許可が得られても任意の契機でその権限が解除され得る。</p>
+<p>本ライブラリでは、ユーザアプリケーション実行時にセンサ情報の参照権限を検査するAPIを用意している。</p>
+<pre><code class="language-java">import jp.ad.sinet.stream.android.helper.PermissionHandler;
+
+PermissionHandler = new PermissionHandler(...);
+PermissionHandler.checkSensorPermissions(); // &lt;--(!)
+PermissionHandler.run();
+
+</code></pre>
+<p>上記動作により、状況に応じて以下のようなダイアログがライブラリから表示される。</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>条件</th>
+<th>備考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ライブラリダイアログ<br><code>Please allow app-level permissions&lt;br&gt;(Activity Recognition)</code></td>
+<td>未設定時に自動出現</td>
+<td>OKを選択</td>
+</tr>
+<tr>
+<td>システムダイアログ<br><code>身体活動データへのアクセスを「XXX」に許可しますか？</code></td>
+<td>未設定時に自動出現</td>
+<td><code>許可</code>を選択</td>
+</tr>
+</tbody>
+</table>
+<p>ここで許可すれば、身体情報に関わるセンサ種別は利用可能なセンサ種別に含まれ、さもなくば除外される。</p>
+<h3 id="52">5.2 位置情報取得</h3>
+<h4 id="521">5.2.1 システム要件</h4>
+<p>任意のアプリケーションが<code>GPS</code>または<code>FLP</code>経由の位置情報を取得するための前提条件として、以下の全ての項目を満足する必要がある。</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>条件</th>
+<th>備考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPSセンサ</td>
+<td>Android端末に搭載あり？</td>
+<td>ハードウェア実装で対応していること</td>
+</tr>
+<tr>
+<td>Android OS</td>
+<td><code>GPS</code>は全ての版のAndroid、<br><code>FLP</code>はAndroid 12 (APIレベル31）以降</td>
+<td>古すぎるOSでは対応しない</td>
+</tr>
+<tr>
+<td>システム設定<br><code>位置情報</code></td>
+<td>システム全体設定<br>位置情報を利用</td>
+<td>設定 -&gt; 位置情報 -&gt; <code>位置情報を使う</code>を有効化</td>
+</tr>
+<tr>
+<td>システム設定<br><code>位置情報</code></td>
+<td>Google Playサービス<br>位置情報の精度</td>
+<td>設定 -&gt; 位置情報 -&gt; 詳細設定 -&gt; Google 位置情報の精度 -&gt; <code>位置情報の精度を改善</code>を有効化</td>
+</tr>
+</tbody>
+</table>
+<h4 id="522">5.2.2 ユーザアプリケーション設定</h4>
+<p>前述した位置情報に関するシステム要件のうち、ハードウェアおよびAndroid OS版数以外のシステム設定は任意の契機で変更可能である。</p>
+<p>一方、Androidシステム上の<a href="https://developer.android.com/guide/topics/permissions/overview?hl=ja">権限管理方針</a>により、個々のアプリケーションごとに実行権限の付加状況（この場合はユーザアプリケーションが位置情報を使えるか）が動的に管理される。
+すなわち、いったん利用許可が得られても任意の契機でその権限が解除され得る。</p>
+<p>本ライブラリでは、<a href="https://developer.android.com/training/location/permissions?hl=ja#request-location-access-runtime">実行時に位置情報へのアクセスをリクエストする</a>よう制御するため、ユーザアプリケーション実行時に実行権限を検査するAPIを用意している。</p>
+<pre><code class="language-java">import jp.ad.sinet.stream.android.helper.PermissionHandler;
+
+PermissionHandler = new PermissionHandler(...);
+PermissionHandler.checkLocationPermissions(providerName); // &lt;--(!)
+PermissionHandler.run();
+
+</code></pre>
+<p>上記動作により、状況に応じて以下のようなダイアログがライブラリから表示される。</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>条件</th>
+<th>備考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ライブラリダイアログ<br><code>Please allow app-level permissions</code><br><code>(Location)</code></td>
+<td>未設定時に自動出現</td>
+<td>OKを選択</td>
+</tr>
+<tr>
+<td>システムダイアログ<br><code>このデバイスの位置情報へのアクセスを「XXX」に許可しますか？</code></td>
+<td>未設定時に自動出現</td>
+<td><code>アプリの使用時のみ</code>または<code>今回のみ</code>を選択<br>（精度は「おおよそ」ではなく「正確」を選択すること)</td>
+</tr>
+<tr>
+<td>ライブラリダイアログ<br><code>Insufficient location resolution:</code><br><code>Please turn on "Google Location Accuracy" in "Location Services"</code></td>
+<td>位置情報の精度不足のときに自動出現</td>
+<td>設定 -&gt; 位置情報 -&gt; 詳細設定 -&gt; Google 位置情報の精度 -&gt; <code>位置情報の精度を改善</code>を有効化</td>
+</tr>
+</tbody>
+</table>
+<p>以上の検査に全て合格すれば、ユーザアプリケーションからAndroid端末の位置情報を参照できるようになる。</p>
+<h3 id="53">5.3 携帯電話網の電波受信状況取得</h3>
+<h4 id="531">5.3.1 システム要件</h4>
+<p>ユーザアプリケーションが携帯電話網の電波受信状況を取得するための前提条件として、以下の全ての項目を満足する必要がある。</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>条件</th>
+<th>備考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>モデムチップ</td>
+<td>Android端末に搭載あり？</td>
+<td>ハードウェア実装で対応していること</td>
+</tr>
+<tr>
+<td>システム設定<br><code>ネットワークとインターネット</code></td>
+<td>機内モードを解除</td>
+<td>設定 -&gt; ネットワークとインターネット -&gt; <code>機内モード</code>を解除</td>
+</tr>
+<tr>
+<td>システム設定<br><code>ネットワークとインターネット</code></td>
+<td>有効なSIMの利用</td>
+<td>設定 -&gt; ネットワークとインターネット -&gt; SIM -&gt; <code>SIMを使用</code>を有効化<br>(SIMの利用者情報やAPNが正しく設定されていること)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="532">5.3.2 ユーザアプリケーション設定</h4>
+<p>前項のシステム要件を満足していたとしても、それだけでは不十分である。
+Androidシステム上の<a href="https://developer.android.com/guide/topics/permissions/overview?hl=ja">権限管理方針</a>により、個々のアプリケーションごとに実行権限の付加状況（この場合は電話状態を参照できるか）が動的に管理される。
+すなわち、いったん利用許可が得られても任意の契機でその権限が解除され得る。</p>
+<p>本ライブラリでは、ユーザアプリケーション実行時に電話状態の参照権限を検査するAPIを用意している。</p>
+<pre><code class="language-java">import jp.ad.sinet.stream.android.helper.PermissionHandler;
+
+PermissionHandler = new PermissionHandler(...);
+PermissionHandler.checkCellularPermissions(); // &lt;--(!)
+PermissionHandler.run();
+
+</code></pre>
+<p>上記動作により、状況に応じて以下のようなダイアログがライブラリから表示される。</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>条件</th>
+<th>備考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ライブラリダイアログ<br><code>Please turn off airplane mode</code></td>
+<td>未設定時に自動出現</td>
+<td>OKを選択</td>
+</tr>
+<tr>
+<td>システム設定<br><code>ネットワークとインターネット</code></td>
+<td>機内モードを解除</td>
+<td>設定 -&gt; ネットワークとインターネット -&gt; <code>機内モード</code>を解除</td>
+</tr>
+<tr>
+<td>ライブラリダイアログ<br><code>Please allow app-level permissions</code><br><code>(READ_PHONE_STATE)</code></td>
+<td>未設定時に自動出現</td>
+<td>OKを選択</td>
+</tr>
+<tr>
+<td>システムダイアログ<br><code>電話の発信と管理を「XXX」に許可しますか？</code></td>
+<td>未設定時に自動出現</td>
+<td><code>許可</code>を選択</td>
+</tr>
+</tbody>
+</table>
+<p>以上の検査に全て合格すれば、ユーザアプリケーションから電話状態（電波受信状況）を参照できるようになる。</p>
+<h2 id="6">6. まとめ</h2>
+<p>SINETStreamHelperを用いるアプリケーション開発者が留意すべき項目について、
+一通り概説した。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  ページトップへ戻る
+</button>
+        
+      </main>
+      
+        <div class="site-footer-copyright">Copyright(C) National Institute of Informatics</div>
+<div class="site-footer-logo">
+  <a href="https://www.nii.ac.jp/">
+    
+    <img src="../../images/NIIlogo_JP_ls.png" alt="NII 国立情報学研究所">
+    
+  </a>
+</div>
+<footer class="md-footer">
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
+      
+    
+  </body>
+</html>

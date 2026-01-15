@@ -1,0 +1,3484 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://onukiyuma.github.io/SINETStream/tutorial/TUTORIAL-STEP2/">
+      
+      
+        <link rel="prev" href="../TUTORIAL-STEP1/">
+      
+      
+        <link rel="next" href="../../tutorial-android/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
+    
+    
+      
+        <title>STEP2 - SINETStream</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../styles/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#-step2" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href="../.." title="SINETStream" class="md-header__button md-logo" aria-label="SINETStream" data-md-component="logo">
+      
+  <img src="../../images/SiNETStream.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SINETStream
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              STEP2
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="言語切り替え">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="ja" class="md-select__link">
+              日本語
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../en/tutorial/TUTORIAL-STEP2/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="検索">
+        
+        <button type="reset" class="md-search__icon md-icon" title="クリア" aria-label="クリア" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="タブ" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../docm/" class="md-tabs__link">
+          
+  
+  SINETStreamについて
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  チュートリアル
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../userguide/" class="md-tabs__link">
+          
+  
+  ユーザガイド
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../developer_guide/" class="md-tabs__link">
+          
+  
+  プラグイン開発ガイド
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="SINETStream" class="md-nav__button md-logo" aria-label="SINETStream" data-md-component="logo">
+      
+  <img src="../../images/SiNETStream.png" alt="logo">
+
+    </a>
+    SINETStream
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    SINETStreamについて
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            SINETStreamについて
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ドキュメント
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../performance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SINETStream性能測定結果
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../livedemo/livedemo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SINETStreamのライブデモ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    SINETStreamサーバ構築手順
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            SINETStreamサーバ構築手順
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../server/brokers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    サーバ構築手順
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../server/brokers/%E3%83%97%E3%83%A9%E3%82%A4%E3%83%99%E3%83%BC%E3%83%88%E8%AA%8D%E8%A8%BC%E5%B1%80%E3%81%A7%E8%A8%BC%E6%98%8E%E6%9B%B8%E3%82%92%E4%BD%9C%E6%88%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    プライベート認証局で証明書を作成する
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../server/brokers/Kafkabroker%E3%81%AE%E6%A7%8B%E7%AF%89%E6%89%8B%E9%A0%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kafka brokerの構築手順
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../server/brokers/mosquitto%E6%A7%8B%E7%AF%89%E6%89%8B%E9%A0%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    mosquitto(MQTT broker)の構築手順
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CHANGELOG/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    更新履歴
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    チュートリアル
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            チュートリアル
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Python/Java版
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Python/Java版
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    クイックスタートガイド
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TUTORIAL-STEP1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    STEP1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    STEP2
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    STEP2
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 概要
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 概要">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      前提条件
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      実行例について
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 実行環境を準備する
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 実行環境を準備する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-broker" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1. Brokerを準備する
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1. Brokerを準備する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#211" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.1. バックエンドシステムを準備する
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-reader" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2. Readerを準備する
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2. Readerを準備する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-reader" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.1. Readerの実行環境となるコンテナを起動する
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-sinetstream" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.2. SINETStreamをインストールする
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#223-reader" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.3. Readerのプログラムと設定ファイルを準備する
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-writer" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3. Writerを準備する
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3. Writerを準備する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231-writer" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.1. Writerの実行環境となるコンテナを起動する
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#232-sinetstream" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.2. SINETStreamをインストールする
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#233-writer" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.3. Writerのプログラムと設定ファイルを準備する
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-reader-writer" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Reader, Writerを実行する
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Reader, Writerを実行する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-kafka" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1. Kafkaブローカーとの間でメッセージの送受信を行う
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1. Kafkaブローカーとの間でメッセージの送受信を行う">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reader" class="md-nav__link">
+    <span class="md-ellipsis">
+      Readerの実行
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Writerの実行
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      メッセージの送受信
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      メッセージがブローカーによって配送されていることを確認する
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reader-writer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reader, Writer の停止
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-mqttmosquitto" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2. MQTTブローカー(Mosquitto)との間でメッセージの送受信を行う
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2. MQTTブローカー(Mosquitto)との間でメッセージの送受信を行う">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reader_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Readerの実行
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writer_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Writerの実行
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      メッセージの送受信
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reader-writer_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reader, Writer の停止
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3. コンテナの停止、削除
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-sinetstream" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. SINETStreamについて
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. SINETStreamについて">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1. 設定ファイル
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-sinetstream-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2. SINETStream API
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2. SINETStream API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reader_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reader
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writer_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Writer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-sinetstream-apiapi" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3. SINETStream API(非同期API)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.3. SINETStream API(非同期API)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#readerapi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reader(非同期API)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writerapi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Writer(非同期API)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Android版
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Android版
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    クイックスタートガイド
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_2" id="__nav_3_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    sinetstream-android-echo
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            sinetstream-android-echo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/TUTORIAL-android-step1-overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    テキスト送受信アプリの実行
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/TUTORIAL-android-step1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ANDROID-STEP1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    sinetstream-android-sensor-publisher
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            sinetstream-android-sensor-publisher
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/TUTORIAL-android-step2-overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    センサ情報収集アプリの実行
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/TUTORIAL-android-step2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ANDROID-STEP2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/TUTORIAL-android-step2-webbrowser/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    センサーデータ可視化用のウェブインタフェース
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/TUTORIAL-android-step2-location/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    端末位置情報の自動更新
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/sinetstreamhelper-tutorial-container/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SINETStream Android Tutorial Container
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/TUTORIAL-android-install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Androidサンプルアプリケーションの導入
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/TUTORIAL-android-keychain/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    システム秘匿領域への証明書ファイルの導入
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial-android/sinetstreamhelper-tutorial-container/TUTORIAL-docker-container/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DOCKER-CONTAINER
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    ユーザガイド
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            ユーザガイド
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../userguide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ユーザガイド
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../userguide/api-python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../userguide/api-java/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Android版
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            Android版
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../userguide/android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SINETStream for Android ユーザガイド
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../userguide/api-android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Android版SINETStreamライブラリ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="http://javadoc.android.sinetstream.net/sinetstream-android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API (Javadoc)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../userguide/config-android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Android版のSINETStream設定ファイル
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../userguide/config-client-android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Android版の設定クライアント
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    SINETStreamHelper
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            SINETStreamHelper
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../userguide/libhelper/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SINETStreamHelper ユーザガイド
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../userguide/api-libhelper/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SINETStreamHelperライブラリ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="http://javadoc.android.sinetstream.net/sinetstream-android-helper/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API (Javadoc)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../userguide/config/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    設定ファイル
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../userguide/auth/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    認証と認可
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/nii-gakunin-cloud/sinetstream/blob/main/java/sample/cli/README.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CLI(Command Line Interface)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../userguide/compat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    互換性
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    プラグイン開発ガイド
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            プラグイン開発ガイド
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    開発者ガイド
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Messaging system
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Messaging system
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_guide/plugin_broker_python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_guide/plugin_broker_java/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    message type
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            message type
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_guide/plugin_value_type_python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_guide/plugin_value_type_java/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    compression
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            compression
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_guide/plugin_compression_python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_guide/plugin_compression_java/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer_guide/message_format/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    メッセージフォーマット
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 概要
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 概要">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      前提条件
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      実行例について
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 実行環境を準備する
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 実行環境を準備する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-broker" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1. Brokerを準備する
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1. Brokerを準備する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#211" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.1. バックエンドシステムを準備する
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-reader" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2. Readerを準備する
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2. Readerを準備する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-reader" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.1. Readerの実行環境となるコンテナを起動する
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-sinetstream" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.2. SINETStreamをインストールする
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#223-reader" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.3. Readerのプログラムと設定ファイルを準備する
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-writer" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3. Writerを準備する
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3. Writerを準備する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231-writer" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.1. Writerの実行環境となるコンテナを起動する
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#232-sinetstream" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.2. SINETStreamをインストールする
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#233-writer" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.3. Writerのプログラムと設定ファイルを準備する
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-reader-writer" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Reader, Writerを実行する
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Reader, Writerを実行する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-kafka" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1. Kafkaブローカーとの間でメッセージの送受信を行う
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1. Kafkaブローカーとの間でメッセージの送受信を行う">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reader" class="md-nav__link">
+    <span class="md-ellipsis">
+      Readerの実行
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Writerの実行
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      メッセージの送受信
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      メッセージがブローカーによって配送されていることを確認する
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reader-writer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reader, Writer の停止
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-mqttmosquitto" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2. MQTTブローカー(Mosquitto)との間でメッセージの送受信を行う
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2. MQTTブローカー(Mosquitto)との間でメッセージの送受信を行う">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reader_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Readerの実行
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writer_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Writerの実行
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      メッセージの送受信
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reader-writer_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reader, Writer の停止
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3. コンテナの停止、削除
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-sinetstream" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. SINETStreamについて
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. SINETStreamについて">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1. 設定ファイル
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-sinetstream-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2. SINETStream API
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2. SINETStream API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reader_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reader
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writer_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Writer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-sinetstream-apiapi" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3. SINETStream API(非同期API)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.3. SINETStream API(非同期API)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#readerapi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reader(非同期API)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writerapi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Writer(非同期API)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<!--
+Copyright (C) 2019 National Institute of Informatics
+
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+
+<h1 id="-step2">チュートリアル - STEP2</h1>
+<h2 id="1">1. 概要</h2>
+<p>このチュートリアルで実行するコンポーネントを以下の図に示します。</p>
+<p><img alt="構成STEP2" src="../images/tutorial-020.png" /></p>
+<p>「<a href="../#はじめに">はじめに</a>」で示した各コンポーネントの役割を、以下に再掲します。</p>
+<ul>
+<li><code>Writer</code> は <code>SINETStream</code> を用いてメッセージを <code>Broker</code> に送信します</li>
+<li><code>Reader</code> は <code>SINETStream</code> を用いて <code>Broker</code> からメッセージを受信します</li>
+<li><code>Broker</code> は <code>Writer</code>と<code>Reader</code>の間でメッセージの集約、配送などを行い、エンドポイント間の分離を行います</li>
+</ul>
+<p>STEP1のチュートリアルでは、<code>Writer</code>、<code>Reader</code>、<code>Broker</code> を同一のマシンで実行しましたが、
+このチュートリアルでは、<code>Writer</code>、<code>Reader</code>、<code>Broker</code> を別々のマシンで実行します。</p>
+<h3 id="_1">前提条件</h3>
+<ol>
+<li>チュートリアルを実行するマシン(<code>Writer</code>, <code>Reader</code>, <code>Broker</code>)に Docker Engine がインストールされていること<ul>
+<li>Docker Engine のインストールについては「<a href="../#docker-engine">Docker Engine インストール手順へのリンク</a>」などを参照してください。</li>
+</ul>
+</li>
+<li><code>Broker</code>となるマシンで TCP/1883, TCP/9092 のポートが利用可能なこと<ul>
+<li>ブローカーがTCPの待ち受けポートとして利用します</li>
+</ul>
+</li>
+<li><code>Writer</code>, <code>Reader</code>のマシンから<code>Broker</code>のマシンの TCP/1883, TCP/9092 にアクセス可能なこと<ul>
+<li>ファイアウォールなどで通信がブロックされないように設定してください</li>
+</ul>
+</li>
+</ol>
+<h3 id="_2">実行例について</h3>
+<p>このチュートリアルでは<code>Writer</code>, <code>Reader</code>, <code>Broker</code> が別のマシンになり、それぞれにホスト環境、コンテナ環境があるので６つの環境での実行例がでてきます。
+実行例におけるホスト名、ユーザ名などを以下の表のように定めます。</p>
+<table>
+<thead>
+<tr>
+<th>役割</th>
+<th>環境</th>
+<th>ホスト名</th>
+<th>ユーザ名</th>
+<th>IPアドレス</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Broker</td>
+<td>ホスト環境</td>
+<td>host-broker</td>
+<td>user00</td>
+<td><code>192.168.1.XXX</code></td>
+</tr>
+<tr>
+<td>Reader</td>
+<td>ホスト環境</td>
+<td>host-reader</td>
+<td>user00</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Writer</td>
+<td>ホスト環境</td>
+<td>host-writer</td>
+<td>user00</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Broker</td>
+<td>コンテナ環境</td>
+<td>broker</td>
+<td>user01</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Reader</td>
+<td>コンテナ環境</td>
+<td>reader</td>
+<td>user01</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Writer</td>
+<td>コンテナ環境</td>
+<td>writer</td>
+<td>user01</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<p>ホスト環境の値については、実際にチュートリアルを実行する環境に合わせて適宜読み替えてください。</p>
+<p>実行例を示す際は、コマンドプロンプトにホスト名、ユーザ名を示すことで、どの環境で実行しているのかを区別できるように表記しています。
+たとえば、<code>Writer</code>のコンテナ環境での実行例は以下のように表記します。</p>
+<pre><code class="language-console">[user01@writer]$ ls
+</code></pre>
+<p>プロンプトの<code>[]</code> の中の<code>@</code>の前の部分がユーザ名を、後の部分がホスト名を表しています。</p>
+<p><code>Writer</code> のホスト環境の場合は以下のようになります。</p>
+<pre><code class="language-console">[user00@host-writer]$ ls
+</code></pre>
+<h2 id="2">2. 実行環境を準備する</h2>
+<p><code>Broker</code>, <code>Reader</code>, <code>Writer</code> のそれぞれの環境を順に準備します。
+それぞれのマシンのターミナルを開き操作を行ってください。</p>
+<h3 id="21-broker">2.1. Brokerを準備する</h3>
+<h4 id="211">2.1.1. バックエンドシステムを準備する</h4>
+<p>SINETStreamが利用するバックエンドのメッセージングシステム(Kafka, MQTT)をdockerコンテナで実行します。</p>
+<p><code>Broker</code>のホスト環境で以下のコマンドを実行してください。</p>
+<pre><code class="language-console">[user00@host-broker]$ docker run -d --name broker --hostname broker \
+                      -p 1883:1883 -p 9092:9092 harbor.vcloud.nii.ac.jp/sinetstream/tutorial:1.8
+</code></pre>
+<p>コンテナが正常に起動したことを確認するために、状態を表示させます。</p>
+<pre><code class="language-console">[user00@host-broker]$ docker ps -l
+CONTAINER ID        IMAGE                        COMMAND                  CREATED              STATUS              PORTS                                            NAMES
+xxxxxxxxxxxx        sinetstream/tutorial:1.8   &quot;/usr/local/bin/supe…&quot;   About a minute ago   Up About a minute   0.0.0.0:1883-&gt;1883/tcp, 0.0.0.0:9092-&gt;9092/tcp   broker
+
+</code></pre>
+<p><code>STATUS</code> が <code>Up</code> と表示されていれば、コンテナが正常に起動しています。</p>
+<p>起動したコンテナでは、SINETStreamが利用するメッセージングシステム Kafka, MQTT(Mosquitto) のブローカーが実行されています。
+コンテナで実行しているプロセスを確認してみると以下のようになります。</p>
+<pre><code class="language-console">[user00@host-broker]$ docker exec -t broker ps ax
+  PID TTY      STAT   TIME COMMAND
+    1 ?        Ss     0:00 /usr/bin/python3 /usr/local/bin/supervisord -n -c /et
+    9 ?        Sl     0:05 java -Xmx1G -Xms1G -server -XX:+UseG1GC -XX:MaxGCPaus
+   10 ?        S      0:00 /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+   12 ?        Sl     0:01 java -Xmx512M -Xms512M -server -XX:+UseG1GC -XX:MaxGC
+  822 pts/0    Rs+    0:00 ps ax
+</code></pre>
+<p>上記の実行例に表示された、それぞれのプロセスの役割を以下に示します。</p>
+<ul>
+<li>PID 1<ul>
+<li>いわゆる <code>init</code> プロセス</li>
+<li>コンテナ内で実行するサービスの管理を行う</li>
+</ul>
+</li>
+<li>PID 9<ul>
+<li>Kafkaブローカー</li>
+</ul>
+</li>
+<li>PID 10<ul>
+<li>MQTT(Mosquitto)ブローカー</li>
+</ul>
+</li>
+<li>PID 12<ul>
+<li>ZooKeeper</li>
+<li>Kafkaが設定、構成情報などを保存するために利用しているサービス</li>
+</ul>
+</li>
+<li>PID 822<ul>
+<li>プロセスリストを表示するために実行した ps コマンド</li>
+</ul>
+</li>
+</ul>
+<h3 id="22-reader">2.2. Readerを準備する</h3>
+<p><code>Reader</code>を実行する環境をコンテナで用意します。</p>
+<h4 id="221-reader">2.2.1. Readerの実行環境となるコンテナを起動する</h4>
+<p><code>Reader</code>のホスト環境で以下のコマンドを実行してください。</p>
+<pre><code class="language-console">[user00@host-reader]$ docker run -d --name reader --hostname reader -e ENABLE_BROKER=false \
+                      --add-host=broker:192.168.1.xxx harbor.vcloud.nii.ac.jp/sinetstream/tutorial:1.8
+</code></pre>
+<blockquote>
+<p><code>192.168.1.XXX</code>には実際に使用する環境の<code>Broker</code>のIPアドレスを指定してください。</p>
+</blockquote>
+<p>コンテナが正常に起動したことを確認するために、状態を表示させます。</p>
+<pre><code class="language-console">[user00@host-reader]$ docker ps -l
+CONTAINER ID        IMAGE                        COMMAND                  CREATED             STATUS              PORTS                NAMES
+xxxxxxxxxxxx        sinetstream/tutorial:1.8   &quot;/usr/local/bin/supe…&quot;   About a minute ago  Up About a minute   1883/tcp, 9092/tcp   reader
+</code></pre>
+<p><code>STATUS</code> が <code>Up</code> と表示されていれば、コンテナが正常に起動しています。</p>
+<p>ここで実行したコンテナイメージは<code>Broker</code>と同じものですが、コンテナ起動時に<code>-e ENABLE_BROKER=false</code>を指定することで、ブローカーが実行されないようになっています。
+コンテナ内のプロセスの一覧を表示してそのことを確認してみます。</p>
+<pre><code class="language-console">[user00@host-reader]$ docker exec -t reader ps ax
+  PID TTY      STAT   TIME COMMAND
+    1 ?        Ss     0:00 /usr/bin/python3 /usr/local/bin/supervisord -n -c /et
+   30 pts/0    Rs+    0:00 ps ax
+</code></pre>
+<p><code>Broker</code>コンテナでプロセス一覧を確認した時の結果と異なり、Kafkaブローカー、MQTTブローカー、ZooKeeperが実行されていないことがわかります。</p>
+<p><code>Reader</code>用のコンテナを起動する際に指定した <code>--add-host</code> は<code>Reader</code>コンテナの /etc/hosts に、<code>Broker</code> の IPアドレスを登録するためのものです。
+Kafkaブローカーを利用するためにはサーバアドレスの名前解決が必要となるため、このパラメータの指定を追加しています。
+<code>Reader</code>コンテナの /etc/hosts を表示して <code>Broker</code> のIPアドレスが登録されていることを確認します。</p>
+<pre><code class="language-console">[user00@host-reader]$ docker exec -t reader cat /etc/hosts
+127.0.0.1       localhost
+::1     localhost ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+192.168.1.XXX   broker
+172.17.0.3      reader
+</code></pre>
+<blockquote>
+<p><code>192.168.1.XXX</code>にはコンテナ起動時に指定した<code>Broker</code>のIPアドレスが表示されます。また reader のIPアドレスは実行環境によって異なる値が表示されます。</p>
+</blockquote>
+<h4 id="222-sinetstream">2.2.2. SINETStreamをインストールする</h4>
+<p>SINETStreamのPython3ライブラリをコンテナ環境にインストールします。
+まず<code>Reader</code>のホスト環境からコンテナ環境にはいります。</p>
+<pre><code class="language-console">[user00@host-reader]$ docker exec -it -u user01 reader bash
+</code></pre>
+<p>次にコンテナ環境で SINETStream のライブラリをインストールします。
+以下のコマンドを実行してください。</p>
+<pre><code class="language-console">[user01@reader]$ pip3 install --user sinetstream-kafka sinetstream-mqtt
+Collecting sinetstream-kafka
+(中略)
+Successfully installed avro-python3-1.10.0 kafka-python-2.0.2 paho-mqtt-1.5.1 promise-2.3 pycryptodome-3.9.9 pyyaml-3.13 sinetstream-1.4.0 sinetstream-kafka-1.4.0 sinetstream-mqtt-1.4.0 six-1.15.0
+</code></pre>
+<p>最後に <code>Successfully installed ...</code>と表示されていれば、ライブラリのインストールに成功しています。
+確認のためインストールされている Python3 ライブラリの一覧を表示してみます。</p>
+<pre><code class="language-console">[user01@reader]$ pip3 list
+Package           Version
+----------------- --------
+avro-python3      1.10.0
+kafka-python      2.0.2
+paho-mqtt         1.5.1
+pip               20.2.4
+promise           2.3
+pycryptodome      3.9.9
+PyYAML            3.13
+setuptools        50.3.2
+sinetstream       1.4.0
+sinetstream-kafka 1.4.0
+sinetstream-mqtt  1.4.0
+six               1.15.0
+supervisor        4.2.1
+</code></pre>
+<blockquote>
+<p>SINETStream以外のライブラリの <code>Version</code> 表示については上記と異なる場合があります。</p>
+</blockquote>
+<h4 id="223-reader">2.2.3. Readerのプログラムと設定ファイルを準備する</h4>
+<p>手順を以下に示します。</p>
+<ol>
+<li><code>Reader</code>用のディレクトリを作成する</li>
+<li>SINETStream の設定ファイルを準備する</li>
+<li><code>Reader</code>のプログラムを準備する</li>
+</ol>
+<blockquote>
+<p>この節ではコンテナ環境にてコマンドの実行を行います。<code>2.2.2</code> でコンテナ環境の操作を行っていた状態が継続されていることを想定しています。</p>
+</blockquote>
+<p>ディレクトリを作成し、そのディレクトリに移動します。</p>
+<pre><code class="language-console">[user01@reader]$ mkdir -p ~/sinetstream/reader
+[user01@reader]$ cd ~/sinetstream/reader
+</code></pre>
+<p>SINETStreamの設定ファイルを準備します。
+このチュートリアルのための設定ファイルを GitHub に用意していますので、それを取得します。</p>
+<pre><code class="language-console">[user01@reader]$ ss_url=https://raw.githubusercontent.com/nii-gakunin-cloud/sinetstream/main
+[user01@reader]$ curl -O ${ss_url}/docs/tutorial/.sinetstream_config.yml
+</code></pre>
+<p>SINETStreamのPython3 APIを用いて作成された<code>Reader</code>のサンプルプログラムをGitHubから取得します。
+取得したプログラムには実行権限を付与します。</p>
+<pre><code class="language-console">[user01@reader]$ curl -O ${ss_url}/python/sample/text/consumer.py
+[user01@reader]$ chmod a+x consumer.py
+</code></pre>
+<p>ここまでの手順が正しく行われたことを確認します。
+ディレクトリとファイルが以下の実行例と同じになっていることを確認してください。</p>
+<pre><code class="language-console">[user01@reader]$ pwd
+/home/user01/sinetstream/reader
+[user01@reader]$ ls -a
+.  ..  .sinetstream_config.yml  consumer.py
+</code></pre>
+<h3 id="23-writer">2.3. Writerを準備する</h3>
+<p><code>Writer</code>を実行する環境をコンテナで用意します。</p>
+<h4 id="231-writer">2.3.1. Writerの実行環境となるコンテナを起動する</h4>
+<p><code>Writer</code>のホスト環境で以下のコマンドを実行してください。</p>
+<pre><code class="language-console">[user00@host-writer]$ docker run -d --name writer --hostname writer -e ENABLE_BROKER=false \
+                      --add-host=broker:192.168.1.xxx harbor.vcloud.nii.ac.jp/sinetstream/tutorial:1.8
+</code></pre>
+<blockquote>
+<p><code>192.168.1.XXX</code>には実際に使用する環境の<code>Broker</code>のIPアドレスを指定してください。</p>
+</blockquote>
+<p>コンテナが正常に起動したことを確認するために、状態を表示させます。</p>
+<pre><code class="language-console">[user00@host-writer]$ docker ps -l
+CONTAINER ID        IMAGE                        COMMAND                  CREATED             STATUS              PORTS                NAMES
+xxxxxxxxxxxx        sinetstream/tutorial:1.8   &quot;/usr/local/bin/supe…&quot;   About a minute ago  Up About a minute   1883/tcp, 9092/tcp   writer
+</code></pre>
+<p><code>STATUS</code> が <code>Up</code> と表示されていれば、コンテナが正常に起動しています。</p>
+<p><code>Reader</code>コンテナの場合と同様、起動時に <code>-e ENABLE_BROKER=false</code>を指定したので、コンテナ内ではブローカーが実行されません。
+そのことを確認します。</p>
+<pre><code class="language-console">[user00@host-writer]$ docker exec -t writer ps ax
+  PID TTY      STAT   TIME COMMAND
+    1 ?        Ss     0:00 /usr/bin/python3 /usr/local/bin/supervisord -n -c /et
+   31 pts/0    Rs+    0:00 ps ax
+</code></pre>
+<p>また<code>--add-host</code> の指定により <code>Writer</code>コンテナの /etc/hosts に <code>Broker</code> のIPアドレスが登録されていることを確認します。</p>
+<pre><code class="language-console">[user00@host-writer]$ docker exec -t writer cat /etc/hosts
+127.0.0.1       localhost
+::1     localhost ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+192.168.1.XXX   broker
+172.17.0.4      writer
+</code></pre>
+<blockquote>
+<p><code>192.168.1.XXX</code>にはコンテナ起動時に指定した<code>Broker</code>のIPアドレスが表示されます。また writer のIPアドレスは実行環境によって異なる値が表示されます。</p>
+</blockquote>
+<h4 id="232-sinetstream">2.3.2. SINETStreamをインストールする</h4>
+<p>SINETStreamのPython3ライブラリをコンテナ環境にインストールします。
+まず<code>Writer</code>のホスト環境からコンテナ環境にはいります。</p>
+<pre><code class="language-console">[user00@host-writer]$ docker exec -it -u user01 writer bash
+</code></pre>
+<p>次にコンテナ環境で SINETStream のライブラリをインストールします。
+以下のコマンドを実行してください。</p>
+<pre><code class="language-console">[user01@writer]$ pip3 install --user sinetstream-kafka sinetstream-mqtt
+Collecting sinetstream-kafka
+(中略)
+Successfully installed avro-python3-1.10.0 kafka-python-2.0.2 paho-mqtt-1.5.1 promise-2.3 pycryptodome-3.9.9 pyyaml-3.13 sinetstream-1.4.0 sinetstream-kafka-1.4.0 sinetstream-mqtt-1.4.0 six-1.15.0
+</code></pre>
+<p>最後に <code>Successfully installed ...</code>と表示されていれば、ライブラリのインストールに成功しています。
+確認のためインストールされている Python3 ライブラリの一覧を表示してみます。</p>
+<pre><code class="language-console">[user01@writer]$ pip3 list
+Package           Version
+----------------- --------
+avro-python3      1.10.0
+kafka-python      2.0.2
+paho-mqtt         1.5.1
+pip               20.2.4
+promise           2.3
+pycryptodome      3.9.9
+PyYAML            3.13
+setuptools        50.3.2
+sinetstream       1.4.0
+sinetstream-kafka 1.4.0
+sinetstream-mqtt  1.4.0
+six               1.15.0
+supervisor        4.2.1
+</code></pre>
+<blockquote>
+<p>SINETStream以外のライブラリの <code>Version</code> 表示については上記と異なる場合があります。</p>
+</blockquote>
+<h4 id="233-writer">2.3.3. Writerのプログラムと設定ファイルを準備する</h4>
+<p>手順を以下に示します。</p>
+<ol>
+<li><code>Writer</code>用のディレクトリを作成する</li>
+<li>SINETStream の設定ファイルを準備する</li>
+<li><code>Writer</code>のプログラムを準備する</li>
+</ol>
+<blockquote>
+<p>この節ではコンテナ環境にてコマンドの実行を行います。<code>2.3.2</code> でコンテナ環境の操作を行っていた状態が継続されていることを想定しています。</p>
+</blockquote>
+<p>ディレクトリを作成し、そのディレクトリに移動します。</p>
+<pre><code class="language-console">[user01@writer]$ mkdir -p ~/sinetstream/writer
+[user01@writer]$ cd ~/sinetstream/writer
+</code></pre>
+<p>SINETStreamの設定ファイルを準備します。
+このチュートリアルのための設定ファイルを GitHub に用意していますので、それを取得します。</p>
+<pre><code class="language-console">[user01@writer]$ ss_url=https://raw.githubusercontent.com/nii-gakunin-cloud/sinetstream/main
+[user01@writer]$ curl -O ${ss_url}/docs/tutorial/.sinetstream_config.yml
+</code></pre>
+<p>SINETStreamのPython3 APIを用いて作成された<code>Writer</code>のサンプルプログラムをGitHubから取得します。
+取得したプログラムには実行権限を付与します。</p>
+<pre><code class="language-console">[user01@writer]$ curl -O ${ss_url}/python/sample/text/producer.py
+[user01@writer]$ chmod a+x producer.py
+</code></pre>
+<p>ここまでの手順が正しく行われたことを確認します。
+ディレクトリとファイルが以下の実行例と同じになっていることを確認してください。</p>
+<pre><code class="language-console">[user01@writer]$ pwd
+/home/user01/sinetstream/writer
+[user01@writer]$ ls -a
+.  ..  .sinetstream_config.yml  producer.py
+</code></pre>
+<h2 id="3-reader-writer">3. Reader, Writerを実行する</h2>
+<p><code>Reader</code>と<code>Writer</code>を実行して SINETStream を利用したメッセージの送受信が行えることを確認します。</p>
+<p>SINETStreamで利用可能なメッセージングシステムは <a href="https://kafka.apache.org/">Kafka</a> や <a href="https://mosquitto.org/">MQTT(Mosquitto)</a> などがあります。
+ここでは、まず Kafkaブローカーとメッセージの送受信が行えることを確認します。
+その後、設定変更のみでプログラムを変更することなくMQTTブローカーともメッセージの送受信が行えることを確認します。</p>
+<h3 id="31-kafka">3.1. Kafkaブローカーとの間でメッセージの送受信を行う</h3>
+<p>ここからは、<code>Reader</code>と<code>Writer</code>のプログラムを同時に実行します。
+実行するためのターミナルをそれぞれのマシンで開いてください。</p>
+<h4 id="reader">Readerの実行</h4>
+<p><code>Reader</code>のターミナルにて、ホスト環境からコンテナ環境に入ります。
+以下のコマンドを実行してください。</p>
+<blockquote>
+<p>既にコンテナ環境に入っている場合は実行する必要はありません。</p>
+</blockquote>
+<pre><code class="language-console">[user00@host-reader]$ docker exec -it -u user01 reader bash
+</code></pre>
+<p><code>Reader</code>用のディレクトリに移動してください。</p>
+<pre><code class="language-console">[user01@reader]$ cd ~/sinetstream/reader
+</code></pre>
+<p><code>Reader</code>のプログラムを実行します。
+引数に指定している<code>service-tutorial-kafka</code>はKafkaブローカーを指定するサービス名です。</p>
+<pre><code class="language-console">[user01@reader]$ ./consumer.py -s service-tutorial-kafka
+Press ctrl-c to exit the program.
+: service=service-tutorial-kafka
+</code></pre>
+<p>コマンドラインで指定したサービス名が <code>:</code> の後に表示されます。</p>
+<h4 id="writer">Writerの実行</h4>
+<p><code>Writer</code>のターミナルにて、ホスト環境からコンテナ環境に入ります。
+以下のコマンドを実行してください。</p>
+<blockquote>
+<p>既にコンテナ環境に入っている場合は実行する必要はありません。</p>
+</blockquote>
+<pre><code class="language-console">[user00@host-writer]$ docker exec -it -u user01 writer bash
+</code></pre>
+<p><code>Writer</code>用のディレクトリに移動してください。</p>
+<pre><code class="language-console">[user01@writer]$ cd ~/sinetstream/writer
+</code></pre>
+<p><code>Writer</code>のプログラムを実行します。
+引数に指定している<code>service-tutorial-kafka</code>はKafkaブローカーを指定するサービス名です。</p>
+<pre><code class="language-console">[user01@writer]$ ./producer.py -s service-tutorial-kafka
+Press ctrl-c to exit the program.
+: service=service-tutorial-kafka
+</code></pre>
+<p>コマンドラインで指定したサービス名が <code>:</code> の後に表示されます。</p>
+<h4 id="_3">メッセージの送受信</h4>
+<p><code>Writer</code>のターミナルにて、メッセージとなるテキストを入力し最後に改行を打ち込んでください。
+改行までに入力された文字列がメッセージとして Kafka ブローカーに送信されます。</p>
+<p><code>Reader</code>のプログラムは Kafkaブローカーに送られたメッセージを受信してターミナルに表示します。
+先ほど <code>Writer</code> で送信したメッセージが表示されていることを確認してください。</p>
+<h4 id="_4">メッセージがブローカーによって配送されていることを確認する</h4>
+<p><code>Writer</code>から送信したメッセージが <code>Broker</code> によって<code>Reader</code>に配送されていることを確認するために、ブローカーを一時的に停止してみます。</p>
+<p><code>Broker</code>のホスト環境で以下のコマンドを実行し<code>Broker</code>コンテナを停止させてください。</p>
+<pre><code class="language-console">[user00@host-broker]$ docker stop broker
+</code></pre>
+<p><code>Broker</code>コンテナが停止した状態で <code>Writer</code> のターミナルから実行中のサンプルプログラム producer.pyでメッセージの送信を行ってください。
+Kafkaブローカーが停止しているため、<code>Reader</code>側でメッセージの受信ができず<code>Writer</code>側で入力した文字列が表示されないことが確認できます。</p>
+<p>確認が済んだら<code>Broker</code>のホスト環境で以下のコマンドを実行して<code>Broker</code>コンテナを再開させてください。</p>
+<pre><code class="language-console">[user00@host-broker]$ docker start broker
+</code></pre>
+<h4 id="reader-writer">Reader, Writer の停止</h4>
+<p><code>Reader</code> と <code>Writer</code> のサンプルプログラムを停止します。
+サンプルプログラムを実行しているそれぞれのターミナルで ctrl-c を打ち込んでください。</p>
+<h3 id="32-mqttmosquitto">3.2. MQTTブローカー(Mosquitto)との間でメッセージの送受信を行う</h3>
+<p>Kafkaブローカーと同じ操作を行い、MQTTブローカーを利用した場合もメッセージの送受信が行えることを確認します。
+先ほどはプログラムの引数に Kafka ブローカーを指定するサービス名として <code>service-tutorial-kafka</code>を指定しました。
+ここでは代わりに MQTTブローカーを指定するためのサービス名 <code>service-tutorial-mqtt</code>を指定します。</p>
+<h4 id="reader_1">Readerの実行</h4>
+<p><code>Reader</code>のターミナルにて、以下のコマンドを実行してください。</p>
+<pre><code class="language-console">[user01@reader]$ ./consumer.py -s service-tutorial-mqtt
+Press ctrl-c to exit the program.
+: service=service-tutorial-mqtt
+</code></pre>
+<blockquote>
+<p><code>Reader</code>のターミナルでは、コンテナ環境の<code>Reader</code>用ディレクトリにいることを想定しています。</p>
+</blockquote>
+<h4 id="writer_1">Writerの実行</h4>
+<p><code>Writer</code>のターミナルにて、以下のコマンドを実行してください。</p>
+<pre><code class="language-console">[user01@writer]$ ./producer.py -s service-tutorial-mqtt
+Press ctrl-c to exit the program.
+: service=service-tutorial-mqtt
+</code></pre>
+<blockquote>
+<p><code>Writer</code>のターミナルでは、コンテナ環境の<code>Writer</code>用ディレクトリにいることを想定しています。</p>
+</blockquote>
+<h4 id="_5">メッセージの送受信</h4>
+<p>Kafkaブローカーの場合と同様の操作を行い、MQTTブローカーを用いた場合もメッセージの送受信が行えることを確認します。
+<code>Writer</code>のターミナルから文字列を入力して改行を打ち込むと<code>Reader</code>のターミナルに入力した文字列に対応するメッセージが表示されることを確認してください。</p>
+<h4 id="reader-writer_1">Reader, Writer の停止</h4>
+<p>メッセージの送受信が行えたことを確認したら <code>Reader</code> と <code>Writer</code> のサンプルプログラムを停止します。
+それぞれのターミナルで ctrl-c を打ち込んでください。</p>
+<h3 id="33">3.3. コンテナの停止、削除</h3>
+<p>最後にこのチュートリアルで使用したコンテナの停止、削除を行います。</p>
+<p>コンテナの操作はホスト環境で実行します。
+コンテナ環境からホスト環境に戻る場合は <code>exit</code> を実行してください。
+例えば <code>Reader</code>のターミナルでコンテナ環境からホスト環境に戻る場合、以下のようになります。</p>
+<pre><code class="language-console">[user01@reader]$ exit
+exit
+[user00@host-reader]$
+</code></pre>
+<p>ホスト環境に戻ったら、それぞれのマシンで以下のコマンドを実行してください。</p>
+<p><code>Broker</code></p>
+<pre><code class="language-console">[user00@host-broker]$ docker stop broker
+[user00@host-broker]$ docker rm broker
+</code></pre>
+<p><code>Reader</code></p>
+<pre><code class="language-console">[user00@host-reader]$ docker stop reader
+[user00@host-reader]$ docker rm reader
+</code></pre>
+<p><code>Writer</code></p>
+<pre><code class="language-console">[user00@host-writer]$ docker stop writer
+[user00@host-writer]$ docker rm writer
+</code></pre>
+<h2 id="4-sinetstream">4. SINETStreamについて</h2>
+<p>チュートリアルで使用した SINETStream の設定ファイルとAPIについて簡単な説明を行います。</p>
+<blockquote>
+<p>この章の記述は STEP1 のものと全く同じ内容になっています。</p>
+</blockquote>
+<h3 id="41">4.1. 設定ファイル</h3>
+<p><code>Reader</code>, <code>Writer</code> で使用した SINETStream の設定ファイル <code>.sinetstream_config.yml</code> の内容を以下に示します。</p>
+<pre><code class="language-yaml">service-tutorial-kafka:
+    type: kafka
+    brokers: &quot;broker:9092&quot;
+    topic: topic-tutorial-kafka
+    value_type: text
+
+service-tutorial-mqtt:
+    type: mqtt
+    brokers: &quot;broker:1883&quot;
+    topic: topic-tutorial-mqtt
+    value_type: text
+</code></pre>
+<p>設定ファイルは階層化したキー、バリューをYAMLの形式で記述しています。</p>
+<p>トップレベルのキーには SINETStreamでサービス名と呼んでいる名前を記しています。
+上記の例では <code>service-tutorial-kafka</code>、 <code>service-tutorial-mqtt</code> がこれにあたります。
+サービス名はブローカーとの接続に関する種々のパラメータをまとめて扱うためのラベル名になります。
+<code>Reader</code>, <code>Writer</code>のサンプルプログラムを実行する際に指定したサービス名は、設定ファイルに記述した、この値に対応しています。</p>
+<p>サービス名の子要素にブローカーとの接続に関する具体的なパラメータを記述します。
+サービス名<code>service-tutorial-kafka</code> に対応するパラメータは以下の部分になります。</p>
+<pre><code class="language-yaml">    type: kafka
+    brokers: &quot;broker:9092&quot;
+    topic: topic-tutorial-kafka
+    value_type: text
+</code></pre>
+<p>各パラメータに関する簡単な説明を以下に記します。</p>
+<ul>
+<li>type<ul>
+<li>メッセージングシステムの種別を指定します</li>
+<li><code>kafka</code>, <code>mqtt</code> などが指定できます。</li>
+</ul>
+</li>
+<li>brokers<ul>
+<li>ブローカーのアドレスを指定します</li>
+<li>アドレスの書式はホスト名とポート番号を <code>:</code> で繋げたものとします</li>
+</ul>
+</li>
+<li>topic<ul>
+<li>メッセージを送受信する対象となるトピックを指定します</li>
+</ul>
+</li>
+<li>value_type<ul>
+<li>メッセージの種別を指定します</li>
+<li>指定できる値は以下のいずれかになります<ul>
+<li>text</li>
+<li>byte_array</li>
+</ul>
+</li>
+<li>チュートリアルで用いた <code>text</code> はメッセージが文字列型であることの指定になります</li>
+</ul>
+</li>
+</ul>
+<p>設定ファイルに関する詳細については<a href="../../userguide/config/">ユーザガイド</a>を参照してください。</p>
+<h3 id="42-sinetstream-api">4.2. SINETStream API</h3>
+<h4 id="reader_2">Reader</h4>
+<p><code>Reader</code>のサンプルプログラムconsumer.py で SINETStream API を使用している箇所を以下に示します。</p>
+<pre><code class="language-python">with MessageReader(service) as reader:
+    for message in reader:
+        print(f&quot;topic={message.topic} value='{message.value}'&quot;)
+</code></pre>
+<blockquote>
+<p>サンプルプログラムconsumer.py 全体のコードは<a href="https://github.com/nii-gakunin-cloud/sinetstream/blob/main/python/sample/text/consumer.py">GitHub</a>で確認できます。</p>
+</blockquote>
+<p>はじめにメッセージを受信するための <code>MessageReader</code> のオブジェクトを作成します。
+その際、引数としてサービス名を指定します。
+<code>MessageReader</code>は通常Pythonのwith文で実行します。
+これにより、ブローカーとの接続、切断が with文のブロックの境界で実行されます。
+with文が返した値 <code>reader</code> はイテラブルなオブジェクトになっています。
+for文などにより<code>reader</code>から順次取得した値が、ブローカーから受信したメッセージとなります。</p>
+<h4 id="writer_2">Writer</h4>
+<p><code>Writer</code>のサンプルプログラムproducer.py で SINETStream API を使用している箇所を以下に示します。</p>
+<pre><code class="language-python">with MessageWriter(service) as writer:
+    while True:
+        message = get_message()
+        writer.publish(message)
+</code></pre>
+<blockquote>
+<p>サンプルプログラムproducer.py 全体のコードは<a href="https://github.com/nii-gakunin-cloud/sinetstream/blob/main/python/sample/text/producer.py">GitHub</a>で確認できます。</p>
+</blockquote>
+<p>メッセージを送信するための <code>MessageWriter</code> のオブジェクトを作成します。
+その際、引数としてサービス名を指定します。
+<code>MessageWriter</code>は通常Pythonのwith文で実行します。
+これにより、ブローカーとの接続、切断が with文のブロックの境界で実行されます。
+with文が返した値 <code>writer</code> に対して <code>.publish(message)</code>を呼び出すことでメッセージをブローカーに送信することができます。</p>
+<p>SINETStreamのPython APIに関する詳細については<a href="../../userguide/api-python/">ユーザガイド</a>を参照してください。</p>
+<h3 id="43-sinetstream-apiapi">4.3. SINETStream API(非同期API)</h3>
+<p>SINETStream v1.4 では非同期APIを利用することができます。
+ここまで記してきたのと同様の処理を非同期APIで実行するサンプルプログラムをGithubに用意しています。</p>
+<ul>
+<li><a href="https://github.com/nii-gakunin-cloud/sinetstream/blob/main/python/sample/text_async/consumer.py">Reader</a></li>
+<li><a href="https://github.com/nii-gakunin-cloud/sinetstream/blob/main/python/sample/text_async/producer.py">Writer</a></li>
+</ul>
+<h4 id="readerapi">Reader(非同期API)</h4>
+<p>非同期APIを用いた<code>Reader</code>のサンプルプログラムconsumer.pyでSINETStream APIを使用している箇所を以下に示します。</p>
+<pre><code class="language-python">reader = AsyncMessageReader(service)
+reader.on_message = show_message
+reader.open()
+</code></pre>
+<p>はじめにメッセージを受信するための <code>AsyncMessageReader</code> のオブジェクトを作成します。
+その際、引数としてサービス名を指定します。</p>
+<p>次に<code>.on_message</code>プロパティにメッセージを受信した際に呼び出すコールバック関数を指定します。
+コールバック関数は引数から受信したメッセージを受け取ることができます。
+サンプルプログラムでは以下のようなコールバック関数を用いています。</p>
+<pre><code class="language-python">def show_message(message):
+    ts = datetime.fromtimestamp(message.timestamp)
+    print(f&quot;[{ts}] topic={message.topic} value='{message.value}'&quot;)
+</code></pre>
+<p>最後に<code>reader.open()</code>を呼び出すことでブローカーに接続されます。</p>
+<h4 id="writerapi">Writer(非同期API)</h4>
+<p>非同期APIを用いた<code>Writer</code>のサンプルプログラムproducer.pyでSINETStream APIを使用している箇所を以下に示します。</p>
+<pre><code class="language-python">with AsyncMessageWriter(service) as writer:
+    while True:
+        message = get_message()
+        writer.publish(message)
+</code></pre>
+<p>メッセージを送信するための <code>AsyncMessageWriter</code> のオブジェクトを作成します。
+その際、引数としてサービス名を指定します。
+<code>AsyncMessageWriter</code>は通常Pythonのwith文で実行します。
+これにより、ブローカーとの接続、切断が with文のブロックの境界で実行されます。
+with文が返した値 <code>writer</code> に対して <code>.publish(message)</code>を呼び出すことでメッセージをブローカーに送信することができます。</p>
+<p>同期APIでは<code>.publish()</code>が送信処理の完了までブロックしますが、非同期APIの場合はブロックすることなく返ります。
+また非同期APIの<code>.publish()</code>は処理結果が確定した後の処理を指定するための
+<a href="https://github.com/syrusakbary/promise">Promiseオブジェクト</a>を返します。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  ページトップへ戻る
+</button>
+        
+      </main>
+      
+        <div class="site-footer-copyright">Copyright(C) National Institute of Informatics</div>
+<div class="site-footer-logo">
+  <a href="https://www.nii.ac.jp/">
+    
+    <img src="../../images/NIIlogo_JP_ls.png" alt="NII 国立情報学研究所">
+    
+  </a>
+</div>
+<footer class="md-footer">
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
+      
+    
+  </body>
+</html>
